@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 
-namespace PlayerSystem
+namespace PlayerSystem.View
 {
     public class HandsView : MonoBehaviour
     {

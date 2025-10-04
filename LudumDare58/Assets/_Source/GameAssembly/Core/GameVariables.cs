@@ -5,9 +5,9 @@ namespace Core
 {
     public class GameVariables
     {
-        public bool CanMove { get; private set; }
-        public bool CanRotate { get; private set; }
-        public bool CanInteract { get; private set; }
+        public bool CanMove { get; private set; } = true;
+        public bool CanRotate { get; private set; } = true;
+        public bool CanInteract { get; private set; } = true;
 
         private readonly Dictionary<GameVariablesBlockerEnum, List<GameVariableBlocker>> _activeBlockers = new();
 

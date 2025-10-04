@@ -22,7 +22,7 @@ namespace Core
         {
             #region Core
 
-            LayersDataSO.SetupLayersInstance(layersData);
+            builder.RegisterInstance(layersData);
             builder.Register<GameVariables>(Lifetime.Singleton);
 
             #endregion

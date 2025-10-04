@@ -18,6 +18,7 @@ namespace PlayerSystem
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
+        [Inject] private LayersDataSO _layersData;
 
         private GameObject _currentTarget;
         private AInteractView _currentTargetView;
@@ -31,7 +32,7 @@ namespace PlayerSystem
         private void CheckForInteractions()
         {
             var overlapped = Physics2D.OverlapCircleAll(interactPoint.position, interactRadius,
-                LayersDataSO.Instance.InteractableLayer);
+                _layersData.InteractableLayer);
 
             if (_currentTarget && !overlapped.Select(x => x.gameObject).Contains(_currentTarget))
             {
@@ -44,7 +45,7 @@ namespace PlayerSystem
                 return;
 
             var cast = Physics2D.Raycast(transform.position, overlapped[0].transform.position - transform.position,
-                ~LayersDataSO.Instance.PlayerLayer);
+                ~_layersData.PlayerLayer);
 
             if (cast.transform.GetComponent<IInteractable>() == null)
                 return;

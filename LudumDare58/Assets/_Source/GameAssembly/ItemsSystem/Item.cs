@@ -26,10 +26,11 @@ namespace ItemsSystem
 
         public bool TryChangeCount(int value)
         {
+            //Debug.Log($"Trying to change count of {Source.ItemName} to {Count + value}");
             if (Count + value > Source.MaxCount || Count + value < 0)
                 return false;
             
-            Count = Mathf.Clamp(Count - value, 0, Source.MaxCount);
+            Count = Mathf.Clamp(Count + value, 0, Source.MaxCount);
             OnItemChanged?.Invoke();
             
             if(Count == 0)
@@ -38,6 +39,12 @@ namespace ItemsSystem
             return true;
         }
 
-        public void Dispose() => OnItemChanged = null;
+        public Item Clone(int newCount = -1) => new(Source, newCount == -1 ? Count : newCount);
+
+        public void Dispose()
+        {
+            OnItemChanged = null;
+            OnItemCountZero = null;
+        }
     }
 }
