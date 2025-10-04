@@ -2,7 +2,7 @@
 
 namespace Core.Data
 {
-    [CreateAssetMenu(fileName = "New LayersData", menuName = "LayersData")]
+    [CreateAssetMenu(fileName = "New LayersData", menuName = "SO/LayersData")]
     public class LayersDataSO : ScriptableObject
     {
         [field: SerializeField] public LayerMask PlayerLayer { get; private set; }

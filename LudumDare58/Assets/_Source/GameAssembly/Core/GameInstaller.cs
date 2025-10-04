@@ -1,4 +1,5 @@
 ﻿using Core.Data;
+using InventorySystem;
 using PlayerSystem;
 using PlayerSystem.Data;
 using UnityEngine;
@@ -30,6 +31,7 @@ namespace Core
 
             _input = new InputSystem_Actions();
             _input.Player.Enable();
+            builder.RegisterInstance(new Inventory()); // Now we have only one inventory - for player. But Inventory class is extendable
             builder.RegisterInstance(_input);
             builder.RegisterInstance(playerConfig);
             builder.RegisterComponentInHierarchy<PlayerAim>();

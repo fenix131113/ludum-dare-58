@@ -7,6 +7,7 @@ namespace Core
     {
         public bool CanMove { get; private set; }
         public bool CanRotate { get; private set; }
+        public bool CanInteract { get; private set; }
 
         private readonly Dictionary<GameVariablesBlockerEnum, List<GameVariableBlocker>> _activeBlockers = new();
 
@@ -49,6 +50,9 @@ namespace Core
                     break;
                 case GameVariablesBlockerEnum.PLAYER_ROTATE:
                     CanRotate = flag;
+                    break;
+                case GameVariablesBlockerEnum.PLAYER_INTERACT:
+                    CanInteract = flag;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(blockerType), blockerType,

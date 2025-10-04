@@ -1,5 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using Core;
 using Core.Data;
 using InteractionSystem;
 using UnityEditor;
@@ -17,6 +17,7 @@ namespace PlayerSystem
         [SerializeField] private float interactRadius;
 
         [Inject] private InputSystem_Actions _input;
+        [Inject] private GameVariables _gameVariables;
 
         private GameObject _currentTarget;
         private AInteractView _currentTargetView;
@@ -59,7 +60,7 @@ namespace PlayerSystem
 
         private void Interact(InputAction.CallbackContext callbackContext)
         {
-            if (!_currentTarget)
+            if (!_currentTarget || _gameVariables.CanInteract)
                 return;
 
             _currentTargetView?.OnInteract();

@@ -1210,6 +1210,7 @@ MonoBehaviour:
   - {fileID: 1790976720}
   - {fileID: 667414398}
   playerConfig: {fileID: 11400000, guid: b8a1a6c979b074246a497d48935a3aa8, type: 2}
+  layersData: {fileID: 11400000, guid: 37177834709be5044a467289100b8771, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
