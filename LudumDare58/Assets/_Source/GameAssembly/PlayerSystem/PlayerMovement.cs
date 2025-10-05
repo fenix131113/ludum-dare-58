@@ -19,7 +19,7 @@ namespace PlayerSystem
         private void FixedUpdate()
         {
             if (_gameVariables.CanMove)
-                Move(_input.Player.Move.ReadValue<Vector2>());
+                Move(_input.Player.Move.ReadValue<Vector2>()); // Normalized in InputActions
         }
 
         public void Move(Vector2 movement) =>

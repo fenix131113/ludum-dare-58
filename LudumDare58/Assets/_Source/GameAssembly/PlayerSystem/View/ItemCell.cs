@@ -9,6 +9,7 @@ namespace PlayerSystem.View
         public Item CurrentItem { get; private set; }
 
         [SerializeField] private Image iconImg;
+        [SerializeField] private GameObject selection;
 
         public void SetupCell(Item item)
         {
@@ -16,8 +17,14 @@ namespace PlayerSystem.View
             DrawCell();
         }
 
-        public void ClearCell() => CurrentItem = null;
+        public void ClearCell()
+        {
+            CurrentItem = null;
+            SetSelectionActive(false);
+        }
 
         private void DrawCell() => iconImg.sprite = CurrentItem.Source.Icon;
+
+        public void SetSelectionActive(bool active) => selection.SetActive(active);
     }
 }

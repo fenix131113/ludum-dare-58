@@ -64,7 +64,6 @@ namespace InventorySystem
 
             var allMatches = _items.Where(x => x.Source == source).ToList();
 
-            Debug.Log($"Sum = {allMatches.Sum(x => x.Count)}");
             if (allMatches.Sum(x => x.Count) < count)
                 return false;
 
@@ -72,14 +71,12 @@ namespace InventorySystem
             {
                 if (match.Count >= count)
                 {
-                    Debug.Log(-count);
                     match.TryChangeCount(-count);
                     OnInventoryChanged?.Invoke();
                     return true;
                 }
 
                 count -= match.Count;
-                Debug.Log(-match.Count);
                 match.TryChangeCount(-match.Count);
 
                 if (count != 0)
@@ -113,7 +110,6 @@ namespace InventorySystem
                         return false;
                     other.TryChangeCount(item.Count);
                     item.TryChangeCount(-item.Count);
-                    Debug.Log(item.Count);
                     return true;
 
                 case false:
@@ -125,15 +121,13 @@ namespace InventorySystem
                     if (item.Count <= need)
                     {
                         var add = item.Count;
-                        Debug.Log(add);
-                        Debug.Log(other.TryChangeCount(add));
-                        Debug.Log(item.TryChangeCount(-add));
+                        other.TryChangeCount(add);
+                        item.TryChangeCount(-add);
                     }
                     else
                     {
                         other.TryChangeCount(need);
                         item.TryChangeCount(-need);
-                        Debug.Log(need);
                     }
 
                     return true;

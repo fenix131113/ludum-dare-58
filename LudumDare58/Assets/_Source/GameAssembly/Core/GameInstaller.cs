@@ -2,6 +2,7 @@
 using InventorySystem;
 using PlayerSystem;
 using PlayerSystem.Data;
+using PlayerSystem.View;
 using UnityEngine;
 using Utils;
 using VContainer;
@@ -26,16 +27,21 @@ namespace Core
             builder.Register<GameVariables>(Lifetime.Singleton);
 
             #endregion
-            
+
             #region Player
 
             _input = new InputSystem_Actions();
             _input.Player.Enable();
-            builder.RegisterInstance(new Inventory()); // Now we have only one inventory - for player. But Inventory class is extendable
+            builder.Register<Inventory>(Lifetime.Singleton); // Now we have only one inventory - for player. But Inventory class is extendable
+            builder.Register<ItemSelector>(Lifetime.Singleton)
+                .As<ITickable>()
+                .As<IInitializable>()
+                .AsSelf();
             builder.RegisterInstance(_input);
             builder.RegisterInstance(playerConfig);
             builder.RegisterComponentInHierarchy<PlayerAim>();
-            
+            builder.RegisterComponentInHierarchy<PlayerInventoryView>();
+
             #endregion
         }
     }

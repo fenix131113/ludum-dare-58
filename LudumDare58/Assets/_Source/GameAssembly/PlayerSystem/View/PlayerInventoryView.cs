@@ -1,16 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using InventorySystem;
+using ItemsSystem.Data;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using VContainer;
 
 namespace PlayerSystem.View
 {
-    public class PlayerInventoryView : MonoBehaviour
-    {
+    public class PlayerInventoryView : MonoBehaviour //TODO: Separate view and cells logic
+     {
+         public IReadOnlyCollection<ItemCell> ActiveCells => _activeCells;
+        [field: SerializeField] public Transform CellsContent { get; private set; }
+        
         [SerializeField] private ItemCell inventoryCellPrefab;
-        [SerializeField] private Transform content;
+        [SerializeField] private ItemDataSO data;
 
         [Inject] private Inventory _inventory;
         private ItemCell _currentBindingCell;
@@ -18,15 +22,19 @@ namespace PlayerSystem.View
         private readonly List<ItemCell> _activeCells = new();
         private readonly List<ItemCell> _cellsPool = new();
 
-        private void Start() => Bind();
+        public event Action OnRedrawItemsCells;
 
-        private void Update()
+        private void Start()
         {
-            if(Mouse.current.rightButton.isPressed)
-                Debug.Log(string.Join("\n", _inventory.Items.Select(x => x.Source.ItemName + " - " + x.Count)));
+            Bind();
+            _inventory.TryAddItem(data.GenerateItemInstance());
+            _inventory.TryAddItem(data.GenerateItemInstance());
+            _inventory.TryAddItem(data.GenerateItemInstance());
+            _inventory.TryAddItem(data.GenerateItemInstance());
         }
 
         private void OnDestroy() => Expose();
+        
 
         private void DrawInventory()
         {
@@ -45,11 +53,13 @@ namespace PlayerSystem.View
                 _currentBindingCell = cell;
                 item.OnItemCountZero += OnItemCountZero; // OnItemCountZero dispose itself
             }
+            
+            OnRedrawItemsCells?.Invoke();
         }
 
         private void OnItemCountZero() => AddCellToPool(_currentBindingCell);
 
-        private ItemCell SpawnNewCell() => Instantiate(inventoryCellPrefab, content);
+        private ItemCell SpawnNewCell() => Instantiate(inventoryCellPrefab, CellsContent);
 
         private ItemCell TakeCellFromPool()
         {

@@ -20,24 +20,26 @@ namespace PlayerSystem.View
             var fullCircleDegrees = _playerAim.RotateAngle < 0 ? 360 + _playerAim.RotateAngle : _playerAim.RotateAngle;
 
             var correct = rotations.Find(rot => IsInRange(fullCircleDegrees, rot.MinEdge, rot.MaxEdge));
-                
-            if(correct != null)
+
+            rotatePivot.localScale =
+                IsInRange(fullCircleDegrees, 270, 90) ? new Vector3(1, 1, 1) : new Vector3(1, -1, 1);
+
+            if (correct != null)
             {
                 itemRenderer.sprite = correct.ItemRotation;
                 return;
             }
-            
 
 #if UNITY_EDITOR
             Debug.LogWarning($"Can't rotate player with {_playerAim.RotateAngle} degrees!");
 #endif
         }
-        
+
         private static bool IsInRange(float angle, float min, float max)
         {
             if (min <= max)
                 return angle >= min && angle <= max;
-            
+
             return angle >= min || angle <= max;
         }
 

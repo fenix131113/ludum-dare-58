@@ -111,6 +111,96 @@ namespace PlayerSystem
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FirstSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f0bf9ec-51d0-4b88-b35a-13ad9916c1dd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""475bf844-c641-45c1-9214-813898b6477e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThirdSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""76ba2580-7cdf-439b-87c1-41603a70276e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FourthSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""7fe2a7d9-b174-4399-af0c-087b127b7a3a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FifthSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""57c6464f-0b0b-4ea3-aec7-f6823776b833"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SixthSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b98e315-6f0b-461e-a512-6d53490a7586"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SeventhSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0b8fdc4-a99c-4e72-b3db-addff55924f6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EightSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""81263eed-26f2-463e-98af-bd2e20bb9992"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NinthSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f719591-a0af-4382-935c-1254a7618c81"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TenSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""36f8d500-bdf1-4712-803b-f9d05045468c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -267,6 +357,116 @@ namespace PlayerSystem
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""affa665c-42f5-458b-8f0e-d409fab23904"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""FirstSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee1caebc-77fc-4431-9ed0-c8e67e61fb13"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""SecondSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f5e6262-d342-491f-8495-65ffdf6d2ef7"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ThirdSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""536449b4-45e4-4589-bc75-486be49ce206"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""FourthSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3aab0cb8-74d4-403b-b0ca-79fdc5bb313e"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""FifthSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ea0b23c-c5b9-4544-8c64-ebc1f4e19a45"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""SixthSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""86cc447a-c8f1-431e-890a-9b92d627b1ce"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""SeventhSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3069f739-b28a-4ae2-b5cc-20b5a1225e33"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""EightSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1276c4b2-5be8-4251-beb1-86e0fa8af1d8"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NinthSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e70c553e-e6be-4ebb-b11b-89c0580a666e"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""TenSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -338,6 +538,16 @@ namespace PlayerSystem
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+            m_Player_FirstSlot = m_Player.FindAction("FirstSlot", throwIfNotFound: true);
+            m_Player_SecondSlot = m_Player.FindAction("SecondSlot", throwIfNotFound: true);
+            m_Player_ThirdSlot = m_Player.FindAction("ThirdSlot", throwIfNotFound: true);
+            m_Player_FourthSlot = m_Player.FindAction("FourthSlot", throwIfNotFound: true);
+            m_Player_FifthSlot = m_Player.FindAction("FifthSlot", throwIfNotFound: true);
+            m_Player_SixthSlot = m_Player.FindAction("SixthSlot", throwIfNotFound: true);
+            m_Player_SeventhSlot = m_Player.FindAction("SeventhSlot", throwIfNotFound: true);
+            m_Player_EightSlot = m_Player.FindAction("EightSlot", throwIfNotFound: true);
+            m_Player_NinthSlot = m_Player.FindAction("NinthSlot", throwIfNotFound: true);
+            m_Player_TenSlot = m_Player.FindAction("TenSlot", throwIfNotFound: true);
         }
 
         ~@InputSystem_Actions()
@@ -420,6 +630,16 @@ namespace PlayerSystem
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_Interact;
+        private readonly InputAction m_Player_FirstSlot;
+        private readonly InputAction m_Player_SecondSlot;
+        private readonly InputAction m_Player_ThirdSlot;
+        private readonly InputAction m_Player_FourthSlot;
+        private readonly InputAction m_Player_FifthSlot;
+        private readonly InputAction m_Player_SixthSlot;
+        private readonly InputAction m_Player_SeventhSlot;
+        private readonly InputAction m_Player_EightSlot;
+        private readonly InputAction m_Player_NinthSlot;
+        private readonly InputAction m_Player_TenSlot;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -439,6 +659,46 @@ namespace PlayerSystem
             /// Provides access to the underlying input action "Player/Interact".
             /// </summary>
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/FirstSlot".
+            /// </summary>
+            public InputAction @FirstSlot => m_Wrapper.m_Player_FirstSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/SecondSlot".
+            /// </summary>
+            public InputAction @SecondSlot => m_Wrapper.m_Player_SecondSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/ThirdSlot".
+            /// </summary>
+            public InputAction @ThirdSlot => m_Wrapper.m_Player_ThirdSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/FourthSlot".
+            /// </summary>
+            public InputAction @FourthSlot => m_Wrapper.m_Player_FourthSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/FifthSlot".
+            /// </summary>
+            public InputAction @FifthSlot => m_Wrapper.m_Player_FifthSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/SixthSlot".
+            /// </summary>
+            public InputAction @SixthSlot => m_Wrapper.m_Player_SixthSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/SeventhSlot".
+            /// </summary>
+            public InputAction @SeventhSlot => m_Wrapper.m_Player_SeventhSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/EightSlot".
+            /// </summary>
+            public InputAction @EightSlot => m_Wrapper.m_Player_EightSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/NinthSlot".
+            /// </summary>
+            public InputAction @NinthSlot => m_Wrapper.m_Player_NinthSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/TenSlot".
+            /// </summary>
+            public InputAction @TenSlot => m_Wrapper.m_Player_TenSlot;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -471,6 +731,36 @@ namespace PlayerSystem
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @FirstSlot.started += instance.OnFirstSlot;
+                @FirstSlot.performed += instance.OnFirstSlot;
+                @FirstSlot.canceled += instance.OnFirstSlot;
+                @SecondSlot.started += instance.OnSecondSlot;
+                @SecondSlot.performed += instance.OnSecondSlot;
+                @SecondSlot.canceled += instance.OnSecondSlot;
+                @ThirdSlot.started += instance.OnThirdSlot;
+                @ThirdSlot.performed += instance.OnThirdSlot;
+                @ThirdSlot.canceled += instance.OnThirdSlot;
+                @FourthSlot.started += instance.OnFourthSlot;
+                @FourthSlot.performed += instance.OnFourthSlot;
+                @FourthSlot.canceled += instance.OnFourthSlot;
+                @FifthSlot.started += instance.OnFifthSlot;
+                @FifthSlot.performed += instance.OnFifthSlot;
+                @FifthSlot.canceled += instance.OnFifthSlot;
+                @SixthSlot.started += instance.OnSixthSlot;
+                @SixthSlot.performed += instance.OnSixthSlot;
+                @SixthSlot.canceled += instance.OnSixthSlot;
+                @SeventhSlot.started += instance.OnSeventhSlot;
+                @SeventhSlot.performed += instance.OnSeventhSlot;
+                @SeventhSlot.canceled += instance.OnSeventhSlot;
+                @EightSlot.started += instance.OnEightSlot;
+                @EightSlot.performed += instance.OnEightSlot;
+                @EightSlot.canceled += instance.OnEightSlot;
+                @NinthSlot.started += instance.OnNinthSlot;
+                @NinthSlot.performed += instance.OnNinthSlot;
+                @NinthSlot.canceled += instance.OnNinthSlot;
+                @TenSlot.started += instance.OnTenSlot;
+                @TenSlot.performed += instance.OnTenSlot;
+                @TenSlot.canceled += instance.OnTenSlot;
             }
 
             /// <summary>
@@ -488,6 +778,36 @@ namespace PlayerSystem
                 @Interact.started -= instance.OnInteract;
                 @Interact.performed -= instance.OnInteract;
                 @Interact.canceled -= instance.OnInteract;
+                @FirstSlot.started -= instance.OnFirstSlot;
+                @FirstSlot.performed -= instance.OnFirstSlot;
+                @FirstSlot.canceled -= instance.OnFirstSlot;
+                @SecondSlot.started -= instance.OnSecondSlot;
+                @SecondSlot.performed -= instance.OnSecondSlot;
+                @SecondSlot.canceled -= instance.OnSecondSlot;
+                @ThirdSlot.started -= instance.OnThirdSlot;
+                @ThirdSlot.performed -= instance.OnThirdSlot;
+                @ThirdSlot.canceled -= instance.OnThirdSlot;
+                @FourthSlot.started -= instance.OnFourthSlot;
+                @FourthSlot.performed -= instance.OnFourthSlot;
+                @FourthSlot.canceled -= instance.OnFourthSlot;
+                @FifthSlot.started -= instance.OnFifthSlot;
+                @FifthSlot.performed -= instance.OnFifthSlot;
+                @FifthSlot.canceled -= instance.OnFifthSlot;
+                @SixthSlot.started -= instance.OnSixthSlot;
+                @SixthSlot.performed -= instance.OnSixthSlot;
+                @SixthSlot.canceled -= instance.OnSixthSlot;
+                @SeventhSlot.started -= instance.OnSeventhSlot;
+                @SeventhSlot.performed -= instance.OnSeventhSlot;
+                @SeventhSlot.canceled -= instance.OnSeventhSlot;
+                @EightSlot.started -= instance.OnEightSlot;
+                @EightSlot.performed -= instance.OnEightSlot;
+                @EightSlot.canceled -= instance.OnEightSlot;
+                @NinthSlot.started -= instance.OnNinthSlot;
+                @NinthSlot.performed -= instance.OnNinthSlot;
+                @NinthSlot.canceled -= instance.OnNinthSlot;
+                @TenSlot.started -= instance.OnTenSlot;
+                @TenSlot.performed -= instance.OnTenSlot;
+                @TenSlot.canceled -= instance.OnTenSlot;
             }
 
             /// <summary>
@@ -607,6 +927,76 @@ namespace PlayerSystem
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnInteract(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "FirstSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnFirstSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "SecondSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSecondSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "ThirdSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnThirdSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "FourthSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnFourthSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "FifthSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnFifthSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "SixthSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSixthSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "SeventhSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSeventhSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "EightSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnEightSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "NinthSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnNinthSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "TenSlot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnTenSlot(InputAction.CallbackContext context);
         }
     }
 }
