@@ -15,6 +15,12 @@ namespace EntitySystem.Entities
         public event Action<int, int> OnHealthChanged;
         public event Action OnDeath;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            _health = maxHealth;
+        }
+
         public Entity GetEntity() => this;
 
         public HealthType GetHealthType() => healthType;
@@ -22,6 +28,12 @@ namespace EntitySystem.Entities
         public virtual int GetHealth() => _health;
 
         public virtual int GetMaxHealth() => maxHealth;
+
+        protected virtual void Death()
+        {
+            gameObject.SetActive(false);
+            Expose();
+        }
 
         public virtual void ChangeHealth(int health)
         {
@@ -31,7 +43,10 @@ namespace EntitySystem.Entities
             OnHealthChanged?.Invoke(temp, _health);
             
             if(_health == 0)
+            {
                 OnDeath?.Invoke();
+                Death();
+            }
         }
     }
 }

@@ -15,7 +15,8 @@ MonoBehaviour:
   <ItemName>k__BackingField: Vacuum Cleaner
   <MaxCount>k__BackingField: 1
   <Icon>k__BackingField: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  <Damage>k__BackingField: 2
-  <Radius>k__BackingField: 3
-  <ReloadTime>k__BackingField: 5
+  <Damage>k__BackingField: 1
+  <AttackDistance>k__BackingField: 3
+  <ReloadTime>k__BackingField: 3
   <ShootIntervalTime>k__BackingField: 1
+  <DamageTo>k__BackingField: 01
