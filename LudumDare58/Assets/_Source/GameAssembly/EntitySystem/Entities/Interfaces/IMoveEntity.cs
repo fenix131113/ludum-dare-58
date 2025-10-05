@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-namespace EntitySystem
+
+namespace EntitySystem.Entities.Interfaces
 {
     public interface IMoveEntity : IEntityContains
     {

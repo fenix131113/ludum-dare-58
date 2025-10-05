@@ -1,6 +1,6 @@
 ﻿using EntitySystem.Data;
 
-namespace EntitySystem
+namespace EntitySystem.Entities.Interfaces
 {
     public interface IEntity
     {

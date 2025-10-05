@@ -1,4 +1,4 @@
-﻿namespace EntitySystem
+﻿namespace EntitySystem.Entities.Interfaces
 {
     public interface IEntityContains
     {
