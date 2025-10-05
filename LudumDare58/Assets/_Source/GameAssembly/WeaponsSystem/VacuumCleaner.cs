@@ -72,7 +72,7 @@ namespace WeaponsSystem
             if(health == null || !data.DamageTo.Contains(health.GetHealthType()))
                 return;
             
-            health.ChangeHealth(-data.Damage);
+            health.ChangeHealth(-data.Damage, DamageSourceType.VACUUM_CLEANER);
         }
 
 #if UNITY_EDITOR

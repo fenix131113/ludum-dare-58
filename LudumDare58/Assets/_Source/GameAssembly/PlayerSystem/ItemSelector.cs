@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core;
 using InventorySystem;
+using ItemsSystem;
 using PlayerSystem.View;
 using UnityEngine.InputSystem;
 using VContainer;
@@ -24,7 +25,7 @@ namespace PlayerSystem
 
         ~ItemSelector() => Expose();
 
-        public event Action OnSelectedItemChanged;
+        public event Action<Item, Item> OnSelectedItemChanged;
 
         public void Tick()
         {
@@ -93,6 +94,8 @@ namespace PlayerSystem
             if (index is < 0 or >= 9)
                 return;
 
+            var temp = SelectedCell ? SelectedCell.CurrentItem : null;
+            
             _currentSelectedIndex = index;
             var activeCells = GetActiveCells();
 
@@ -103,7 +106,7 @@ namespace PlayerSystem
             SelectedCell = activeCells[_currentSelectedIndex];
             SelectedCell.SetSelectionActive(true);
 
-            OnSelectedItemChanged?.Invoke();
+            OnSelectedItemChanged?.Invoke(temp, SelectedCell.CurrentItem);
         }
 
         private void CheckInventorySelection()
@@ -111,9 +114,11 @@ namespace PlayerSystem
             if (_playerInventoryView.ActiveCells.Contains(SelectedCell))
                 return;
 
+            var temp = SelectedCell ? SelectedCell.CurrentItem : null;
+            SelectedCell?.SetSelectionActive(false);
             SelectedCell = null;
             _currentSelectedIndex = -1;
-            OnSelectedItemChanged?.Invoke();
+            OnSelectedItemChanged?.Invoke(temp, null);
         }
 
         // Didn't use ActiveCells from PlayerInventoryView because they have wrong sorting and can't be sorted because cell positioning set by HorizontalLayoutGroup

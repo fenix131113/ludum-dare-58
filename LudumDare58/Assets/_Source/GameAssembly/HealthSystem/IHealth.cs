@@ -10,6 +10,6 @@ namespace HealthSystem
         HealthType GetHealthType();
         int GetHealth();
         int GetMaxHealth();
-        void ChangeHealth(int health);
+        void ChangeHealth(int health, DamageSourceType damageSource = DamageSourceType.UNKNOWN);
     }
 }

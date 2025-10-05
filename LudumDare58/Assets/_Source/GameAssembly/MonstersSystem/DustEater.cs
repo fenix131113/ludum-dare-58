@@ -1,21 +1,32 @@
 ﻿using EntitySystem.Entities;
-using EntitySystem.Entities.Interfaces;
+using HealthSystem;
 using PlayerSystem;
-using UnityEngine;
 
 namespace MonstersSystem
 {
-    public class DustEater : MonoBehaviour, IEntityContains
+    public class DustEater : PathHealthEntity
     {
+        private const DamageSourceType VULNERABLE_DAMAGE_SOURCE = DamageSourceType.CAMERA;
+
         private PathHealthEntity _entity;
 
-        private void Awake() => _entity = GetComponent<PathHealthEntity>();
+        protected override void Awake()
+        {
+            base.Awake();
+            _entity = GetComponent<PathHealthEntity>();
+        }
 
-        private void Start()
+        protected override void Start()
         {
             _entity.SetTarget(FindFirstObjectByType<PlayerMovement>().transform);
         }
 
-        public Entity GetEntity() => _entity;
+        public override void ChangeHealth(int health, DamageSourceType damageSource = DamageSourceType.UNKNOWN)
+        {
+            if (damageSource != VULNERABLE_DAMAGE_SOURCE)
+                return;
+
+            base.ChangeHealth(health, damageSource);
+        }
     }
 }

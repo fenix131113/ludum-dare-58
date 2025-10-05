@@ -35,7 +35,7 @@ namespace EntitySystem.Entities
             Expose();
         }
 
-        public virtual void ChangeHealth(int health)
+        public virtual void ChangeHealth(int health,  DamageSourceType damageSource = DamageSourceType.UNKNOWN)
         {
             var temp = _health;
             _health = Mathf.Clamp(_health + health, 0, maxHealth);
