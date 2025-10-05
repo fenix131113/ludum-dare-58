@@ -6,5 +6,6 @@
         PLAYER_ROTATE = 1,
         PLAYER_INTERACT = 2,
         PLAYER_CHANGE_ITEMS = 3,
+        PLAYER_USE_ITEMS = 4,
     }
 }

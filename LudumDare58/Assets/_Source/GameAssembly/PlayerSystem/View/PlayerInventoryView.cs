@@ -28,9 +28,6 @@ namespace PlayerSystem.View
         {
             Bind();
             _inventory.TryAddItem(data.GenerateItemInstance());
-            _inventory.TryAddItem(data.GenerateItemInstance());
-            _inventory.TryAddItem(data.GenerateItemInstance());
-            _inventory.TryAddItem(data.GenerateItemInstance());
         }
 
         private void OnDestroy() => Expose();

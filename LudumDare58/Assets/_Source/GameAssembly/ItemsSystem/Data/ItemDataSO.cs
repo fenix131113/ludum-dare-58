@@ -2,7 +2,7 @@
 
 namespace ItemsSystem.Data
 {
-    [CreateAssetMenu(fileName = "new ItemDataSO", menuName = "SO/ItemDataSO")]
+    [CreateAssetMenu(fileName = "new ItemDataSO", menuName = "SO/Items/ItemDataSO")]
     public class ItemDataSO : ScriptableObject
     {
         [field: SerializeField] public string ItemName { get; private set; }

@@ -201,6 +201,15 @@ namespace PlayerSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""b70a81ed-71f3-4318-960d-6476f39f027d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -467,6 +476,17 @@ namespace PlayerSystem
                     ""action"": ""TenSlot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8198988a-7e24-4baa-ba53-5ca3e7b22396"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -548,6 +568,7 @@ namespace PlayerSystem
             m_Player_EightSlot = m_Player.FindAction("EightSlot", throwIfNotFound: true);
             m_Player_NinthSlot = m_Player.FindAction("NinthSlot", throwIfNotFound: true);
             m_Player_TenSlot = m_Player.FindAction("TenSlot", throwIfNotFound: true);
+            m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         }
 
         ~@InputSystem_Actions()
@@ -640,6 +661,7 @@ namespace PlayerSystem
         private readonly InputAction m_Player_EightSlot;
         private readonly InputAction m_Player_NinthSlot;
         private readonly InputAction m_Player_TenSlot;
+        private readonly InputAction m_Player_Attack;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -699,6 +721,10 @@ namespace PlayerSystem
             /// Provides access to the underlying input action "Player/TenSlot".
             /// </summary>
             public InputAction @TenSlot => m_Wrapper.m_Player_TenSlot;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/Attack".
+            /// </summary>
+            public InputAction @Attack => m_Wrapper.m_Player_Attack;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -761,6 +787,9 @@ namespace PlayerSystem
                 @TenSlot.started += instance.OnTenSlot;
                 @TenSlot.performed += instance.OnTenSlot;
                 @TenSlot.canceled += instance.OnTenSlot;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
 
             /// <summary>
@@ -808,6 +837,9 @@ namespace PlayerSystem
                 @TenSlot.started -= instance.OnTenSlot;
                 @TenSlot.performed -= instance.OnTenSlot;
                 @TenSlot.canceled -= instance.OnTenSlot;
+                @Attack.started -= instance.OnAttack;
+                @Attack.performed -= instance.OnAttack;
+                @Attack.canceled -= instance.OnAttack;
             }
 
             /// <summary>
@@ -997,6 +1029,13 @@ namespace PlayerSystem
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnTenSlot(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnAttack(InputAction.CallbackContext context);
         }
     }
 }

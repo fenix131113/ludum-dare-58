@@ -17,7 +17,7 @@ namespace PlayerSystem
         [Inject] private Inventory _inventory;
         [Inject] private PlayerInventoryView _playerInventoryView;
 
-        public ItemCell SelectedItem { get; private set; }
+        public ItemCell SelectedCell { get; private set; }
         private int _currentSelectedIndex = -1;
 
         public void Initialize() => Bind();
@@ -99,19 +99,19 @@ namespace PlayerSystem
             if (index >= activeCells.Count)
                 return;
 
-            SelectedItem?.SetSelectionActive(false);
-            SelectedItem = activeCells[_currentSelectedIndex];
-            SelectedItem.SetSelectionActive(true);
+            SelectedCell?.SetSelectionActive(false);
+            SelectedCell = activeCells[_currentSelectedIndex];
+            SelectedCell.SetSelectionActive(true);
 
             OnSelectedItemChanged?.Invoke();
         }
 
         private void CheckInventorySelection()
         {
-            if (_playerInventoryView.ActiveCells.Contains(SelectedItem))
+            if (_playerInventoryView.ActiveCells.Contains(SelectedCell))
                 return;
 
-            SelectedItem = null;
+            SelectedCell = null;
             _currentSelectedIndex = -1;
             OnSelectedItemChanged?.Invoke();
         }
