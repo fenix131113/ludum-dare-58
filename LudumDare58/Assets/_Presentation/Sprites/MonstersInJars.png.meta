@@ -1,40 +1,34 @@
 fileFormatVersion: 2
-guid: 903b1d30f04b894439dcc62d2059441a
+guid: 6cb62fe65141a124f8d599e8013d2ae5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 644907665123889692
-    second: UIBook_0
+      213: 8131487521811938408
+    second: Monsters in jars_0
   - first:
-      213: -5902525580782340322
-    second: UIBook_1
+      213: -8240470063028325930
+    second: Monsters in jars_1
   - first:
-      213: 8680595801069973723
-    second: UIBook_2
+      213: -4262272480990673584
+    second: Monsters in jars_2
   - first:
-      213: 8540212793626181310
-    second: UIBook_3
+      213: -4599796824138420699
+    second: Monsters in jars_3
   - first:
-      213: 8101302713975614162
-    second: UIBook_4
+      213: 5664531603333323036
+    second: Monsters in jars_4
   - first:
-      213: 3450147431224687738
-    second: UIBook_5
+      213: 6676539601825304537
+    second: Monsters in jars_5
   - first:
-      213: -3231285011907718419
-    second: UIBook_6
+      213: -3945006885148794749
+    second: Monsters in jars_6
   - first:
-      213: 85787913688390012
-    second: UIBook_7
+      213: -3714877229967238369
+    second: Monsters in jars_7
   - first:
-      213: 1323006420469617326
-    second: UIBook_8
-  - first:
-      213: 8626992528071116496
-    second: UIBook_9
-  - first:
-      213: 7871799001174157833
-    second: UIBook_10
+      213: 6873682983172503632
+    second: Monsters in jars_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -81,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -143,255 +137,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UIBook_0
+      name: MonstersInJars_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 253
-        width: 73
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c12d2a4ca1c23f800800000000000000
-      internalID: 644907665123889692
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_1
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 252
-        width: 75
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e17ffc7d144061ea0800000000000000
-      internalID: -5902525580782340322
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_2
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 187
-        width: 73
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bd0f589a3eba77870800000000000000
-      internalID: 8680595801069973723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 224
-        width: 73
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ebeb55ea94ee48670800000000000000
-      internalID: 8540212793626181310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_4
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 224
-        width: 75
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2daac6455eb9d6070800000000000000
-      internalID: 8101302713975614162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 197
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a7cbfdc1fc261ef20800000000000000
-      internalID: 3450147431224687738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_6
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 196
-        width: 24
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de25239d66b2823d0800000000000000
-      internalID: -3231285011907718419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_7
-      rect:
-        serializedVersion: 2
-        x: 122
-        y: 203
-        width: 22
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c791b6927a7c03100800000000000000
-      internalID: 85787913688390012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_8
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 189
-        width: 20
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ea217af64534c5210800000000000000
-      internalID: 1323006420469617326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 95
-        width: 117
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0d6c0ab1ffb39b770800000000000000
-      internalID: 8626992528071116496
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_10
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 55
-        width: 183
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 90aa2482c7f3e3d60800000000000000
-      internalID: 7871799001174157833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIBook_11
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3
-        width: 117
-        height: 87
+        x: 12
+        y: 48
+        width: 9
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -400,8 +152,162 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4581fe68ae9d4a745b4877bf11298fcd
-      internalID: 1920924566
+      spriteID: 164526f312c74924484c1bc399ad308c
+      internalID: -279520799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonstersInJars_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 48
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67adacf3a8e0b5a44862762ad932bcf1
+      internalID: 231271549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonstersInJars_2
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 48
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2915e5a530c4064782ce10804ddfe5e
+      internalID: -1856499823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonstersInJars_3
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 48
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17e593fcef6e9aa48a8d0d7f791abc50
+      internalID: -41731180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonstersInJars_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 0
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a21396ba7d05f4f8e17e7cc65824b1
+      internalID: -1482008478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonstersInJars_6
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 0
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eaa556909c8fa948a9f43af3e801a60
+      internalID: 1660664435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonstersInJars_7
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ceaf722b8cbcd40bc59b0a57a8424f
+      internalID: -2134225732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonstersInJars_8
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 0
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61db1edd429e67344a7b99a192faf06b
+      internalID: 1467025015
       vertices: []
       indices: 
       edges: []
@@ -410,7 +316,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 62b7df15033a79843a9d6470d221b7a2
+    spriteID: 2b1a5e512240b58499bf578369abbe05
     internalID: 0
     vertices: []
     indices: 
@@ -422,18 +328,15 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      UIBook_0: 644907665123889692
-      UIBook_1: -5902525580782340322
-      UIBook_10: 7871799001174157833
-      UIBook_11: 1920924566
-      UIBook_2: 8680595801069973723
-      UIBook_3: 8540212793626181310
-      UIBook_4: 8101302713975614162
-      UIBook_5: 3450147431224687738
-      UIBook_6: -3231285011907718419
-      UIBook_7: 85787913688390012
-      UIBook_8: 1323006420469617326
-      UIBook_9: 8626992528071116496
+      MonstersInJars_0: -279520799
+      MonstersInJars_1: 231271549
+      MonstersInJars_2: -1856499823
+      MonstersInJars_3: -41731180
+      MonstersInJars_4: 915296117
+      MonstersInJars_5: -1482008478
+      MonstersInJars_6: 1660664435
+      MonstersInJars_7: -2134225732
+      MonstersInJars_8: 1467025015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

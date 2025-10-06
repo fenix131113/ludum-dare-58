@@ -33,24 +33,25 @@ namespace PlayerSystem
         {
             var overlapped = Physics2D.OverlapCircleAll(interactPoint.position, interactRadius,
                 _layersData.InteractableLayer);
-
+            
             if (_currentTarget && !overlapped.Select(x => x.gameObject).Contains(_currentTarget))
             {
                 _currentTargetView?.OnInteractDisabled();
                 _currentTarget = null;
                 _currentTargetView = null;
             }
+            else if(_currentTarget)
+                return;
             
             if (overlapped.Length == 0)
                 return;
 
-            var cast = Physics2D.Raycast(transform.position, overlapped[0].transform.position - transform.position,
-                ~_layersData.PlayerLayer);
+            var interactable = overlapped.First(x => x.GetComponent<IInteractable>() != null);
 
-            if (cast.transform.GetComponent<IInteractable>() == null)
+            if (!interactable)
                 return;
             
-            _currentTarget = cast.transform.gameObject;
+            _currentTarget = interactable.transform.gameObject;
             
             if (!_currentTarget.TryGetComponent(out AInteractView view))
                 return;
@@ -61,9 +62,12 @@ namespace PlayerSystem
 
         private void Interact(InputAction.CallbackContext callbackContext)
         {
-            if (!_currentTarget || _gameVariables.CanInteract || !_input.Player.enabled)
+            Debug.Log("Interact");
+            if (!_currentTarget || !_gameVariables.CanInteract || !_input.Player.enabled)
                 return;
 
+            Debug.Log("Interact Success");
+            
             _currentTargetView?.OnInteract();
             _currentTarget.GetComponent<IInteractable>().Interact();
         }

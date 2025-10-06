@@ -1,5 +1,6 @@
 ﻿using EntitySystem.Entities;
 using HealthSystem;
+using InteractionSystem.Objects;
 using UnityEngine;
 
 namespace MonstersSystem
@@ -13,6 +14,7 @@ namespace MonstersSystem
         [SerializeField] private DamageSourceType vulnerableDamageSource;
         [SerializeField] private Animator anim;
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private MonsterJar jarPrefab;
 
         private bool _isDamaged;
 
@@ -30,6 +32,12 @@ namespace MonstersSystem
                 return;
 
             base.ChangeHealth(health, damageSource);
+        }
+
+        protected override void Death()
+        {
+            base.Death();
+            Instantiate(jarPrefab, transform.position, Quaternion.identity);
         }
 
         protected override void OnNativeDestinationReached()
