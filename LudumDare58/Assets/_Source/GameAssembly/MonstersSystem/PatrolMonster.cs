@@ -6,12 +6,24 @@ namespace MonstersSystem
 {
     public class PatrolMonster : PatrolPathHealthEntity
     {
+        private static readonly int _isMovingKey = Animator.StringToHash("IsMoving");
+        
         [SerializeField] private bool runAfterDamage;
         [SerializeField] private MonsterVision vision;
         [SerializeField] private DamageSourceType vulnerableDamageSource;
+        [SerializeField] private Animator anim;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
         private bool _isDamaged;
 
+        protected override void Update()
+        {
+            base.Update();
+            
+            spriteRenderer.flipX = path.velocity.x > 0;
+            anim.SetBool(_isMovingKey, path.velocity != Vector3.zero);
+        }
+        
         public override void ChangeHealth(int health, DamageSourceType damageSource = DamageSourceType.UNKNOWN)
         {
             if (damageSource != vulnerableDamageSource)
