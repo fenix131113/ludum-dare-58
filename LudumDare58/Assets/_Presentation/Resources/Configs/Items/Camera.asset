@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameAssembly::ItemsSystem.Data.WeaponItemDataSO
   <ItemName>k__BackingField: Camera
   <MaxCount>k__BackingField: 1
-  <Icon>k__BackingField: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  <Icon>k__BackingField: {fileID: -6081810845707505280, guid: dac2abb0556782742ba1f3d1438ad4b8, type: 3}
   <Damage>k__BackingField: 1
   <AttackDistance>k__BackingField: 0
   <ReloadTime>k__BackingField: 0

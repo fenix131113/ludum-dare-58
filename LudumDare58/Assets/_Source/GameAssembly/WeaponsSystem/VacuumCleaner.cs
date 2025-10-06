@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Core;
-using Core.Data;
 using HealthSystem;
 using ItemsSystem.Data;
 using PlayerSystem;
@@ -13,6 +12,7 @@ namespace WeaponsSystem
     {
         [SerializeField] private float overheatEdge;
         [SerializeField] private WeaponItemDataSO data;
+        [SerializeField] private GameObject vfx;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
@@ -26,10 +26,14 @@ namespace WeaponsSystem
         private void Update()
         {
             if (!gameObject.activeSelf || !_gameVariables.CanUseItems || !_input.Player.enabled)
+            {
+                vfx.SetActive(false);
                 return;
+            }
 
             if (_overHeated)
             {
+                vfx.SetActive(false);
                 if (Time.time - _overheatedTime >= data.ReloadTime)
                 {
                     _overHeated = false;
@@ -50,7 +54,12 @@ namespace WeaponsSystem
                 }
             }
             else if (!_overHeated && _shootingTime > 0)
+            {
                 _shootingTime -= Time.deltaTime * 1.75f;
+                vfx.SetActive(false);
+            }
+            else
+                vfx.SetActive(false);
 
             if (_shootingTime < overheatEdge)
                 return;
@@ -61,18 +70,19 @@ namespace WeaponsSystem
 
         private void Shoot()
         {
+            vfx.SetActive(true);
             var direction = new Vector2(Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),
                 Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad));
-            
+
             var hit = Physics2D.Raycast(transform.position, direction, data.AttackDistance);
-            
-            if(!hit)
+
+            if (!hit)
                 return;
 
             var health = hit.transform.GetComponent<IHealth>();
-            if(health == null || !data.DamageTo.Contains(health.GetHealthType()))
+            if (health == null || !data.DamageTo.Contains(health.GetHealthType()))
                 return;
-            
+
             health.ChangeHealth(-data.Damage, DamageSourceType.VACUUM_CLEANER);
         }
 
@@ -84,7 +94,7 @@ namespace WeaponsSystem
 
             var direction = new Vector2(Mathf.Cos(transform.parent.rotation.z * Mathf.Deg2Rad),
                 Mathf.Sin(transform.parent.rotation.z * _playerAim.RotateAngle * Mathf.Deg2Rad));
-            
+
             Gizmos.color = Color.yellow;
             Gizmos.DrawRay(transform.position, direction * data.AttackDistance);
         }

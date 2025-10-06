@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace MonstersSystem
 {
-    public class DustEater : PatrolPathHealthEntity
+    public class PatrolMonster : PatrolPathHealthEntity
     {
-        private const DamageSourceType VULNERABLE_DAMAGE_SOURCE = DamageSourceType.FLUTE;
-
+        [SerializeField] private bool runAfterDamage;
         [SerializeField] private MonsterVision vision;
+        [SerializeField] private DamageSourceType vulnerableDamageSource;
 
         private bool _isDamaged;
 
         public override void ChangeHealth(int health, DamageSourceType damageSource = DamageSourceType.UNKNOWN)
         {
-            if (damageSource != VULNERABLE_DAMAGE_SOURCE)
+            if (damageSource != vulnerableDamageSource)
                 return;
 
             base.ChangeHealth(health, damageSource);
@@ -32,6 +32,12 @@ namespace MonstersSystem
 
         private void OnPlayerSpotted()
         {
+            if(!runAfterDamage)
+            {
+                MoveToFarthestPoint();
+                return;
+            }
+
             if (_isDamaged)
                 MoveToFarthestPoint();
             else
