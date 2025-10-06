@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7157118088101512941}
   - component: {fileID: 422166833298089821}
   - component: {fileID: 8935435897475489240}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Blink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449333533042734453}
   - component: {fileID: 5163948105102584667}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6511128041982880144}
   - component: {fileID: 695078897604204648}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CameraWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2438122608308612370}
   - component: {fileID: 4561728653397338578}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7706463084195634308}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: RotatePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 8705490630856113064}
   - component: {fileID: 6438738567529399768}
   - component: {fileID: 537735305235281428}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PlayerAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1374,7 +1374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 89491963138324171}
   - component: {fileID: 5029120816595191136}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: VacuumCleaner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1421,7 +1421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2139008412917032860}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: InteractPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1544,7 +1544,7 @@ GameObject:
   - component: {fileID: 2988625740105246465}
   - component: {fileID: 1565496463936857719}
   - component: {fileID: 3625684090468715228}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Flute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1651,6 +1651,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 892426759656273955}
     m_Modifications:
+    - target: {fileID: 1525411211936343416, guid: 2b261fa40871e2c4e8cae81f01760a19, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326946283746228837, guid: 2b261fa40871e2c4e8cae81f01760a19, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4466153099236810085, guid: 2b261fa40871e2c4e8cae81f01760a19, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1658,6 +1666,10 @@ PrefabInstance:
     - target: {fileID: 4724598357475076489, guid: 2b261fa40871e2c4e8cae81f01760a19, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724598357475076489, guid: 2b261fa40871e2c4e8cae81f01760a19, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8354376298686898535, guid: 2b261fa40871e2c4e8cae81f01760a19, type: 3}
       propertyPath: m_Pivot.x
@@ -1737,6 +1749,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8354376298686898535, guid: 2b261fa40871e2c4e8cae81f01760a19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213573449995152498, guid: 2b261fa40871e2c4e8cae81f01760a19, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
