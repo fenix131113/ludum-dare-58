@@ -33,6 +33,7 @@ namespace Core
             _input = new InputSystem_Actions();
             _input.Player.Enable();
             builder.Register<Inventory>(Lifetime.Scoped); // Now we have only one inventory - for player. But Inventory class is extendable
+            builder.Register<PlayerResources>(Lifetime.Scoped);
             builder.Register<ItemSelector>(Lifetime.Scoped)
                 .As<ITickable>()
                 .As<IInitializable>()
