@@ -9,10 +9,10 @@ using VContainer;
 namespace PlayerSystem.View
 {
     public class PlayerInventoryView : MonoBehaviour //TODO: Separate view and cells logic
-     {
-         public IReadOnlyCollection<ItemCell> ActiveCells => _activeCells;
+    {
+        public IReadOnlyCollection<ItemCell> ActiveCells => _activeCells;
         [field: SerializeField] public Transform CellsContent { get; private set; }
-        
+
         [SerializeField] private ItemCell inventoryCellPrefab;
         [SerializeField] private ItemDataSO data;
         [SerializeField] private ItemDataSO cameraData;
@@ -29,18 +29,21 @@ namespace PlayerSystem.View
         private void Start()
         {
             Bind();
-            _inventory.TryAddItem(data.GenerateItemInstance());
-            _inventory.TryAddItem(cameraData.GenerateItemInstance());
-            _inventory.TryAddItem(fluteData.GenerateItemInstance());
+            if (data)
+                _inventory.TryAddItem(data.GenerateItemInstance());
+            if (cameraData)
+                _inventory.TryAddItem(cameraData.GenerateItemInstance());
+            if (fluteData)
+                _inventory.TryAddItem(fluteData.GenerateItemInstance());
         }
 
         private void OnDestroy() => Expose();
-        
+
 
         private void DrawInventory()
         {
             _activeCells.ToList().ForEach(AddCellToPool);
-            
+
             foreach (var item in _inventory.Items)
             {
                 var cell = TakeCellFromPool();
@@ -54,7 +57,7 @@ namespace PlayerSystem.View
                 _currentBindingCell = cell;
                 item.OnItemCountZero += OnItemCountZero; // OnItemCountZero dispose itself
             }
-            
+
             OnRedrawItemsCells?.Invoke();
         }
 
@@ -65,10 +68,10 @@ namespace PlayerSystem.View
         private ItemCell TakeCellFromPool()
         {
             var took = _cellsPool.Count == 0 ? null : _cellsPool[^1];
-            
-            if(took)
+
+            if (took)
                 _cellsPool.RemoveAt(_cellsPool.Count - 1);
-            
+
             return took;
         }
 
@@ -79,7 +82,7 @@ namespace PlayerSystem.View
 
             if (_activeCells.Contains(cell))
                 _activeCells.Remove(cell);
-            
+
             _cellsPool.Add(cell);
             cell.CurrentItem.OnItemCountZero -= OnItemCountZero;
             cell.ClearCell();

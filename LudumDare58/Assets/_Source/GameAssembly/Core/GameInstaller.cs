@@ -24,7 +24,7 @@ namespace Core
             #region Core
 
             builder.RegisterInstance(layersData);
-            builder.Register<GameVariables>(Lifetime.Singleton);
+            builder.Register<GameVariables>(Lifetime.Scoped);
 
             #endregion
 
@@ -32,8 +32,8 @@ namespace Core
 
             _input = new InputSystem_Actions();
             _input.Player.Enable();
-            builder.Register<Inventory>(Lifetime.Singleton); // Now we have only one inventory - for player. But Inventory class is extendable
-            builder.Register<ItemSelector>(Lifetime.Singleton)
+            builder.Register<Inventory>(Lifetime.Scoped); // Now we have only one inventory - for player. But Inventory class is extendable
+            builder.Register<ItemSelector>(Lifetime.Scoped)
                 .As<ITickable>()
                 .As<IInitializable>()
                 .AsSelf();
