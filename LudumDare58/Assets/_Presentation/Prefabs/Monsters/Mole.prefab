@@ -363,6 +363,7 @@ MonoBehaviour:
   vulnerableDamageSource: 2
   anim: {fileID: 4299726625013929894}
   spriteRenderer: {fileID: 8054067946362920385}
+  jarPrefab: {fileID: 3639538415716045171, guid: 23b4f75cbd4fba44e9c7f085b0969695, type: 3}
 --- !u!114 &4387116571906246955
 MonoBehaviour:
   m_ObjectHideFlags: 0
