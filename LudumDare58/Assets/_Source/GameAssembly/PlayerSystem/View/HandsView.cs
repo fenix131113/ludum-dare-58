@@ -19,14 +19,14 @@ namespace PlayerSystem.View
 
             var fullCircleDegrees = _playerAim.RotateAngle < 0 ? 360 + _playerAim.RotateAngle : _playerAim.RotateAngle;
 
-            var correct = rotations.Find(rot => IsInRange(fullCircleDegrees, rot.MinEdge, rot.MaxEdge));
-
             rotatePivot.localScale =
                 IsInRange(fullCircleDegrees, 270, 90) ? new Vector3(1, 1, 1) : new Vector3(1, -1, 1);
 
+            var correct = rotations.Find(rot => IsInRange(fullCircleDegrees, rot.MinEdge, rot.MaxEdge));
+
             if (correct != null)
             {
-                itemRenderer.sprite = correct.ItemRotation;
+                //temRenderer.sprite = correct.ItemRotation;
                 return;
             }
 

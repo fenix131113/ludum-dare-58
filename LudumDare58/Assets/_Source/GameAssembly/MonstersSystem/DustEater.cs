@@ -1,25 +1,16 @@
 ﻿using EntitySystem.Entities;
 using HealthSystem;
-using PlayerSystem;
+using UnityEngine;
 
 namespace MonstersSystem
 {
-    public class DustEater : PathHealthEntity
+    public class DustEater : PatrolPathHealthEntity
     {
-        private const DamageSourceType VULNERABLE_DAMAGE_SOURCE = DamageSourceType.CAMERA;
+        private const DamageSourceType VULNERABLE_DAMAGE_SOURCE = DamageSourceType.VACUUM_CLEANER;
 
-        private PathHealthEntity _entity;
+        [SerializeField] private MonsterVision vision;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            _entity = GetComponent<PathHealthEntity>();
-        }
-
-        protected override void Start()
-        {
-            _entity.SetTarget(FindFirstObjectByType<PlayerMovement>().transform);
-        }
+        private bool _isDamaged;
 
         public override void ChangeHealth(int health, DamageSourceType damageSource = DamageSourceType.UNKNOWN)
         {
@@ -27,6 +18,53 @@ namespace MonstersSystem
                 return;
 
             base.ChangeHealth(health, damageSource);
+        }
+
+        protected override void OnNativeDestinationReached()
+        {
+            base.OnNativeDestinationReached();
+
+            if (!IsPatrol && vision.CanSeeTarget)
+            {
+                MoveToFarthestPoint();
+            }
+        }
+
+        private void OnPlayerSpotted()
+        {
+            if (_isDamaged)
+                MoveToFarthestPoint();
+            else
+                StopMoving();
+        }
+
+        private void OnPlayerLost()
+        {
+            ResumeMoving();
+            StartPatrol();
+        }
+
+        private void OnHealthChangedEvent(int oldValue, int newValue)
+        {
+            if (newValue >= oldValue)
+                return;
+
+            _isDamaged = true;
+            MoveToFarthestPoint();
+        }
+
+        protected override void Bind()
+        {
+            vision.OnTargetSpotted += OnPlayerSpotted;
+            vision.OnTargetLost += OnPlayerLost;
+            OnHealthChanged += OnHealthChangedEvent;
+        }
+
+        protected override void Expose()
+        {
+            vision.OnTargetSpotted -= OnPlayerSpotted;
+            vision.OnTargetLost -= OnPlayerLost;
+            OnHealthChanged -= OnHealthChangedEvent;
         }
     }
 }

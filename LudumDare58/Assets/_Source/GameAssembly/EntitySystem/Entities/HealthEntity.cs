@@ -15,9 +15,8 @@ namespace EntitySystem.Entities
         public event Action<int, int> OnHealthChanged;
         public event Action OnDeath;
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            base.Awake();
             _health = maxHealth;
         }
 
