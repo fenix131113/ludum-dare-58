@@ -23,6 +23,12 @@ namespace LevelsSystem
         
         private void Start()
         {
+            if (FindAnyObjectByType<InterLevelData>())
+            {
+                Destroy(gameObject);
+                return;
+            }
+            
             DontDestroyOnLoad(gameObject);
 
             SceneManager.sceneLoaded += OnSceneLoaded;
