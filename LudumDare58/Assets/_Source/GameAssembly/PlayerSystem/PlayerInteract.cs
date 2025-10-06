@@ -62,11 +62,8 @@ namespace PlayerSystem
 
         private void Interact(InputAction.CallbackContext callbackContext)
         {
-            Debug.Log("Interact");
             if (!_currentTarget || !_gameVariables.CanInteract || !_input.Player.enabled)
                 return;
-
-            Debug.Log("Interact Success");
             
             _currentTargetView?.OnInteract();
             _currentTarget.GetComponent<IInteractable>().Interact();
