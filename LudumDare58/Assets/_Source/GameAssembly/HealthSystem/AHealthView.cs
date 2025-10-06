@@ -5,7 +5,7 @@ namespace HealthSystem
 {
     public abstract class AHealthView : MonoBehaviour
     {
-        [SerializeField] private HealthEntity healthEntity;
+        [SerializeField] protected HealthEntity healthEntity;
 
         protected virtual void Start() => Bind();
 
@@ -13,9 +13,7 @@ namespace HealthSystem
 
         protected virtual void OnHealthChanged(int oldValue, int newValue) => Draw(oldValue, newValue);
 
-        protected virtual void Draw(int oldValue, int newValue)
-        {
-        }
+        protected abstract void Draw(int oldValue, int newValue);
 
         protected virtual void Bind() => healthEntity.OnHealthChanged += OnHealthChanged;
 
