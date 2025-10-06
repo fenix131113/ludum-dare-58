@@ -34,7 +34,7 @@ namespace WeaponsSystem
 
         private void OnAttackInput(InputAction.CallbackContext context)
         {
-            if (!_gameVariables.CanUseItems)
+            if (!_gameVariables.CanUseItems || !_input.Player.enabled)
                 return;
 
             if (Time.time >= _nextShotTime || _nextShotTime == 0)

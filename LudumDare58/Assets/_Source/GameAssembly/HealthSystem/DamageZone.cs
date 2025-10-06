@@ -21,6 +21,8 @@ namespace HealthSystem
 
         public void SetDamage(int damage) => Damage = damage;
 
+        public void SetDeactivationTime(float value) => deactivationTime = value;
+        
         public void SetInstantDeactivateAfterTrigger(bool value) => instantDeactivateAfterTrigger = value;
 
         public void SetZoneActive(bool active, HealthType[] overwriteDamageTo = null)

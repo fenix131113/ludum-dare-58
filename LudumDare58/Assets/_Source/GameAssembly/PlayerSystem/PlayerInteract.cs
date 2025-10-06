@@ -61,7 +61,7 @@ namespace PlayerSystem
 
         private void Interact(InputAction.CallbackContext callbackContext)
         {
-            if (!_currentTarget || _gameVariables.CanInteract)
+            if (!_currentTarget || _gameVariables.CanInteract || !_input.Player.enabled)
                 return;
 
             _currentTargetView?.OnInteract();

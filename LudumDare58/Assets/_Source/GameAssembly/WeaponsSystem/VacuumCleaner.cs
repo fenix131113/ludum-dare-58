@@ -25,7 +25,7 @@ namespace WeaponsSystem
 
         private void Update()
         {
-            if (!gameObject.activeSelf || !_gameVariables.CanUseItems)
+            if (!gameObject.activeSelf || !_gameVariables.CanUseItems || !_input.Player.enabled)
                 return;
 
             if (_overHeated)

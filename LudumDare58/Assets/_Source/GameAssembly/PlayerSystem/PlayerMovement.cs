@@ -25,8 +25,10 @@ namespace PlayerSystem
 
         private void FixedUpdate()
         {
-            if (_gameVariables.CanMove)
+            if (_gameVariables.CanMove && _input.Player.enabled)
                 Move(_input.Player.Move.ReadValue<Vector2>()); // Normalized in InputActions
+            else
+                Move(Vector2.zero);
         }
 
         public void Move(Vector2 movement)

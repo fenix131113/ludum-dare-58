@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DG.Tweening;
 using HealthSystem;
 using UnityEngine;
 
@@ -8,18 +9,28 @@ namespace MonstersSystem.View
     {
         [SerializeField] private int healthPerHpUnit;
         [SerializeField] private Transform hpUnitsContainer;
+        [SerializeField] private SpriteRenderer monsterRenderer;
         [SerializeField] private HealthUnit hpUnitPrefab;
+        [SerializeField] private Color damageColor;
+        [SerializeField] private float hitColorTime;
 
         private readonly List<HealthUnit> _healthUnits = new();
+
+        private Color _startColor;
 
         protected override void Start()
         {
             base.Start();
+            _startColor = monsterRenderer.color;
             InitializeHpUnits();
         }
 
         protected override void Draw(int oldValue, int newValue)
         {
+            if (newValue < oldValue)
+                monsterRenderer.DOColor(damageColor, hitColorTime / 2).onComplete +=
+                    () => monsterRenderer.DOColor(_startColor, hitColorTime / 2);
+
             var temp = healthEntity.GetMaxHealth() - newValue;
 
             foreach (var t in _healthUnits)
@@ -34,8 +45,8 @@ namespace MonstersSystem.View
                     t.SetDamage(temp);
                     temp = 0;
                 }
-                
-                if(temp == 0)
+
+                if (temp == 0)
                     return;
             }
         }

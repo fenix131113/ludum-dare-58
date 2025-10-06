@@ -6,7 +6,7 @@ namespace MonstersSystem
 {
     public class DustEater : PatrolPathHealthEntity
     {
-        private const DamageSourceType VULNERABLE_DAMAGE_SOURCE = DamageSourceType.VACUUM_CLEANER;
+        private const DamageSourceType VULNERABLE_DAMAGE_SOURCE = DamageSourceType.FLUTE;
 
         [SerializeField] private MonsterVision vision;
 

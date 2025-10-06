@@ -67,7 +67,6 @@ namespace MonstersSystem
             
             if (!CanSeeTarget)
             {
-                Debug.Log("123");
                 var rayResult = Physics2D.Raycast(transform.position, _targetInZone.position - transform.position,
                     float.PositiveInfinity, ~ignoreLayer);
 

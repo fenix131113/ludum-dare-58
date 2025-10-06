@@ -16,6 +16,7 @@ namespace PlayerSystem.View
         [SerializeField] private ItemCell inventoryCellPrefab;
         [SerializeField] private ItemDataSO data;
         [SerializeField] private ItemDataSO cameraData;
+        [SerializeField] private ItemDataSO fluteData;
 
         [Inject] private Inventory _inventory;
         private ItemCell _currentBindingCell;
@@ -30,6 +31,7 @@ namespace PlayerSystem.View
             Bind();
             _inventory.TryAddItem(data.GenerateItemInstance());
             _inventory.TryAddItem(cameraData.GenerateItemInstance());
+            _inventory.TryAddItem(fluteData.GenerateItemInstance());
         }
 
         private void OnDestroy() => Expose();

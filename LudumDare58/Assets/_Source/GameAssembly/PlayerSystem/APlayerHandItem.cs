@@ -5,8 +5,6 @@ namespace PlayerSystem
     public abstract class APlayerHandItem : MonoBehaviour
     {
         protected bool _exposed = true;
-        
-        protected virtual void Start(){}
 
         protected virtual void OnDestroy() => Expose();
 

@@ -29,7 +29,7 @@ namespace PlayerSystem
 
         public void Tick()
         {
-            if (!_gameVariables.CanChangeItems || _playerInventoryView.ActiveCells.Count == 0)
+            if (!_gameVariables.CanChangeItems || _playerInventoryView.ActiveCells.Count == 0 || !_input.Player.enabled)
                 return;
 
             if (Mouse.current.scroll.y.ReadValue() > 0)
@@ -68,7 +68,7 @@ namespace PlayerSystem
 
         private void OnSlotPerformed(InputAction.CallbackContext context)
         {
-            if (!_gameVariables.CanChangeItems)
+            if (!_gameVariables.CanChangeItems || !_input.Player.enabled)
                 return;
 
             var index = context.action.name switch

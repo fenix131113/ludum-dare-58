@@ -489,6 +489,254 @@ namespace PlayerSystem
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Flute"",
+            ""id"": ""219974b2-8d33-46c1-ba7d-4ce8c72cb192"",
+            ""actions"": [
+                {
+                    ""name"": ""Q"",
+                    ""type"": ""Button"",
+                    ""id"": ""7ab8988e-4617-4ed2-8abe-ba05200e861a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""W"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c2df55c-1e75-40f5-9971-2506acac23e6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""E"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1505602-0da1-49a4-9a9f-f8f8bda0f4e6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""R"",
+                    ""type"": ""Button"",
+                    ""id"": ""84940cad-cae7-4067-9c59-fdf65f7e105e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""A"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ad6c7ef-5d5e-4e97-9759-1c45ebf861e2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""S"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1b19e11-084f-443a-ba03-ef1886d2b740"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""D"",
+                    ""type"": ""Button"",
+                    ""id"": ""2486006c-e521-462b-a807-2e087e9066f3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""F"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ce3efe4-b9d2-4c96-82d4-8aa603b69656"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Z"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6136223-374f-48d1-bff9-422b0565ec88"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""X"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b35c046-11e8-43d1-9f6f-6670adda625b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""C"",
+                    ""type"": ""Button"",
+                    ""id"": ""4fc5f816-5b45-4e57-995f-23fcb1dd1434"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""V"",
+                    ""type"": ""Button"",
+                    ""id"": ""655dc144-e456-4c85-8a81-f8e9cd9c20a9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""10bb4e0f-7c66-4065-bca2-593d4958f8ef"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Q"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2043535d-3115-4e1a-a263-dfef3d2294ab"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""W"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20758e55-10f5-4580-b52b-de7dbae8ef2d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""E"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbe0a41a-0e19-4d63-80d6-5e8d16f6e859"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""R"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb2029ac-7b54-48b5-997a-a1dd02c9c469"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""A"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3785907-b0ab-4f34-b65c-a8f7e0defed4"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""S"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ede211b3-4314-40a2-888c-964305e3b454"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""D"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21434fc3-451e-4cd6-8b49-801cbfdb329f"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""F"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a33f8634-3876-4381-996e-3959a73167e3"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Z"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5c4a257-ee9e-4618-9b8f-a1357ed9d20b"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""X"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4195fc76-8f8b-442a-83cc-c3ed87f3b4eb"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""C"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""523afed9-7758-4a1f-9870-38088bb47f4b"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""V"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -569,11 +817,26 @@ namespace PlayerSystem
             m_Player_NinthSlot = m_Player.FindAction("NinthSlot", throwIfNotFound: true);
             m_Player_TenSlot = m_Player.FindAction("TenSlot", throwIfNotFound: true);
             m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+            // Flute
+            m_Flute = asset.FindActionMap("Flute", throwIfNotFound: true);
+            m_Flute_Q = m_Flute.FindAction("Q", throwIfNotFound: true);
+            m_Flute_W = m_Flute.FindAction("W", throwIfNotFound: true);
+            m_Flute_E = m_Flute.FindAction("E", throwIfNotFound: true);
+            m_Flute_R = m_Flute.FindAction("R", throwIfNotFound: true);
+            m_Flute_A = m_Flute.FindAction("A", throwIfNotFound: true);
+            m_Flute_S = m_Flute.FindAction("S", throwIfNotFound: true);
+            m_Flute_D = m_Flute.FindAction("D", throwIfNotFound: true);
+            m_Flute_F = m_Flute.FindAction("F", throwIfNotFound: true);
+            m_Flute_Z = m_Flute.FindAction("Z", throwIfNotFound: true);
+            m_Flute_X = m_Flute.FindAction("X", throwIfNotFound: true);
+            m_Flute_C = m_Flute.FindAction("C", throwIfNotFound: true);
+            m_Flute_V = m_Flute.FindAction("V", throwIfNotFound: true);
         }
 
         ~@InputSystem_Actions()
         {
             UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Flute.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Flute.Disable() has not been called.");
         }
 
         /// <summary>
@@ -873,6 +1136,223 @@ namespace PlayerSystem
         /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
         /// </summary>
         public PlayerActions @Player => new PlayerActions(this);
+
+        // Flute
+        private readonly InputActionMap m_Flute;
+        private List<IFluteActions> m_FluteActionsCallbackInterfaces = new List<IFluteActions>();
+        private readonly InputAction m_Flute_Q;
+        private readonly InputAction m_Flute_W;
+        private readonly InputAction m_Flute_E;
+        private readonly InputAction m_Flute_R;
+        private readonly InputAction m_Flute_A;
+        private readonly InputAction m_Flute_S;
+        private readonly InputAction m_Flute_D;
+        private readonly InputAction m_Flute_F;
+        private readonly InputAction m_Flute_Z;
+        private readonly InputAction m_Flute_X;
+        private readonly InputAction m_Flute_C;
+        private readonly InputAction m_Flute_V;
+        /// <summary>
+        /// Provides access to input actions defined in input action map "Flute".
+        /// </summary>
+        public struct FluteActions
+        {
+            private @InputSystem_Actions m_Wrapper;
+
+            /// <summary>
+            /// Construct a new instance of the input action map wrapper class.
+            /// </summary>
+            public FluteActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/Q".
+            /// </summary>
+            public InputAction @Q => m_Wrapper.m_Flute_Q;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/W".
+            /// </summary>
+            public InputAction @W => m_Wrapper.m_Flute_W;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/E".
+            /// </summary>
+            public InputAction @E => m_Wrapper.m_Flute_E;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/R".
+            /// </summary>
+            public InputAction @R => m_Wrapper.m_Flute_R;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/A".
+            /// </summary>
+            public InputAction @A => m_Wrapper.m_Flute_A;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/S".
+            /// </summary>
+            public InputAction @S => m_Wrapper.m_Flute_S;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/D".
+            /// </summary>
+            public InputAction @D => m_Wrapper.m_Flute_D;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/F".
+            /// </summary>
+            public InputAction @F => m_Wrapper.m_Flute_F;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/Z".
+            /// </summary>
+            public InputAction @Z => m_Wrapper.m_Flute_Z;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/X".
+            /// </summary>
+            public InputAction @X => m_Wrapper.m_Flute_X;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/C".
+            /// </summary>
+            public InputAction @C => m_Wrapper.m_Flute_C;
+            /// <summary>
+            /// Provides access to the underlying input action "Flute/V".
+            /// </summary>
+            public InputAction @V => m_Wrapper.m_Flute_V;
+            /// <summary>
+            /// Provides access to the underlying input action map instance.
+            /// </summary>
+            public InputActionMap Get() { return m_Wrapper.m_Flute; }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+            public void Enable() { Get().Enable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+            public void Disable() { Get().Disable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+            public bool enabled => Get().enabled;
+            /// <summary>
+            /// Implicitly converts an <see ref="FluteActions" /> to an <see ref="InputActionMap" /> instance.
+            /// </summary>
+            public static implicit operator InputActionMap(FluteActions set) { return set.Get(); }
+            /// <summary>
+            /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <param name="instance">Callback instance.</param>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+            /// </remarks>
+            /// <seealso cref="FluteActions" />
+            public void AddCallbacks(IFluteActions instance)
+            {
+                if (instance == null || m_Wrapper.m_FluteActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_FluteActionsCallbackInterfaces.Add(instance);
+                @Q.started += instance.OnQ;
+                @Q.performed += instance.OnQ;
+                @Q.canceled += instance.OnQ;
+                @W.started += instance.OnW;
+                @W.performed += instance.OnW;
+                @W.canceled += instance.OnW;
+                @E.started += instance.OnE;
+                @E.performed += instance.OnE;
+                @E.canceled += instance.OnE;
+                @R.started += instance.OnR;
+                @R.performed += instance.OnR;
+                @R.canceled += instance.OnR;
+                @A.started += instance.OnA;
+                @A.performed += instance.OnA;
+                @A.canceled += instance.OnA;
+                @S.started += instance.OnS;
+                @S.performed += instance.OnS;
+                @S.canceled += instance.OnS;
+                @D.started += instance.OnD;
+                @D.performed += instance.OnD;
+                @D.canceled += instance.OnD;
+                @F.started += instance.OnF;
+                @F.performed += instance.OnF;
+                @F.canceled += instance.OnF;
+                @Z.started += instance.OnZ;
+                @Z.performed += instance.OnZ;
+                @Z.canceled += instance.OnZ;
+                @X.started += instance.OnX;
+                @X.performed += instance.OnX;
+                @X.canceled += instance.OnX;
+                @C.started += instance.OnC;
+                @C.performed += instance.OnC;
+                @C.canceled += instance.OnC;
+                @V.started += instance.OnV;
+                @V.performed += instance.OnV;
+                @V.canceled += instance.OnV;
+            }
+
+            /// <summary>
+            /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <remarks>
+            /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+            /// </remarks>
+            /// <seealso cref="FluteActions" />
+            private void UnregisterCallbacks(IFluteActions instance)
+            {
+                @Q.started -= instance.OnQ;
+                @Q.performed -= instance.OnQ;
+                @Q.canceled -= instance.OnQ;
+                @W.started -= instance.OnW;
+                @W.performed -= instance.OnW;
+                @W.canceled -= instance.OnW;
+                @E.started -= instance.OnE;
+                @E.performed -= instance.OnE;
+                @E.canceled -= instance.OnE;
+                @R.started -= instance.OnR;
+                @R.performed -= instance.OnR;
+                @R.canceled -= instance.OnR;
+                @A.started -= instance.OnA;
+                @A.performed -= instance.OnA;
+                @A.canceled -= instance.OnA;
+                @S.started -= instance.OnS;
+                @S.performed -= instance.OnS;
+                @S.canceled -= instance.OnS;
+                @D.started -= instance.OnD;
+                @D.performed -= instance.OnD;
+                @D.canceled -= instance.OnD;
+                @F.started -= instance.OnF;
+                @F.performed -= instance.OnF;
+                @F.canceled -= instance.OnF;
+                @Z.started -= instance.OnZ;
+                @Z.performed -= instance.OnZ;
+                @Z.canceled -= instance.OnZ;
+                @X.started -= instance.OnX;
+                @X.performed -= instance.OnX;
+                @X.canceled -= instance.OnX;
+                @C.started -= instance.OnC;
+                @C.performed -= instance.OnC;
+                @C.canceled -= instance.OnC;
+                @V.started -= instance.OnV;
+                @V.performed -= instance.OnV;
+                @V.canceled -= instance.OnV;
+            }
+
+            /// <summary>
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="FluteActions.UnregisterCallbacks(IFluteActions)" />.
+            /// </summary>
+            /// <seealso cref="FluteActions.UnregisterCallbacks(IFluteActions)" />
+            public void RemoveCallbacks(IFluteActions instance)
+            {
+                if (m_Wrapper.m_FluteActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            /// <summary>
+            /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+            /// </summary>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+            /// </remarks>
+            /// <seealso cref="FluteActions.AddCallbacks(IFluteActions)" />
+            /// <seealso cref="FluteActions.RemoveCallbacks(IFluteActions)" />
+            /// <seealso cref="FluteActions.UnregisterCallbacks(IFluteActions)" />
+            public void SetCallbacks(IFluteActions instance)
+            {
+                foreach (var item in m_Wrapper.m_FluteActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_FluteActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        /// <summary>
+        /// Provides a new <see cref="FluteActions" /> instance referencing this action map.
+        /// </summary>
+        public FluteActions @Flute => new FluteActions(this);
         private int m_KeyboardMouseSchemeIndex = -1;
         /// <summary>
         /// Provides access to the input control scheme.
@@ -1036,6 +1516,98 @@ namespace PlayerSystem
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnAttack(InputAction.CallbackContext context);
+        }
+        /// <summary>
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Flute" which allows adding and removing callbacks.
+        /// </summary>
+        /// <seealso cref="FluteActions.AddCallbacks(IFluteActions)" />
+        /// <seealso cref="FluteActions.RemoveCallbacks(IFluteActions)" />
+        public interface IFluteActions
+        {
+            /// <summary>
+            /// Method invoked when associated input action "Q" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnQ(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "W" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnW(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "E" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnE(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "R" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnR(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "A" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnA(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "S" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnS(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "D" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnD(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "F" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnF(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Z" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnZ(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "X" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnX(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "C" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnC(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "V" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnV(InputAction.CallbackContext context);
         }
     }
 }
