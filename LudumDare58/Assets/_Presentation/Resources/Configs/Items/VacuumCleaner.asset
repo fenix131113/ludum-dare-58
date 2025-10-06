@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: VacuumCleaner
   m_EditorClassIdentifier: GameAssembly::ItemsSystem.Data.WeaponItemDataSO
   <ItemName>k__BackingField: Vacuum Cleaner
-  <MaxCount>k__BackingField: 1
+  <MaxCount>k__BackingField: 999
   <Icon>k__BackingField: {fileID: 21300000, guid: c6f75b1f0a277664a92814a1ad5e9092, type: 3}
   <Damage>k__BackingField: 2
   <AttackDistance>k__BackingField: 3
