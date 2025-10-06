@@ -11,7 +11,7 @@ using VContainer.Unity;
 
 namespace PlayerSystem
 {
-    public class ItemSelector : IInitializable, ITickable
+    public class ItemSelector : IInitializable, ITickable, IDisposable
     {
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
@@ -23,7 +23,10 @@ namespace PlayerSystem
 
         public void Initialize() => Bind();
 
-        ~ItemSelector() => Expose();
+        ~ItemSelector()
+        {
+            Dispose(false);
+        }
 
         public event Action<Item, Item> OnSelectedItemChanged;
 
@@ -166,6 +169,21 @@ namespace PlayerSystem
             _input.Player.EightSlot.performed -= OnSlotPerformed;
             _input.Player.NinthSlot.performed -= OnSlotPerformed;
             _input.Player.TenSlot.performed -= OnSlotPerformed;
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                Expose();
+                _input?.Dispose();
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }
