@@ -1,11 +1,12 @@
 ﻿using System;
 using BaseSystem;
+using InteractionSystem;
 using PlayerSystem;
 using UnityEngine;
 using Utils;
 using VContainer;
 
-namespace InteractionSystem.Objects
+namespace MonstersSystem
 {
     public class MonsterJar : MonoBehaviour, IInteractable
     {

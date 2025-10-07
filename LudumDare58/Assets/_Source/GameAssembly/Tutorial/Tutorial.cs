@@ -1,4 +1,5 @@
-﻿using PlayerSystem;
+﻿using LevelsSystem;
+using PlayerSystem;
 using UnityEngine;
 using VContainer;
 
@@ -7,12 +8,13 @@ namespace Tutorial
     public class Tutorial : MonoBehaviour //TODO: Disable tutorial show every level load
     {
         [SerializeField] private GameObject tutorialObject;
-        
+
         [Inject] private InputSystem_Actions _input;
 
         private void Start()
         {
-            ActivateTutorial();
+            if (FindFirstObjectByType<InterLevelData>().CompletedLevels.Count == 0)
+                ActivateTutorial();
         }
 
         private void ActivateTutorial()

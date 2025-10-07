@@ -1,6 +1,5 @@
 ﻿using EntitySystem.Entities;
 using HealthSystem;
-using InteractionSystem.Objects;
 using UnityEngine;
 
 namespace MonstersSystem
