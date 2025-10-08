@@ -6,5 +6,6 @@
         MOLE = 1,
         POTATO = 2,
         MIMIC = 3,
+        BOSS = 4,
     }
 }
