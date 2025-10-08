@@ -77,7 +77,7 @@ namespace PlayerSystem.View
 
         private void AddCellToPool(ItemCell cell)
         {
-            if (_cellsPool.Contains(cell))
+            if (!cell || _cellsPool.Contains(cell))
                 return;
 
             if (_activeCells.Contains(cell))

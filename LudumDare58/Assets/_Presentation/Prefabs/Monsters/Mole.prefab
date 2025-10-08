@@ -53,7 +53,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 132
   checkWithRaycast: 1
-  recheckRayInterval: 0.5
+  recheckRayInterval: 0.3
 --- !u!58 &8030694369502042168
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8971416540395909024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2967982548444348447
 MonoBehaviour:
@@ -349,14 +349,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0e2dbb5a0d4d0193a09dfc2f845ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::MonstersSystem.DustEater
-  maxHealth: 3
+  maxHealth: 2
   healthType: 1
   path: {fileID: 3141103853790384088}
   destinationSetter: {fileID: 5392602917932038332}
   patrolPoints: []
   pickPointsRandomly: 0
-  waitOnPointTimeMin: 2
-  waitOnPointTimeMax: 3
+  waitOnPointTimeMin: 3
+  waitOnPointTimeMax: 5
   patrolFromStart: 1
   runAfterDamage: 0
   vision: {fileID: 8870642426819323675}
@@ -381,8 +381,9 @@ MonoBehaviour:
   hpUnitsContainer: {fileID: 8971416540395909024}
   monsterRenderer: {fileID: 8054067946362920385}
   hpUnitPrefab: {fileID: 3171644866430330597, guid: 7126d332892cf1045b4186a81e75f2e6, type: 3}
-  damageColor: {r: 1, g: 0, b: 0, a: 1}
-  hitColorTime: 0.2
+  damageColor: {r: 1, g: 0.026796442, b: 0, a: 1}
+  hitColorTime: 0.4
+  deactivateTime: 3
 --- !u!114 &6558326423705275076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
   version: 5
-  radius: 0.72
+  radius: 0.6
   height: 0.01
   canMove: 1
   maxSpeed: 7
