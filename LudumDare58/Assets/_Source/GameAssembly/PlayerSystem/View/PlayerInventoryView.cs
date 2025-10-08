@@ -29,10 +29,11 @@ namespace PlayerSystem.View
         private void Start()
         {
             Bind();
-            if (data)
-                _inventory.TryAddItem(data.GenerateItemInstance());
+            
             if (cameraData)
                 _inventory.TryAddItem(cameraData.GenerateItemInstance());
+            if (data)
+                _inventory.TryAddItem(data.GenerateItemInstance());
             if (fluteData)
                 _inventory.TryAddItem(fluteData.GenerateItemInstance());
         }
