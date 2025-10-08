@@ -15,13 +15,14 @@ namespace LevelsSystem
     public class InterLevelData : MonoBehaviour
     {
         public IReadOnlyList<int> CompletedLevels => _completedLevels;
+        public IReadOnlyList<CollectableMonsterType> CollectedMonsters => _collectedMonsters;
 
         [Inject] private Inventory _playerInventory;
         [Inject] private PlayerResources _playerResources;
 
         private List<Item> _playerItems = new();
         private readonly List<int> _completedLevels = new();
-        private readonly HashSet<CollectableMonsterType> _collectedMonsters = new();
+        private readonly List<CollectableMonsterType> _collectedMonsters = new();
         private ALevelTransition _levelTransition;
         private int _lastGameSceneIndex;
 

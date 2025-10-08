@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 6cb62fe65141a124f8d599e8013d2ae5
+guid: ca8d1d2139a8b3c42bec333e6577b31a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8131487521811938408
-    second: Monsters in jars_0
+      213: -258865213733338440
+    second: MobTrader_0
   - first:
-      213: -8240470063028325930
-    second: Monsters in jars_1
+      213: -370536658116381223
+    second: MobTrader_1
   - first:
-      213: -4262272480990673584
-    second: Monsters in jars_2
+      213: 7196678670262322412
+    second: MobTrader_2
   - first:
-      213: -4599796824138420699
-    second: Monsters in jars_3
+      213: -83471431521422170
+    second: MobTrader_3
   - first:
-      213: 5664531603333323036
-    second: Monsters in jars_4
+      213: 890343879609051774
+    second: MobTrader_4
   - first:
-      213: 6676539601825304537
-    second: Monsters in jars_5
+      213: -7099749930693902449
+    second: MobTrader_5
   - first:
-      213: -3945006885148794749
-    second: Monsters in jars_6
+      213: -3418862972556298130
+    second: MobTrader_6
   - first:
-      213: -3714877229967238369
-    second: Monsters in jars_7
-  - first:
-      213: 6873682983172503632
-    second: Monsters in jars_8
+      213: 2048759259464894071
+    second: MobTrader_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,199 +134,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MonstersInJars_0
+      name: MobTrader_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 48
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 164526f312c74924484c1bc399ad308c
-      internalID: -279520799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MonstersInJars_1
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 48
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67adacf3a8e0b5a44862762ad932bcf1
-      internalID: 231271549
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MonstersInJars_2
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 48
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2915e5a530c4064782ce10804ddfe5e
-      internalID: -1856499823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MonstersInJars_3
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 48
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17e593fcef6e9aa48a8d0d7f791abc50
-      internalID: -41731180
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MonstersInJars_5
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 0
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9a21396ba7d05f4f8e17e7cc65824b1
-      internalID: -1482008478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MonstersInJars_6
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 0
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8eaa556909c8fa948a9f43af3e801a60
-      internalID: 1660664435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MonstersInJars_7
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 0
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2ceaf722b8cbcd40bc59b0a57a8424f
-      internalID: -2134225732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MonstersInJars_8
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 0
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61db1edd429e67344a7b99a192faf06b
-      internalID: 1467025015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MonstersInJars_4
-      rect:
-        serializedVersion: 2
-        x: 139
-        y: 0
-        width: 9
-        height: 10
+        x: 8
+        y: 5
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bb1b208f8e7865748a9168520bc3f2c1
-      internalID: 915296117
+      spriteID: 8b208baa573586cf0800000000000000
+      internalID: -258865213733338440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobTrader_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 4
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d576b46fd69bdaf0800000000000000
+      internalID: -370536658116381223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobTrader_2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 3
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce4cd97fe1dbfd360800000000000000
+      internalID: 7196678670262322412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobTrader_3
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 2
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a4b54fdc2377def0800000000000000
+      internalID: -83471431521422170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobTrader_4
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1
+        width: 36
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a6a009a032b5c00800000000000000
+      internalID: 890343879609051774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobTrader_5
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 2
+        width: 34
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fb2eadd0f987d90800000000000000
+      internalID: -7099749930693902449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobTrader_6
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 3
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e68bb098d32cd80d0800000000000000
+      internalID: -3418862972556298130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobTrader_7
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 4
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77682b211b7ae6c10800000000000000
+      internalID: 2048759259464894071
       vertices: []
       indices: 
       edges: []
@@ -338,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2b1a5e512240b58499bf578369abbe05
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -346,19 +321,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      MonstersInJars_0: -279520799
-      MonstersInJars_1: 231271549
-      MonstersInJars_2: -1856499823
-      MonstersInJars_3: -41731180
-      MonstersInJars_4: 915296117
-      MonstersInJars_5: -1482008478
-      MonstersInJars_6: 1660664435
-      MonstersInJars_7: -2134225732
-      MonstersInJars_8: 1467025015
+      MobTrader_0: -258865213733338440
+      MobTrader_1: -370536658116381223
+      MobTrader_2: 7196678670262322412
+      MobTrader_3: -83471431521422170
+      MobTrader_4: 890343879609051774
+      MobTrader_5: -7099749930693902449
+      MobTrader_6: -3418862972556298130
+      MobTrader_7: 2048759259464894071
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
