@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using LevelsSystem;
+using PlayerSystem;
 using UnityEngine;
 using UnityEngine.UI;
+using VContainer;
 
 namespace BaseSystem.View
 {
@@ -16,6 +18,8 @@ namespace BaseSystem.View
         [SerializeField] private Button closeBookButton;
         [SerializeField] private Lectern lectern;
         [SerializeField] private List<BookLevelData> levelsData;
+        
+        [Inject] private InputSystem_Actions _input;
 
         private InterLevelData _interLevelData;
         private int _currentPageIndex;
@@ -32,11 +36,8 @@ namespace BaseSystem.View
 
         private void LoadCompletedLevels()
         {
-            foreach (var t in levelsData)
+            foreach (var t in levelsData.Where(t => _interLevelData.CompletedLevels.Contains(t.LevelIndex)))
             {
-                if (!_interLevelData.CompletedLevels.Contains(t.LevelIndex))
-                    continue;
-
                 foreach (var o in t.ObjectsToActivate)
                     o.SetActive(true);
                 foreach (var o in t.ObjectsToDeactivate)
@@ -49,11 +50,13 @@ namespace BaseSystem.View
 
         private void OpenBook()
         {
+            _input.Player.Disable();
             bookCanvas.gameObject.SetActive(true);
         }
 
         private void CloseBook()
         {
+            _input.Player.Enable();
             bookCanvas.gameObject.SetActive(false);
         }
 

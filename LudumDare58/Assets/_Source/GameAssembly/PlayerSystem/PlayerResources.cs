@@ -8,7 +8,7 @@ namespace PlayerSystem
     {
         public int JarsCount { get; private set; }
 
-        public HashSet<CollectableMonsterType> CollectedMonsters { get; private set; } = new();
+        public List<CollectableMonsterType> CollectedMonsters { get; private set; } = new();
 
         public void IncreaseJarsCount()
         {
@@ -18,7 +18,7 @@ namespace PlayerSystem
 
         public void AddCollectedMonster(CollectableMonsterType monster) => CollectedMonsters.Add(monster);
 
-        public void SetCollectedMonster(HashSet<CollectableMonsterType> set) => CollectedMonsters = set;
+        public void SetCollectedMonster(List<CollectableMonsterType> set) => CollectedMonsters = set;
 
         public event Action OnJarsCountChanged;
     }

@@ -72,8 +72,6 @@ namespace WeaponsSystem
         private void Shoot()
         {
             vfx.SetActive(true);
-            //var direction = new Vector2(Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),
-            //  -Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad));
 
             var dir = new Vector2(
                 Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),
@@ -97,14 +95,12 @@ namespace WeaponsSystem
         {
             if (!_playerAim || !data)
                 return;
-
-            //var direction = new Vector2(Mathf.Cos(transform.parent.rotation.z * Mathf.Deg2Rad),
-            //    Mathf.Sin(transform.parent.rotation.z * _playerAim.RotateAngle * Mathf.Deg2Rad));
-
+            
             var dir = new Vector2(
                 Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),
                 Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad)
             );
+            
             Gizmos.color = Color.yellow;
             Gizmos.DrawRay(transform.position, dir * data.AttackDistance);
         }

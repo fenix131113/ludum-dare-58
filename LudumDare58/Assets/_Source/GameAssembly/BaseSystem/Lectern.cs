@@ -1,6 +1,8 @@
 ﻿using System;
 using InteractionSystem;
+using PlayerSystem;
 using UnityEngine;
+using VContainer;
 
 namespace BaseSystem
 {
@@ -10,8 +12,6 @@ namespace BaseSystem
         
         public void Interact()
         {
-            
-            
             OnInteracted?.Invoke();
         }
     }

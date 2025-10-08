@@ -15,25 +15,26 @@ namespace LevelsSystem
     public class InterLevelData : MonoBehaviour
     {
         public IReadOnlyList<int> CompletedLevels => _completedLevels;
+        public IReadOnlyList<CollectableMonsterType> CollectedMonsters => _collectedMonsters;
 
         [Inject] private Inventory _playerInventory;
         [Inject] private PlayerResources _playerResources;
 
         private List<Item> _playerItems = new();
         private readonly List<int> _completedLevels = new();
-        private readonly HashSet<CollectableMonsterType> _collectedMonsters = new();
-        private LevelTransition _transition;
+        private readonly List<CollectableMonsterType> _collectedMonsters = new();
+        private ALevelTransition _levelTransition;
         private int _lastGameSceneIndex;
 
         private void Start()
         {
-            _transition = FindFirstObjectByType<LevelTransition>();
+            _levelTransition = FindFirstObjectByType<ALevelTransition>();
 
             if (SceneManager.GetActiveScene().buildIndex == 0 &&
                 _lastGameSceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
             {
                 _lastGameSceneIndex++;
-                _transition.SetSceneIndexToLoad(_lastGameSceneIndex);
+                _levelTransition.SetSceneIndexToLoad(_lastGameSceneIndex);
             }
 
             // Start works only on start lobby scene and will delete any new empty InterLevelData
@@ -59,18 +60,13 @@ namespace LevelsSystem
             StartCoroutine(DelayedStart());
         }
 
-        private void OnSceneTransition()
+        private void OnSceneLevelTransition()
         {
-            Debug.Log(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log(SceneManager.sceneCountInBuildSettings);
-            Debug.Log(_lastGameSceneIndex);
             if (SceneManager.GetActiveScene().buildIndex != 0 &&
                 _lastGameSceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
             {
                 _lastGameSceneIndex++;
             }
-
-            Debug.Log(_lastGameSceneIndex);
 
             if (!_completedLevels.Contains(SceneManager.GetActiveScene().buildIndex))
                 _completedLevels.Add(SceneManager.GetActiveScene().buildIndex);
@@ -81,25 +77,25 @@ namespace LevelsSystem
 
         private void Bind()
         {
-            _transition.OnTransition += OnSceneTransition;
+            _levelTransition.OnTransition += OnSceneLevelTransition;
         }
 
         private void Expose()
         {
-            _transition.OnTransition -= OnSceneTransition;
+            _levelTransition.OnTransition -= OnSceneLevelTransition;
         }
 
         private IEnumerator DelayedStart()
         {
             yield return null;
 
-            _transition = FindFirstObjectByType<LevelTransition>();
+            _levelTransition = FindFirstObjectByType<BaseLevelTransition>();
             ObjectInjector.InjectGameObject(gameObject);
             Bind();
             LoadData();
 
             if (SceneManager.GetActiveScene().buildIndex == 0)
-                _transition.SetSceneIndexToLoad(_lastGameSceneIndex);
+                _levelTransition.SetSceneIndexToLoad(_lastGameSceneIndex);
         }
     }
 }

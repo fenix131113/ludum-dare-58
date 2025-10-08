@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 2681666491541018499}
   - component: {fileID: 5317410113599593410}
   - component: {fileID: 5623980507450724596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls (COLLISION)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

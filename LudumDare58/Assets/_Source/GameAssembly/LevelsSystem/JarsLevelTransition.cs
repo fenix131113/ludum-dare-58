@@ -5,18 +5,18 @@ using VContainer;
 
 namespace LevelsSystem
 {
-    public class JarsTransitionCondition : MonoBehaviour
+    public class JarsLevelTransition : MonoBehaviour
     {
         [Inject] private PlayerResources _playerResources;
         
-        private LevelTransition _levelTransition;
+        private ALevelTransition _levelTransition;
         private int _needJarsCount;
 
         private void Awake()
         {
             _needJarsCount = FindObjectsByType<PathHealthEntity>(FindObjectsInactive.Include, FindObjectsSortMode.None)
                 .Length;
-            _levelTransition = FindFirstObjectByType<LevelTransition>();
+            _levelTransition = FindFirstObjectByType<ALevelTransition>();
         }
 
         private void Start() => Bind();

@@ -18,6 +18,10 @@ namespace EntitySystem.Entities
                 gameObject.AddComponent<Rigidbody2D>();
         }
 
+        public void Teleport(Transform target) => Teleport(target.position);
+
+        public virtual void Teleport(Vector3 position) => transform.position = position;
+
         protected virtual void Bind()
         {
         }
