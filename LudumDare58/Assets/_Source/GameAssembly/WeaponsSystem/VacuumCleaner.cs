@@ -4,6 +4,7 @@ using HealthSystem;
 using ItemsSystem.Data;
 using PlayerSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using VContainer;
 
 namespace WeaponsSystem
@@ -71,10 +72,15 @@ namespace WeaponsSystem
         private void Shoot()
         {
             vfx.SetActive(true);
-            var direction = new Vector2(Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),
-                Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad));
+            //var direction = new Vector2(Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),
+            //  -Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad));
 
-            var hit = Physics2D.Raycast(transform.position, direction, data.AttackDistance);
+            var dir = new Vector2(
+                Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),
+                Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad)
+            );
+
+            var hit = Physics2D.Raycast(transform.position, dir, data.AttackDistance);
 
             if (!hit)
                 return;
@@ -92,11 +98,15 @@ namespace WeaponsSystem
             if (!_playerAim || !data)
                 return;
 
-            var direction = new Vector2(Mathf.Cos(transform.parent.rotation.z * Mathf.Deg2Rad),
-                Mathf.Sin(transform.parent.rotation.z * _playerAim.RotateAngle * Mathf.Deg2Rad));
+            //var direction = new Vector2(Mathf.Cos(transform.parent.rotation.z * Mathf.Deg2Rad),
+            //    Mathf.Sin(transform.parent.rotation.z * _playerAim.RotateAngle * Mathf.Deg2Rad));
 
+            var dir = new Vector2(
+                Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),
+                Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad)
+            );
             Gizmos.color = Color.yellow;
-            Gizmos.DrawRay(transform.position, direction * data.AttackDistance);
+            Gizmos.DrawRay(transform.position, dir * data.AttackDistance);
         }
 #endif
     }

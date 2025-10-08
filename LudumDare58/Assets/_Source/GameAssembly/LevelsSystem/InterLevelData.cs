@@ -15,7 +15,7 @@ namespace LevelsSystem
     public class InterLevelData : MonoBehaviour
     {
         public IReadOnlyList<int> CompletedLevels => _completedLevels;
-        
+
         [Inject] private Inventory _playerInventory;
         [Inject] private PlayerResources _playerResources;
 
@@ -28,14 +28,14 @@ namespace LevelsSystem
         private void Start()
         {
             _transition = FindFirstObjectByType<LevelTransition>();
-            var sceneCount = SceneManager.sceneCountInBuildSettings;
 
-            if (SceneManager.GetActiveScene().buildIndex == 0 && _lastGameSceneIndex + 1 < sceneCount)
+            if (SceneManager.GetActiveScene().buildIndex == 0 &&
+                _lastGameSceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
             {
                 _lastGameSceneIndex++;
                 _transition.SetSceneIndexToLoad(_lastGameSceneIndex);
             }
-            
+
             // Start works only on start lobby scene and will delete any new empty InterLevelData
             if (FindObjectsByType<InterLevelData>(FindObjectsInactive.Include, FindObjectsSortMode.None).Length > 1)
             {
@@ -61,9 +61,20 @@ namespace LevelsSystem
 
         private void OnSceneTransition()
         {
+            Debug.Log(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log(SceneManager.sceneCountInBuildSettings);
+            Debug.Log(_lastGameSceneIndex);
+            if (SceneManager.GetActiveScene().buildIndex != 0 &&
+                _lastGameSceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
+            {
+                _lastGameSceneIndex++;
+            }
+
+            Debug.Log(_lastGameSceneIndex);
+
             if (!_completedLevels.Contains(SceneManager.GetActiveScene().buildIndex))
                 _completedLevels.Add(SceneManager.GetActiveScene().buildIndex);
-            
+
             _playerItems = _playerInventory.Items.ToList();
             Expose();
         }
@@ -86,6 +97,9 @@ namespace LevelsSystem
             ObjectInjector.InjectGameObject(gameObject);
             Bind();
             LoadData();
+
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+                _transition.SetSceneIndexToLoad(_lastGameSceneIndex);
         }
     }
 }

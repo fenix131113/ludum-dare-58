@@ -17,7 +17,11 @@ namespace LevelsSystem
         public event Action OnTransition;
 
 
-        public void SetSceneIndexToLoad(int sceneIndex) => sceneIndexToLoad = sceneIndex;
+        public void SetSceneIndexToLoad(int sceneIndex)
+        {
+            sceneIndexToLoad = sceneIndex;
+            Debug.Log(name);
+        }
 
         public void Transition()
         {
