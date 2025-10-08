@@ -35,7 +35,7 @@ namespace PlayerSystem
             if (!_gameVariables.CanChangeItems || _playerInventoryView.ActiveCells.Count == 0 || !_input.Player.enabled)
                 return;
 
-            if (Mouse.current.scroll.y.ReadValue() > 0)
+            if (Mouse.current.scroll.y.ReadValue() < 0)
             {
                 if (_currentSelectedIndex == -1)
                 {
@@ -51,7 +51,7 @@ namespace PlayerSystem
 
                 SelectCell(_currentSelectedIndex);
             }
-            else if (Mouse.current.scroll.y.ReadValue() < 0)
+            else if (Mouse.current.scroll.y.ReadValue() > 0)
             {
                 if (_currentSelectedIndex == -1)
                 {

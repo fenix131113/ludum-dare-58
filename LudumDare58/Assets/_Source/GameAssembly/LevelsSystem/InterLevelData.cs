@@ -23,9 +23,19 @@ namespace LevelsSystem
         private readonly List<int> _completedLevels = new();
         private readonly HashSet<CollectableMonsterType> _collectedMonsters = new();
         private LevelTransition _transition;
+        private int _lastGameSceneIndex;
 
         private void Start()
         {
+            _transition = FindFirstObjectByType<LevelTransition>();
+            var sceneCount = SceneManager.sceneCountInBuildSettings;
+
+            if (SceneManager.GetActiveScene().buildIndex == 0 && _lastGameSceneIndex + 1 < sceneCount)
+            {
+                _lastGameSceneIndex++;
+                _transition.SetSceneIndexToLoad(_lastGameSceneIndex);
+            }
+            
             // Start works only on start lobby scene and will delete any new empty InterLevelData
             if (FindObjectsByType<InterLevelData>(FindObjectsInactive.Include, FindObjectsSortMode.None).Length > 1)
             {

@@ -14,7 +14,7 @@ namespace WeaponsSystem
 {
     public class Flute : APlayerHandItem
     {
-        private static readonly char[] _possibleKeys = { 'Q', 'W', 'E', 'R', 'A', 'S', 'D', 'F', 'Z', 'X', 'C', 'V' };
+        private static readonly char[] _possibleKeys = { 'W', 'A', 'S', 'D' };
 
         [SerializeField] private WeaponItemDataSO data;
         [SerializeField] private int keysCombinationCount;
