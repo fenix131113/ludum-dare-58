@@ -16,7 +16,7 @@ MonoBehaviour:
   <MaxCount>k__BackingField: 999
   <Icon>k__BackingField: {fileID: 21300000, guid: cd8353ea9c6e4cb42883f8ad0e1c474c, type: 3}
   <Damage>k__BackingField: 1
-  <AttackDistance>k__BackingField: 10
+  <AttackDistance>k__BackingField: 20
   <ReloadTime>k__BackingField: 0
-  <ShootIntervalTime>k__BackingField: 3
+  <ShootIntervalTime>k__BackingField: 2
   <DamageTo>k__BackingField: 01
