@@ -1,4 +1,4 @@
-﻿using MonstersSystem;
+﻿using EntitySystem.Entities;
 using PlayerSystem;
 using UnityEngine;
 using VContainer;
@@ -14,7 +14,7 @@ namespace LevelsSystem
 
         private void Awake()
         {
-            _needJarsCount = FindObjectsByType<PatrolMonster>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            _needJarsCount = FindObjectsByType<PathHealthEntity>(FindObjectsInactive.Include, FindObjectsSortMode.None)
                 .Length;
             _levelTransition = FindFirstObjectByType<LevelTransition>();
         }

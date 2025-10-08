@@ -20,6 +20,8 @@ namespace LevelsSystem
 
         private void Start() => _interLevelData = FindFirstObjectByType<InterLevelData>();
 
+        public void SetSceneIndexToLoad(int sceneIndex) => sceneIndexToLoad = sceneIndex;
+
         public void Transition()
         {
             OnTransition?.Invoke();
