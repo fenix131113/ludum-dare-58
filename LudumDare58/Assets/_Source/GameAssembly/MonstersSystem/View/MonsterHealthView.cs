@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using HealthSystem;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace MonstersSystem.View
         [SerializeField] private HealthUnit hpUnitPrefab;
         [SerializeField] private Color damageColor;
         [SerializeField] private float hitColorTime;
+        [SerializeField] private float deactivateTime;
 
         private readonly List<HealthUnit> _healthUnits = new();
 
@@ -28,8 +30,13 @@ namespace MonstersSystem.View
         protected override void Draw(int oldValue, int newValue)
         {
             if (newValue < oldValue)
+            {
                 monsterRenderer.DOColor(damageColor, hitColorTime / 2).onComplete +=
                     () => monsterRenderer.DOColor(_startColor, hitColorTime / 2);
+                
+                hpUnitsContainer.gameObject.SetActive(true);
+                StartCoroutine(DeactivateHealthPoints());
+            }
 
             var temp = healthEntity.GetMaxHealth() - newValue;
 
@@ -65,6 +72,13 @@ namespace MonstersSystem.View
                 spawned.Initialize(healthPerHpUnit);
                 _healthUnits.Add(spawned);
             }
+        }
+
+        private IEnumerator DeactivateHealthPoints()
+        {
+            yield return new WaitForSeconds(deactivateTime);
+            
+            hpUnitsContainer.gameObject.SetActive(false);
         }
     }
 }
