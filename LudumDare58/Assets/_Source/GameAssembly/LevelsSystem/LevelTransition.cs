@@ -14,11 +14,8 @@ namespace LevelsSystem
         [SerializeField] private Image screenFader;
         [SerializeField] private int sceneIndexToLoad;
         
-        private InterLevelData _interLevelData;
-        
         public event Action OnTransition;
 
-        private void Start() => _interLevelData = FindFirstObjectByType<InterLevelData>();
 
         public void SetSceneIndexToLoad(int sceneIndex) => sceneIndexToLoad = sceneIndex;
 
