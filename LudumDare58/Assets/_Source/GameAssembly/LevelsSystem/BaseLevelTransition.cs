@@ -12,13 +12,10 @@ namespace LevelsSystem
 
         [SerializeField] private float fadeTime = 0.5f;
         [SerializeField] private Image screenFader;
-
+        
         public override event Action OnTransition;
         
-        public override void SetSceneIndexToLoad(int sceneIndex)
-        {
-            sceneIndexToLoad = sceneIndex;
-        }
+        public override void SetSceneIndexToLoad(int sceneIndex) => sceneIndexToLoad = sceneIndex;
 
         public override void Transition()
         {

@@ -3,6 +3,7 @@ using InventorySystem;
 using PlayerSystem;
 using PlayerSystem.Data;
 using PlayerSystem.View;
+using ShopSystem;
 using UnityEngine;
 using Utils;
 using VContainer;
@@ -42,6 +43,7 @@ namespace Core
             builder.RegisterInstance(playerConfig);
             builder.RegisterComponentInHierarchy<PlayerAim>();
             builder.RegisterComponentInHierarchy<PlayerInventoryView>();
+            builder.RegisterComponentInHierarchy<UpgradesImplementer>();
 
             #endregion
         }

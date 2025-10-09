@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Core;
+using Core.Data;
 using HealthSystem;
 using ItemsSystem.Data;
 using PlayerSystem;
@@ -14,17 +15,19 @@ namespace WeaponsSystem
     public class VacuumCleaner : APlayerHandItem
     {
         [SerializeField] private float overheatEdge;
-        [SerializeField] private WeaponItemDataSO data;
         [SerializeField] private GameObject vfx;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
         [Inject] private PlayerAim _playerAim;
+        [Inject] private LayersDataSO _layersData;
 
+        private WeaponItemDataSO Data => ItemData as WeaponItemDataSO;
         private float _lastShotTime;
         private float _shootingTime;
         private float _overheatedTime;
         private bool _overHeated;
+        private int _additionalDamage; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
 
         private void Update()
         {
@@ -37,7 +40,7 @@ namespace WeaponsSystem
             if (_overHeated)
             {
                 vfx.SetActive(false);
-                if (Time.time - _overheatedTime >= data.ReloadTime)
+                if (Time.time - _overheatedTime >= Data.ReloadTime)
                 {
                     _overHeated = false;
                     _shootingTime = 0;
@@ -50,7 +53,7 @@ namespace WeaponsSystem
             {
                 _shootingTime += Time.deltaTime;
 
-                if (_lastShotTime == 0 || Time.time - _lastShotTime >= data.ShootIntervalTime)
+                if (_lastShotTime == 0 || Time.time - _lastShotTime >= Data.ShootIntervalTime)
                 {
                     _lastShotTime = Time.time;
                     Shoot();
@@ -73,7 +76,7 @@ namespace WeaponsSystem
 
         private void Shoot()
         {
-            if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
+            if (EventSystem.current && EventSystem.current.IsPointerOverGameObject()) //TODO: Make abstraction for hand weapons
                 return;
 
             vfx.SetActive(true);
@@ -83,22 +86,25 @@ namespace WeaponsSystem
                 Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad)
             );
 
-            var hit = Physics2D.Raycast(transform.position, dir, data.AttackDistance);
+            var hit = Physics2D.Raycast(transform.position, dir, Data.AttackDistance, ~_layersData.PlayerLayer);
 
             if (!hit)
                 return;
 
+            Debug.Log(hit.collider.gameObject.name);
             var health = hit.transform.GetComponent<IHealth>();
-            if (health == null || !data.DamageTo.Contains(health.GetHealthType()))
+            if (health == null || !Data.DamageTo.Contains(health.GetHealthType()))
                 return;
 
-            health.ChangeHealth(-data.Damage, DamageSourceType.VACUUM_CLEANER);
+            health.ChangeHealth(-(Data.Damage + _additionalDamage), DamageSourceType.VACUUM_CLEANER);
         }
+
+        public void SetAdditionalDamage(int value) => _additionalDamage = value;
 
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
-            if (!_playerAim || !data)
+            if (!_playerAim || !Data)
                 return;
 
             var dir = new Vector2(
@@ -107,7 +113,7 @@ namespace WeaponsSystem
             );
 
             Gizmos.color = Color.yellow;
-            Gizmos.DrawRay(transform.position, dir * data.AttackDistance);
+            Gizmos.DrawRay(transform.position, dir * Data.AttackDistance);
         }
 #endif
     }

@@ -14,9 +14,6 @@ namespace PlayerSystem.View
         [field: SerializeField] public Transform CellsContent { get; private set; }
 
         [SerializeField] private ItemCell inventoryCellPrefab;
-        [SerializeField] private ItemDataSO data;
-        [SerializeField] private ItemDataSO cameraData;
-        [SerializeField] private ItemDataSO fluteData;
 
         [Inject] private Inventory _inventory;
         private ItemCell _currentBindingCell;
@@ -26,27 +23,23 @@ namespace PlayerSystem.View
 
         public event Action OnRedrawItemsCells;
 
-        private void Start()
-        {
-            Bind();
-            
-            if (cameraData)
-                _inventory.TryAddItem(cameraData.GenerateItemInstance());
-            if (data)
-                _inventory.TryAddItem(data.GenerateItemInstance());
-            if (fluteData)
-                _inventory.TryAddItem(fluteData.GenerateItemInstance());
-        }
+        private void Awake() => Bind();
 
         private void OnDestroy() => Expose();
 
-
         private void DrawInventory()
-        {
-            _activeCells.ToList().ForEach(AddCellToPool);
+        {   
+            _activeCells.ToList().ForEach(x =>
+            {
+                if (x.CurrentItem == null)
+                    AddCellToPool(x);
+            });
 
             foreach (var item in _inventory.Items)
             {
+                if(_activeCells.Any(x => x.CurrentItem == item))
+                    continue;
+                
                 var cell = TakeCellFromPool();
 
                 if (!cell)

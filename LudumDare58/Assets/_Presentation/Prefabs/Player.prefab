@@ -435,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24ffa0f91d4b388e21a21cba115bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::WeaponsSystem.CameraWeapon
+  <ItemData>k__BackingField: {fileID: 11400000, guid: d4f2e33edb25dbc4c8d77c47baf287f0, type: 2}
   cameraDamageZone: {fileID: 7157118088101512941}
-  data: {fileID: 11400000, guid: d4f2e33edb25dbc4c8d77c47baf287f0, type: 2}
 --- !u!1 &2708115014925349001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1256,7 @@ GameObject:
   - component: {fileID: 709596072672389433}
   - component: {fileID: 9023422334553870144}
   - component: {fileID: 6021584550492742612}
+  - component: {fileID: 3774199886410835703}
   - component: {fileID: 398085243058230612}
   - component: {fileID: 770872775300461877}
   m_Layer: 3
@@ -1351,7 +1352,6 @@ MonoBehaviour:
     <MinEdge>k__BackingField: 315
     <ItemRotation>k__BackingField: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   rotatePivot: {fileID: 7706463084195634308}
-  itemRenderer: {fileID: 0}
 --- !u!114 &9023422334553870144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,6 +1385,24 @@ MonoBehaviour:
     <HandsItem>k__BackingField: {fileID: 695078897604204648}
   - <Item>k__BackingField: {fileID: 11400000, guid: b9f497a8bd7f0c4498efb4a07c70bd05, type: 2}
     <HandsItem>k__BackingField: {fileID: 3625684090468715228}
+--- !u!114 &3774199886410835703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489648687787710046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec17e3a2cc944d3bb5ca631c1f099ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::ShopSystem.UpgradesImplementer
+  vacuumCleaner: {fileID: 5029120816595191136}
+  cameraWeapon: {fileID: 695078897604204648}
+  flute: {fileID: 3625684090468715228}
+  vacuumCleanerAdditionalDamage: 1
+  cameraTimeReduce: 1.5
+  fluteKeysReduceCount: 2
 --- !u!50 &398085243058230612
 Rigidbody2D:
   serializedVersion: 5
@@ -1494,8 +1512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b47a40d8f04482b8cdb295093fc432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::WeaponsSystem.VacuumCleaner
+  <ItemData>k__BackingField: {fileID: 11400000, guid: 8fdf2f36d9eb7634392e1bfc6c72e4bf, type: 2}
   overheatEdge: 5
-  data: {fileID: 11400000, guid: 8fdf2f36d9eb7634392e1bfc6c72e4bf, type: 2}
   vfx: {fileID: 2771651634679529069}
 --- !u!1 &7054397235290400685
 GameObject:
@@ -1723,7 +1741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf99dcfd991470d8e089c3c7297c9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::WeaponsSystem.Flute
-  data: {fileID: 11400000, guid: b9f497a8bd7f0c4498efb4a07c70bd05, type: 2}
+  <ItemData>k__BackingField: {fileID: 11400000, guid: b9f497a8bd7f0c4498efb4a07c70bd05, type: 2}
   keysCombinationCount: 5
   fluteButtonUiPrefab: {fileID: 7614450949176680978, guid: 16139cdaa4b7636468226bcfa55b64c4, type: 3}
   fluteButtonsContent: {fileID: 5340317891086895098}

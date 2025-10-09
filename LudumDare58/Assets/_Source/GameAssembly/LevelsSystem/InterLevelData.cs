@@ -4,7 +4,9 @@ using System.Linq;
 using BaseSystem;
 using InventorySystem;
 using ItemsSystem;
+using ItemsSystem.Data;
 using PlayerSystem;
+using ShopSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
@@ -16,10 +18,13 @@ namespace LevelsSystem
     {
         public IReadOnlyList<int> CompletedLevels => _completedLevels;
         public IReadOnlyList<CollectableMonsterType> CollectedMonsters => _collectedMonsters;
+        public IReadOnlyDictionary<ItemDataSO, int> BoughtItems => _boughtItems;
 
         [Inject] private Inventory _playerInventory;
         [Inject] private PlayerResources _playerResources;
+        [Inject] private UpgradesImplementer _upgradesImplementer;
 
+        private Dictionary<ItemDataSO, int> _boughtItems = new();
         private List<Item> _playerItems = new();
         private readonly List<int> _completedLevels = new();
         private readonly List<CollectableMonsterType> _collectedMonsters = new();
@@ -29,6 +34,7 @@ namespace LevelsSystem
         private void Start()
         {
             _levelTransition = FindFirstObjectByType<ALevelTransition>();
+            InitObject();
 
             if (SceneManager.GetActiveScene().buildIndex == 0 &&
                 _lastGameSceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
@@ -43,16 +49,19 @@ namespace LevelsSystem
                 Destroy(gameObject);
                 return;
             }
-
+            
             DontDestroyOnLoad(gameObject);
 
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        private void LoadData()
+        private void LoadDelayedData()
         {
             _playerItems.ForEach(x => _playerInventory.TryAddItem(x));
             _playerResources.SetCollectedMonster(_collectedMonsters);
+            
+            foreach (var item in BoughtItems)
+                _upgradesImplementer.ImplementUpgrade(item.Key);
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -70,10 +79,18 @@ namespace LevelsSystem
 
             if (!_completedLevels.Contains(SceneManager.GetActiveScene().buildIndex))
                 _completedLevels.Add(SceneManager.GetActiveScene().buildIndex);
-
+            
             _playerItems = _playerInventory.Items.ToList();
             Expose();
         }
+        
+        private void InitObject()
+        {
+            ObjectInjector.InjectGameObject(gameObject);
+            Bind();
+        }
+
+        public void SetBoughtItems(Dictionary<ItemDataSO, int> boughtItems) => _boughtItems = boughtItems;
 
         private void Bind()
         {
@@ -90,9 +107,8 @@ namespace LevelsSystem
             yield return null;
 
             _levelTransition = FindFirstObjectByType<BaseLevelTransition>();
-            ObjectInjector.InjectGameObject(gameObject);
-            Bind();
-            LoadData();
+            InitObject();
+            LoadDelayedData();
 
             if (SceneManager.GetActiveScene().buildIndex == 0)
                 _levelTransition.SetSceneIndexToLoad(_lastGameSceneIndex);

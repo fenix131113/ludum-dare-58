@@ -18,7 +18,6 @@ namespace WeaponsSystem
     {
         private static readonly char[] _possibleKeys = { 'W', 'A', 'S', 'D' };
 
-        [SerializeField] private WeaponItemDataSO data;
         [SerializeField] private int keysCombinationCount;
         [SerializeField] private Image fluteButtonUiPrefab;
         [SerializeField] private Transform fluteButtonsContent;
@@ -26,12 +25,14 @@ namespace WeaponsSystem
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
+        private WeaponItemDataSO Data => ItemData as WeaponItemDataSO;
 
         private readonly List<Image> _uiButtons = new();
 
         private List<char> _currentCombination;
         private int _currentCombinationIndex;
         private float _nextShotTime;
+        private int _keysReduceCount; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
 
         private void Update()
         {
@@ -75,7 +76,7 @@ namespace WeaponsSystem
         }
 
         private void AttackWave() => Instantiate(fluteCirclePrefab, transform.position, Quaternion.identity)
-            .SizeUp(data.AttackDistance, data.Damage);
+            .SizeUp(Data.AttackDistance, Data.Damage);
 
         private void OnIncorrectClick()
         {
@@ -110,25 +111,25 @@ namespace WeaponsSystem
             _input.Player.Disable();
             _currentCombination = new List<char>();
 
-            for (var i = 0; i < keysCombinationCount; i++)
+            for (var i = 0; i < keysCombinationCount - _keysReduceCount; i++)
                 _currentCombination.Add(_possibleKeys[Random.Range(0, _possibleKeys.Length)]);
 
             _currentCombinationIndex = 0;
             InitializeUi();
         }
         
-        private void SetAttackCooldown() => _nextShotTime = Time.time + data.ShootIntervalTime;
+        private void SetAttackCooldown() => _nextShotTime = Time.time + Data.ShootIntervalTime;
 
         private void InitializeUi()
         {
             if (_currentCombination == null)
                 return;
 
-            for (var i = 0; i < _currentCombination.Count; i++)
+            foreach (var combination in _currentCombination)
             {
                 var spawned = Instantiate(fluteButtonUiPrefab, fluteButtonsContent);
                 _uiButtons.Add(spawned);
-                spawned.transform.GetChild(0).GetComponent<TMP_Text>().text = _currentCombination[i].ToString();
+                spawned.transform.GetChild(0).GetComponent<TMP_Text>().text = combination.ToString();
             }
         }
 
@@ -139,6 +140,8 @@ namespace WeaponsSystem
 
             _uiButtons.Clear();
         }
+
+        public void SetKeysCount(int value) => _keysReduceCount = value;
 
         protected override void Bind()
         {
