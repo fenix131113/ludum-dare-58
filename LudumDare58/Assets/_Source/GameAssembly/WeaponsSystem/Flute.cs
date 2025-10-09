@@ -3,8 +3,10 @@ using System.Linq;
 using Core;
 using ItemsSystem.Data;
 using PlayerSystem;
+using PlayerSystem.View;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using VContainer;
@@ -93,9 +95,12 @@ namespace WeaponsSystem
 
         private void OnAttackInput(InputAction.CallbackContext context)
         {
-            if (!gameObject.activeSelf || !_gameVariables.CanUseItems  || !_input.Player.enabled)
+            if (!gameObject.activeSelf || !_gameVariables.CanUseItems || !_input.Player.enabled)
                 return;
-
+            
+            if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
+                return;
+            
             if (_nextShotTime == 0 || Time.time >= _nextShotTime)
                 Attack();
         }

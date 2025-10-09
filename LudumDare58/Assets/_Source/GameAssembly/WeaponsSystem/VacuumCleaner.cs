@@ -3,7 +3,9 @@ using Core;
 using HealthSystem;
 using ItemsSystem.Data;
 using PlayerSystem;
+using PlayerSystem.View;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using VContainer;
 
@@ -71,6 +73,9 @@ namespace WeaponsSystem
 
         private void Shoot()
         {
+            if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
+                return;
+
             vfx.SetActive(true);
 
             var dir = new Vector2(
@@ -95,12 +100,12 @@ namespace WeaponsSystem
         {
             if (!_playerAim || !data)
                 return;
-            
+
             var dir = new Vector2(
                 Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),
                 Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad)
             );
-            
+
             Gizmos.color = Color.yellow;
             Gizmos.DrawRay(transform.position, dir * data.AttackDistance);
         }
