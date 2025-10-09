@@ -2,7 +2,9 @@
 using HealthSystem;
 using ItemsSystem.Data;
 using PlayerSystem;
+using PlayerSystem.View;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using VContainer;
 
@@ -35,6 +37,9 @@ namespace WeaponsSystem
         private void OnAttackInput(InputAction.CallbackContext context)
         {
             if (!_gameVariables.CanUseItems || !_input.Player.enabled)
+                return;
+            
+            if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
                 return;
 
             if (Time.time >= _nextShotTime || _nextShotTime == 0)

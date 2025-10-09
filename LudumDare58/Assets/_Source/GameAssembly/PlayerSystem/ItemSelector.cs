@@ -23,10 +23,7 @@ namespace PlayerSystem
 
         public void Initialize() => Bind();
 
-        ~ItemSelector()
-        {
-            Dispose(false);
-        }
+        ~ItemSelector() => Dispose(false);
 
         public event Action<Item, Item> OnSelectedItemChanged;
 
@@ -92,8 +89,20 @@ namespace PlayerSystem
             SelectCell(index);
         }
 
+        public void SelectCell(ItemCell cell)
+        {
+            if(!_input.Player.enabled)
+                return;
+            
+            var activeCells = GetActiveCells();
+            SelectCell(activeCells.IndexOf(activeCells.First(x => x == cell)));
+        }
+        
         private void SelectCell(int index)
         {
+            if(!_input.Player.enabled)
+                return;
+            
             if (index is < 0 or >= 9)
                 return;
 
