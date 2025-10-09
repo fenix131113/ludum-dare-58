@@ -5,6 +5,7 @@ using LevelsSystem;
 using PlayerSystem;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 using VContainer;
 
 namespace BaseSystem.View
@@ -26,6 +27,7 @@ namespace BaseSystem.View
 
         private void Start()
         {
+            ObjectInjector.InjectObject(this);
             _interLevelData = FindFirstObjectByType<InterLevelData>();
             Bind();
             CheckArrowsActive();

@@ -91,7 +91,6 @@ namespace WeaponsSystem
             if (!hit)
                 return;
 
-            Debug.Log(hit.collider.gameObject.name);
             var health = hit.transform.GetComponent<IHealth>();
             if (health == null || !Data.DamageTo.Contains(health.GetHealthType()))
                 return;
