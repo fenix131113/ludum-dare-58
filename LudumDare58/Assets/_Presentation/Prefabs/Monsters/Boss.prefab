@@ -55,6 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameAssembly::MonstersSystem.Boss.Boss
   maxHealth: 5
   healthType: 1
+  takeAnyDamage: 1
+  vulnerableDamageSource: 0
   path: {fileID: 6326330783451974781}
   destinationSetter: {fileID: 5202610026970252041}
   jarPrefab: {fileID: 5134090818910406781, guid: a318d132d93f5024991d7c06a74d3386, type: 3}

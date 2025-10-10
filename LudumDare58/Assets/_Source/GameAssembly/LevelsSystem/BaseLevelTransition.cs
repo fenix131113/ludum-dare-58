@@ -9,16 +9,15 @@ namespace LevelsSystem
     public class BaseLevelTransition : ALevelTransition
     {
         [field: SerializeField] public bool RegisterLevelAsCompleted { get; private set; }
+        [field: SerializeField] public bool GiveMoneyForComplete { get; private set; }
+        [field: SerializeField] public int MoneyForComplete { get; private set; }
 
         [SerializeField] private float fadeTime = 0.5f;
         [SerializeField] private Image screenFader;
-
+        
         public override event Action OnTransition;
         
-        public override void SetSceneIndexToLoad(int sceneIndex)
-        {
-            sceneIndexToLoad = sceneIndex;
-        }
+        public override void SetSceneIndexToLoad(int sceneIndex) => sceneIndexToLoad = sceneIndex;
 
         public override void Transition()
         {

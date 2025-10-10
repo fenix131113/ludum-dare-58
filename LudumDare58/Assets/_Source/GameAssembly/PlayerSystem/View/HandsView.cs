@@ -9,7 +9,6 @@ namespace PlayerSystem.View
     {
         [SerializeField] private List<RotationAngleGroup> rotations;
         [SerializeField] private Transform rotatePivot;
-        [SerializeField] private SpriteRenderer itemRenderer;
 
         [Inject] private PlayerAim _playerAim;
 

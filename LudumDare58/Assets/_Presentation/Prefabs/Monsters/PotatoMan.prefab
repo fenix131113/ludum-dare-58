@@ -55,6 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameAssembly::MonstersSystem.DustEater
   maxHealth: 8
   healthType: 1
+  takeAnyDamage: 0
+  vulnerableDamageSource: 1
   path: {fileID: 5835233934351856211}
   destinationSetter: {fileID: 7624394604428723244}
   patrolPoints: []
@@ -64,7 +66,6 @@ MonoBehaviour:
   patrolFromStart: 1
   runAfterDamage: 1
   vision: {fileID: 1383557634941830503}
-  vulnerableDamageSource: 1
   anim: {fileID: 3202587544962544213}
   spriteRenderer: {fileID: 134380601145255879}
   jarPrefab: {fileID: 5134090818910406781, guid: e8f046e162e1ea44d8cf06dfe43bcd57, type: 3}

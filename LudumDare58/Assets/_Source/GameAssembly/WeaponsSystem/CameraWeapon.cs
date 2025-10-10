@@ -2,7 +2,6 @@
 using HealthSystem;
 using ItemsSystem.Data;
 using PlayerSystem;
-using PlayerSystem.View;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -13,14 +12,15 @@ namespace WeaponsSystem
     public class CameraWeapon : APlayerHandItem
     {
         [SerializeField] private DamageZone cameraDamageZone;
-        [SerializeField] private WeaponItemDataSO data;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
+        private WeaponItemDataSO Data => ItemData as WeaponItemDataSO;
 
         private float _nextShotTime;
+        private float _reloadTimeReduce; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
         
-        private void Awake() => cameraDamageZone.SetDamage(data.Damage);
+        private void Awake() => cameraDamageZone.SetDamage(Data.Damage);
 
         public override void Activate()
         {
@@ -44,19 +44,24 @@ namespace WeaponsSystem
 
             if (Time.time >= _nextShotTime || _nextShotTime == 0)
             {
-                _nextShotTime = Time.time + data.ShootIntervalTime;
+                _nextShotTime = Time.time + (Data.ShootIntervalTime - _reloadTimeReduce);
                 Attack();
             }
         }
 
         private void Attack()
         {
-            cameraDamageZone.SetZoneActive(true, DamageSourceType.CAMERA, data.DamageTo);
+            cameraDamageZone.SetZoneActive(true, DamageSourceType.CAMERA, Data.DamageTo);
         }
 
         private void OnDamageZoneAttack(Transform _)
         {
             cameraDamageZone.SetZoneActive(false);
+        }
+
+        public void SetCameraReloadReduce(float value)
+        {
+            _reloadTimeReduce = value;
         }
 
         protected override void Bind()

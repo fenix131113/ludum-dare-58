@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using ItemsSystem.Data;
+using UnityEngine;
 
 namespace PlayerSystem
 {
     public abstract class APlayerHandItem : MonoBehaviour
     {
+        [field: SerializeField] public ItemDataSO ItemData { get; protected set; } 
+        
         protected bool _exposed = true;
 
         protected virtual void OnDestroy() => Expose();

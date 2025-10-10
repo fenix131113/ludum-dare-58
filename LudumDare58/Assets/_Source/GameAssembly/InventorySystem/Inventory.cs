@@ -91,6 +91,9 @@ namespace InventorySystem
 #endif
             return false;
         }
+        
+        public bool IsItemInInventory(ItemDataSO itemData) => _items.Any(x => x.Source == itemData);
+        public bool IsItemInInventory(Item item) => _items.Any(x => x.Source == item.Source);
 
         private void OnItemCountZero(Item item)
         {

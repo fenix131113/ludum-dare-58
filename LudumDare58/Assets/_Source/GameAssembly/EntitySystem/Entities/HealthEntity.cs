@@ -9,6 +9,8 @@ namespace EntitySystem.Entities
     {
         [SerializeField] protected int maxHealth;
         [SerializeField] protected HealthType healthType;
+        [SerializeField] protected bool takeAnyDamage = true;
+        [SerializeField] protected DamageSourceType vulnerableDamageSource;
         
         protected int _health;
         
@@ -36,6 +38,9 @@ namespace EntitySystem.Entities
 
         public virtual void ChangeHealth(int health,  DamageSourceType damageSource = DamageSourceType.UNKNOWN)
         {
+            if(!takeAnyDamage && damageSource != vulnerableDamageSource)
+                return;
+            
             var temp = _health;
             _health = Mathf.Clamp(_health + health, 0, maxHealth);
             

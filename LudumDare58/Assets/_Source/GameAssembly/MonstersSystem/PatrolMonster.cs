@@ -10,7 +10,6 @@ namespace MonstersSystem
         
         [SerializeField] private bool runAfterDamage;
         [SerializeField] private MonsterVision vision;
-        [SerializeField] private DamageSourceType vulnerableDamageSource;
         [SerializeField] private Animator anim;
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private MonsterJar jarPrefab;
