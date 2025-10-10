@@ -27,7 +27,7 @@ namespace TrophySystem.View
             _interLevelData = FindFirstObjectByType<InterLevelData>();
             
             if(_interLevelData)
-                SetActiveTrophies(_interLevelData.CollectedMonsters.ToList());
+                SetActiveTrophies(_interLevelData.CompletedLevels.ToList());
             
             Bind();
         }
@@ -58,20 +58,22 @@ namespace TrophySystem.View
             closeButton.onClick.RemoveAllListeners();
         }
 
-        public void SetActiveTrophies(List<CollectableMonsterType> collected)
+        public void SetActiveTrophies(List<int> collected)
         {
-            collected.ForEach(type =>
+            collected.ForEach(level =>
             {
-                var find = trophies.First(x => x.MonsterType == type);
-                find.TrophyObject.SetActive(true);
+                var find = trophies.First(x => x.LevelIndex == level);
+                
+                foreach (var o in find.TrophiesObjects)
+                    o.SetActive(true);
             });
         }
 
         [Serializable]
         public class TrophyGroup
         {
-            [field: SerializeField] public CollectableMonsterType MonsterType { get; private set; }
-            [field: SerializeField] public GameObject TrophyObject { get; private set; }
+            [field: SerializeField] public int LevelIndex { get; private set; }
+            [field: SerializeField] public GameObject[] TrophiesObjects { get; private set; }
         }
     }
 }
