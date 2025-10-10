@@ -7,5 +7,6 @@ namespace Core.Data
     {
         [field: SerializeField] public LayerMask PlayerLayer { get; private set; }
         [field: SerializeField] public LayerMask InteractableLayer { get; private set; }
+        [field: SerializeField] public LayerMask IgnoreRaycast { get; private set; }
     }
 }

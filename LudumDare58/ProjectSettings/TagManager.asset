@@ -47,5 +47,8 @@ TagManager:
   - name: Upper
     uniqueID: 1089552269
     locked: 0
+  - name: UpperNonLight
+    uniqueID: 1858456537
+    locked: 0
   m_RenderingLayers:
   - Default

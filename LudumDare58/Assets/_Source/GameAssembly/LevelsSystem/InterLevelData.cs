@@ -19,6 +19,7 @@ namespace LevelsSystem
         public IReadOnlyList<int> CompletedLevels => _completedLevels;
         public IReadOnlyList<CollectableMonsterType> CollectedMonsters => _collectedMonsters;
         public IReadOnlyDictionary<ItemDataSO, int> BoughtItems => _boughtItems;
+        public int MoneyToGet { get; private set; } = 50;
 
         [Inject] private Inventory _playerInventory;
         [Inject] private PlayerResources _playerResources;
@@ -91,6 +92,10 @@ namespace LevelsSystem
         }
 
         public void SetBoughtItems(Dictionary<ItemDataSO, int> boughtItems) => _boughtItems = boughtItems;
+
+        public void IncreaseMoneyToGet(int amount) => MoneyToGet += amount;
+
+        public void ClearGetMoney() => MoneyToGet = 0;
 
         private void Bind()
         {

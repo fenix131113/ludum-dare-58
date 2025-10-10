@@ -4,10 +4,8 @@ using Core.Data;
 using HealthSystem;
 using ItemsSystem.Data;
 using PlayerSystem;
-using PlayerSystem.View;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using VContainer;
 
 namespace WeaponsSystem
@@ -27,7 +25,9 @@ namespace WeaponsSystem
         private float _shootingTime;
         private float _overheatedTime;
         private bool _overHeated;
-        private int _additionalDamage; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
+
+        private int
+            _additionalDamage; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
 
         private void Update()
         {
@@ -76,7 +76,8 @@ namespace WeaponsSystem
 
         private void Shoot()
         {
-            if (EventSystem.current && EventSystem.current.IsPointerOverGameObject()) //TODO: Make abstraction for hand weapons
+            if (EventSystem.current &&
+                EventSystem.current.IsPointerOverGameObject()) //TODO: Make abstraction for hand weapons
                 return;
 
             vfx.SetActive(true);
@@ -86,7 +87,8 @@ namespace WeaponsSystem
                 Mathf.Sin(_playerAim.RotateAngle * Mathf.Deg2Rad)
             );
 
-            var hit = Physics2D.Raycast(transform.position, dir, Data.AttackDistance, ~_layersData.PlayerLayer);
+            var hit = Physics2D.Raycast(transform.position, dir, Data.AttackDistance,
+                ~_layersData.PlayerLayer & ~_layersData.IgnoreRaycast);
 
             if (!hit)
                 return;

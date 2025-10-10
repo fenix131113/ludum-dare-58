@@ -7,7 +7,7 @@ namespace PlayerSystem
     public class PlayerResources
     {
         public int JarsCount { get; private set; }
-        public int Coins { get; private set; } = 5000;
+        public int Coins { get; private set; }
 
         public List<CollectableMonsterType> CollectedMonsters { get; private set; } = new();
         
