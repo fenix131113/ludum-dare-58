@@ -54,9 +54,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameAssembly::MonstersSystem.Mimic
   maxHealth: 3
   healthType: 1
+  takeAnyDamage: 0
+  vulnerableDamageSource: 3
   path: {fileID: 3750959091416948549}
   destinationSetter: {fileID: 2749745158564481403}
-  vulnerableDamageSource: 3
   spriteRenderer: {fileID: 2978525244136610177}
   jarPrefab: {fileID: 5134090818910406781, guid: a318d132d93f5024991d7c06a74d3386, type: 3}
   distanceToDamage: 4

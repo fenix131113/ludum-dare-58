@@ -54,9 +54,9 @@ namespace ShopSystem
             if (_boughtItems.ContainsKey(item) && _boughtItems[item] + 1 >= trade.TradeDataGroups.Count)
                 return false;
 
-            if (_boughtItems.TryGetValue(item, out var level) && level == 0)
+            if (_boughtItems.TryGetValue(item, out var level))
             {
-                if (!_playerResources.TryChangeCoins(-trade.TradeDataGroups[level].Cost))
+                if (!_playerResources.TryChangeCoins(-trade.TradeDataGroups[level + 1].Cost))
                     return false;
 
                 _boughtItems[item]++;
@@ -64,7 +64,7 @@ namespace ShopSystem
             }
             else
             {
-                if (!_playerResources.TryChangeCoins(-trade.TradeDataGroups[level].Cost))
+                if (!_playerResources.TryChangeCoins(-trade.TradeDataGroups[0].Cost))
                     return false;
 
                 if (!_inventory.IsItemInInventory(item))

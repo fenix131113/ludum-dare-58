@@ -10,7 +10,6 @@ namespace MonstersSystem
 {
     public class Mimic : PathHealthEntity
     {
-        [SerializeField] private DamageSourceType vulnerableDamageSource;
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private MonsterJar jarPrefab;
         [SerializeField] private float distanceToDamage;

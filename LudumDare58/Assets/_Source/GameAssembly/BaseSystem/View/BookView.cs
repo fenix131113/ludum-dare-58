@@ -74,7 +74,10 @@ namespace BaseSystem.View
             bookCanvas.gameObject.SetActive(true);
 
             if (_interLevelData.MoneyToGet > 0)
+            {
                 StartCoroutine(DropCoinsCoroutine(_interLevelData.MoneyToGet));
+                _interLevelData.ClearGetMoney();
+            }
         }
 
         private void CloseBook()

@@ -19,7 +19,7 @@ namespace LevelsSystem
         public IReadOnlyList<int> CompletedLevels => _completedLevels;
         public IReadOnlyList<CollectableMonsterType> CollectedMonsters => _collectedMonsters;
         public IReadOnlyDictionary<ItemDataSO, int> BoughtItems => _boughtItems;
-        public int MoneyToGet { get; private set; } = 50;
+        public int MoneyToGet { get; private set; }
 
         [Inject] private Inventory _playerInventory;
         [Inject] private PlayerResources _playerResources;
@@ -72,6 +72,9 @@ namespace LevelsSystem
 
         private void OnSceneLevelTransition()
         {
+            if (_levelTransition is BaseLevelTransition { GiveMoneyForComplete: true } t)
+                IncreaseMoneyToGet(t.MoneyForComplete);
+            
             if (SceneManager.GetActiveScene().buildIndex != 0 &&
                 _lastGameSceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
             {
