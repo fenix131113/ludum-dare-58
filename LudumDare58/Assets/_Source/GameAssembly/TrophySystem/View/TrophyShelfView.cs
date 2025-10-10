@@ -17,18 +17,18 @@ namespace TrophySystem.View
         [SerializeField] private Button closeButton;
         [SerializeField] private GameObject canvas;
         [SerializeField] private BaseInteractiveObject interactiveObject;
-        
+
         [Inject] private InputSystem_Actions _input;
 
         private InterLevelData _interLevelData;
-        
+
         private void Start()
         {
             _interLevelData = FindFirstObjectByType<InterLevelData>();
-            
-            if(_interLevelData)
+
+            if (_interLevelData)
                 SetActiveTrophies(_interLevelData.CompletedLevels.ToList());
-            
+
             Bind();
         }
 
@@ -39,7 +39,7 @@ namespace TrophySystem.View
             _input.Player.Disable();
             canvas.SetActive(true);
         }
-        
+
         private void CloseShelf()
         {
             _input.Player.Enable();
@@ -62,7 +62,10 @@ namespace TrophySystem.View
         {
             collected.ForEach(level =>
             {
-                var find = trophies.First(x => x.LevelIndex == level);
+                var find = trophies.FirstOrDefault(x => x.LevelIndex == level);
+
+                if (find == null)
+                    return;
                 
                 foreach (var o in find.TrophiesObjects)
                     o.SetActive(true);

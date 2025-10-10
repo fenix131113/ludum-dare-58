@@ -31,6 +31,7 @@ namespace LevelsSystem
         private readonly List<CollectableMonsterType> _collectedMonsters = new();
         private ALevelTransition _levelTransition;
         private int _lastGameSceneIndex;
+        private int _coins;
 
         private void Start()
         {
@@ -60,6 +61,7 @@ namespace LevelsSystem
         {
             _playerItems.ForEach(x => _playerInventory.TryAddItem(x));
             _playerResources.SetCollectedMonster(_collectedMonsters);
+            _playerResources.TryChangeCoins(_coins);
             
             foreach (var item in BoughtItems)
                 _upgradesImplementer.ImplementUpgrade(item.Key);
@@ -72,6 +74,7 @@ namespace LevelsSystem
 
         private void OnSceneLevelTransition()
         {
+            _coins = _playerResources.Coins;
             if (_levelTransition is BaseLevelTransition { GiveMoneyForComplete: true } t)
                 IncreaseMoneyToGet(t.MoneyForComplete);
             
