@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/_Presentation/Scenes/1.unity
     guid: 6570169b534b2c545b6cd8c36cea8a50
   - enabled: 1
-    path: Assets/_Presentation/Scenes/3.unity
+    path: Assets/_Presentation/Scenes/Tutorial 1.unity
     guid: 4ae239d71217bf045854f20635948db2
   - enabled: 1
     path: Assets/_Presentation/Scenes/2.unity
