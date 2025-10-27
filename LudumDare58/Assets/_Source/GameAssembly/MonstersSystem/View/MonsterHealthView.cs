@@ -9,10 +9,15 @@ namespace MonstersSystem.View
     public class MonsterHealthView : AHealthView
     {
         [SerializeField] private int healthPerHpUnit;
+        [SerializeField] private int shakeVibrato = 15;
+
         [SerializeField] private Transform hpUnitsContainer;
         [SerializeField] private SpriteRenderer monsterRenderer;
         [SerializeField] private HealthUnit hpUnitPrefab;
         [SerializeField] private Color damageColor;
+
+        [SerializeField] private float shakeStrength;
+        [SerializeField] private float animDuration;
         [SerializeField] private float hitColorTime;
         [SerializeField] private float deactivateTime;
 
@@ -33,10 +38,12 @@ namespace MonstersSystem.View
             {
                 monsterRenderer.DOColor(damageColor, hitColorTime / 2).onComplete +=
                     () => monsterRenderer.DOColor(_startColor, hitColorTime / 2);
-                
+
+                monsterRenderer.transform.DOShakePosition(animDuration, shakeStrength, shakeVibrato);
                 hpUnitsContainer.gameObject.SetActive(true);
                 StartCoroutine(DeactivateHealthPoints());
             }
+
 
             var temp = healthEntity.GetMaxHealth() - newValue;
 
@@ -77,7 +84,7 @@ namespace MonstersSystem.View
         private IEnumerator DeactivateHealthPoints()
         {
             yield return new WaitForSeconds(deactivateTime);
-            
+
             hpUnitsContainer.gameObject.SetActive(false);
         }
     }

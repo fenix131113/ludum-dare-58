@@ -1,4 +1,4 @@
-﻿using Core.Data;
+using Core.Data;
 using InventorySystem;
 using PlayerSystem;
 using PlayerSystem.Data;
@@ -15,7 +15,7 @@ namespace Core
     {
         [SerializeField] private PlayerConfigSO playerConfig;
         [SerializeField] private LayersDataSO layersData;
-
+        
         private InputSystem_Actions _input;
 
         private void Start() => ObjectInjector.Initialize(Container);

@@ -1,9 +1,12 @@
-﻿using System;
+﻿using InventorySystem;
+using ItemsSystem.Data;
+using LevelsSystem;
+using PlayerSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using LevelsSystem;
-using PlayerSystem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utils;
@@ -27,6 +30,7 @@ namespace BaseSystem.View
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private PlayerResources _playerResources;
+        [Inject] private Inventory _inventory;
 
         private InterLevelData _interLevelData;
         private Button _startButton;
@@ -62,13 +66,9 @@ namespace BaseSystem.View
         private void OpenBook()
         {
             var temp = _interLevelData.CompletedLevels.Count > 0 ? _interLevelData.CompletedLevels[^1] : 0;
-
-            if (!_startButton && temp <= _interLevelData.CompletedLevels.Count)
-            {
-                _startButton = levelsData.First(x => x.LevelIndex == temp + 1).StartButton;
-                _startButton.gameObject.SetActive(true);
-                _startButton.onClick.AddListener(OnStartGameButtonClicked);
-            }
+            var neededItem = levelsData.First(x => x.LevelIndex == temp + 1).NeededItems;
+            
+            
 
             _input.Player.Disable();
             bookCanvas.gameObject.SetActive(true);
@@ -77,6 +77,26 @@ namespace BaseSystem.View
             {
                 StartCoroutine(DropCoinsCoroutine(_interLevelData.MoneyToGet));
                 _interLevelData.ClearGetMoney();
+            }
+
+            foreach (var item in neededItem)
+            {
+                if (!_inventory.IsItemInInventory(item))
+                {
+                    levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(true);
+                    return;
+                }
+                else
+                {
+                    levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(false);
+                }
+            }
+
+            if (!_startButton && temp <= _interLevelData.CompletedLevels.Count)
+            {
+                _startButton = levelsData.First(x => x.LevelIndex == temp + 1).StartButton;
+                _startButton.gameObject.SetActive(true);
+                _startButton.onClick.AddListener(OnStartGameButtonClicked);
             }
         }
 
@@ -172,6 +192,8 @@ namespace BaseSystem.View
             [field: SerializeField] public Image IconImage { get; private set; }
             [field: SerializeField] public Sprite ChangeIcon { get; private set; }
             [field: SerializeField] public Button StartButton { get; private set; }
+            [field: SerializeField] public TextMeshProUGUI WarningText { get; private set; }
+            [field: SerializeField] public ItemDataSO[] NeededItems { get; private set; }
             [field: SerializeField] public GameObject[] ObjectsToActivate { get; private set; }
             [field: SerializeField] public GameObject[] ObjectsToDeactivate { get; private set; }
         }

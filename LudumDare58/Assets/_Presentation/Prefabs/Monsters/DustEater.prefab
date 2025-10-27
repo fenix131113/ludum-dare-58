@@ -492,10 +492,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameAssembly::MonstersSystem.View.MonsterHealthView
   healthEntity: {fileID: 3958764469845735288}
   healthPerHpUnit: 2
+  shakeVibrato: 15
   hpUnitsContainer: {fileID: 4994874836549201751}
   monsterRenderer: {fileID: 4972392343613131994}
   hpUnitPrefab: {fileID: 3171644866430330597, guid: 7126d332892cf1045b4186a81e75f2e6, type: 3}
   damageColor: {r: 1, g: 0.026796442, b: 0, a: 1}
+  shakeStrength: 0.2
+  animDuration: 0.45
   hitColorTime: 0.4
   deactivateTime: 3
 --- !u!114 &6870855531940900439

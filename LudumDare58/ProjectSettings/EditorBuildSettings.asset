@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/_Presentation/Scenes/Tutorial 3.unity
     guid: 05186626f9a3d084dbc8aecd2d8a693b
   - enabled: 1
-    path: Assets/_Presentation/Scenes/4.unity
+    path: Assets/_Presentation/Scenes/3.unity
     guid: 2ebaf90ddfa9e964c80560fc258d91db
   - enabled: 1
     path: Assets/_Presentation/Scenes/5.unity
