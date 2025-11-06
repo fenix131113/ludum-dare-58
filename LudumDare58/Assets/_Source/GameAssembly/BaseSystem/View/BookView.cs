@@ -70,9 +70,9 @@ namespace BaseSystem.View
         private void OpenBook()
         {
             var temp = _interLevelData.CompletedLevels.Count > 0 ? _interLevelData.CompletedLevels[^1] : 0;
-            var neededItem = levelsData.First(x => x.LevelIndex == temp + 1).NeededItems;
-            
-            
+            var neededItem = levelsData.FirstOrDefault(x => x.LevelIndex == temp + 1).NeededItems;
+
+
 
             _input.Player.Disable();
             bookCanvas.gameObject.SetActive(true);
@@ -82,18 +82,21 @@ namespace BaseSystem.View
                 StartCoroutine(DropCoinsCoroutine(_interLevelData.MoneyToGet));
                 _interLevelData.ClearGetMoney();
             }
-
-            foreach (var item in neededItem)
+            if (neededItem != null)
             {
-                if (!_inventory.IsItemInInventory(item))
+                foreach (var item in neededItem)
                 {
-                    levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(true);
-                    return;
+                    if (!_inventory.IsItemInInventory(item))
+                    {
+                        levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(true);
+                        return;
+                    }
+                    else
+                    {
+                        levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(false);
+                    }
                 }
-                else
-                {
-                    levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(false);
-                }
+
             }
 
             if (!_startButton && temp <= _interLevelData.CompletedLevels.Count)
