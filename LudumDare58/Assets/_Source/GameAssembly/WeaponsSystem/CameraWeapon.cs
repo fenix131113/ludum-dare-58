@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using System.Collections;
+using Core;
 using HealthSystem;
 using ItemsSystem.Data;
 using PlayerSystem;
@@ -12,6 +13,9 @@ namespace WeaponsSystem
     public class CameraWeapon : APlayerHandItem
     {
         [SerializeField] private DamageZone cameraDamageZone;
+        [SerializeField] private AudioSource cameraSource;
+        [SerializeField] private AudioClip shootSound;
+        [SerializeField] private AudioClip reloadSound;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
@@ -25,6 +29,7 @@ namespace WeaponsSystem
         public override void Activate()
         {
             base.Activate();
+            cameraDamageZone.SetZoneActive(false);
             Bind();
         }
 
@@ -52,6 +57,7 @@ namespace WeaponsSystem
         private void Attack()
         {
             cameraDamageZone.SetZoneActive(true, DamageSourceType.CAMERA, Data.DamageTo);
+            StartCoroutine(ShootSoundRoutine());
         }
 
         private void OnDamageZoneAttack(Transform _)
@@ -76,6 +82,15 @@ namespace WeaponsSystem
             base.Expose();
             _input.Player.Attack.performed -= OnAttackInput;
             cameraDamageZone.OnDamageGiven -= OnDamageZoneAttack;
+        }
+
+        private IEnumerator ShootSoundRoutine()
+        {
+            cameraSource.PlayOneShot(shootSound);
+            
+            yield return new WaitForSeconds(shootSound.length);
+            
+            cameraSource.PlayOneShot(reloadSound);
         }
     }
 }

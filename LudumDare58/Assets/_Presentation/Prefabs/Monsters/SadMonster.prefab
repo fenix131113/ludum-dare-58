@@ -272,6 +272,7 @@ MonoBehaviour:
   healthType: 1
   takeAnyDamage: 0
   vulnerableDamageSource: 1
+  deathSoundSourcePrefab: {fileID: 8673348401495251550, guid: 60f06013cf748374199e422a3396c97d, type: 3}
   path: {fileID: 4594273551998189041}
   destinationSetter: {fileID: 3833964974449390430}
   patrolPoints: []

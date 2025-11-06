@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Core;
+using DG.Tweening;
 using ItemsSystem.Data;
 using PlayerSystem;
-using PlayerSystem.View;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,9 +20,14 @@ namespace WeaponsSystem
         private static readonly char[] _possibleKeys = { 'W', 'A', 'S', 'D' };
 
         [SerializeField] private int keysCombinationCount;
+        [SerializeField] private float keyUiTimeDuration;
+        [SerializeField] private float clickAnimStrength = 0.15f;
         [SerializeField] private Image fluteButtonUiPrefab;
         [SerializeField] private Transform fluteButtonsContent;
         [SerializeField] private FluteCircle fluteCirclePrefab;
+        [SerializeField] private List<KeySoundPair> sounds;
+        [SerializeField] private AudioSource fluteSoundsSource;
+        [SerializeField] private AudioSource fluteAttackSource;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
@@ -32,7 +38,9 @@ namespace WeaponsSystem
         private List<char> _currentCombination;
         private int _currentCombinationIndex;
         private float _nextShotTime;
-        private int _keysReduceCount; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
+
+        private int
+            _keysReduceCount; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
 
         private void Update()
         {
@@ -59,10 +67,16 @@ namespace WeaponsSystem
 
         private void OnCorrectClick()
         {
-            if(_currentCombinationIndex >= _uiButtons.Count || _currentCombination == null)
+            if (_currentCombinationIndex >= _uiButtons.Count || _currentCombination == null)
                 return;
-            
+
+            fluteSoundsSource.PlayOneShot(sounds.First(x =>
+                string.Equals(x.Key.ToString(), GetPressedKeyName(), StringComparison.CurrentCultureIgnoreCase)).Clip);
+
+            _uiButtons[_currentCombinationIndex].transform.localScale = Vector3.one;
             _uiButtons[_currentCombinationIndex].color = Color.darkGreen;
+            _uiButtons[_currentCombinationIndex].transform
+                .DOPunchScale(Vector3.one * -clickAnimStrength, keyUiTimeDuration, 5);
 
             _currentCombinationIndex++;
             if (_currentCombinationIndex == _currentCombination.Count) // Win mini-game
@@ -75,8 +89,12 @@ namespace WeaponsSystem
             }
         }
 
-        private void AttackWave() => Instantiate(fluteCirclePrefab, transform.position, Quaternion.identity)
-            .SizeUp(Data.AttackDistance, Data.Damage);
+        private void AttackWave()
+        {
+            Instantiate(fluteCirclePrefab, transform.position, Quaternion.identity)
+                .SizeUp(Data.AttackDistance, Data.Damage);
+            fluteAttackSource.Play();
+        }
 
         private void OnIncorrectClick()
         {
@@ -98,10 +116,10 @@ namespace WeaponsSystem
         {
             if (!gameObject.activeSelf || !_gameVariables.CanUseItems || !_input.Player.enabled)
                 return;
-            
+
             if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
                 return;
-            
+
             if (_nextShotTime == 0 || Time.time >= _nextShotTime)
                 Attack();
         }
@@ -113,11 +131,11 @@ namespace WeaponsSystem
 
             for (var i = 0; i < keysCombinationCount - _keysReduceCount; i++)
                 _currentCombination.Add(_possibleKeys[Random.Range(0, _possibleKeys.Length)]);
-
+            
             _currentCombinationIndex = 0;
             InitializeUi();
         }
-        
+
         private void SetAttackCooldown() => _nextShotTime = Time.time + Data.ShootIntervalTime;
 
         private void InitializeUi()
@@ -136,7 +154,10 @@ namespace WeaponsSystem
         private void ClearUi()
         {
             foreach (var button in _uiButtons)
+            {
+                DOTween.Kill(button.GetComponent<RectTransform>());
                 Destroy(button.gameObject); //TODO: change this to object pool
+            }
 
             _uiButtons.Clear();
         }
@@ -153,6 +174,13 @@ namespace WeaponsSystem
         {
             base.Expose();
             _input.Player.Attack.performed -= OnAttackInput;
+        }
+
+        [Serializable]
+        public class KeySoundPair
+        {
+            [field: SerializeField] public char Key { get; private set; }
+            [field: SerializeField] public AudioClip Clip { get; private set; }
         }
     }
 }

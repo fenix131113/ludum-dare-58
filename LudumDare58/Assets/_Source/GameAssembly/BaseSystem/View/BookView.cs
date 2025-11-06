@@ -61,7 +61,11 @@ namespace BaseSystem.View
             }
         }
 
-        private void OnStartGameButtonClicked() => exitZone.SetActive(true);
+        private void OnStartGameButtonClicked()
+        {
+            CloseBook();
+            exitZone.SetActive(true);
+        }
 
         private void OpenBook()
         {
