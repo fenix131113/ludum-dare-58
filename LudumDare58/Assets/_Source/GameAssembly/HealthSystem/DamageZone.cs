@@ -46,6 +46,7 @@ namespace HealthSystem
         private void SetZoneState(bool active)
         {
             gameObject.SetActive(active);
+            _coll ??= GetComponent<Collider2D>();
             _coll.enabled = active;
 
             if (active && deactivationTime > 0)

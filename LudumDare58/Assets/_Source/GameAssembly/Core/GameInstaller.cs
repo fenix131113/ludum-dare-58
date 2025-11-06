@@ -1,5 +1,6 @@
 using Core.Data;
 using InventorySystem;
+using MonstersSystem.Data;
 using PlayerSystem;
 using PlayerSystem.Data;
 using PlayerSystem.View;
@@ -15,6 +16,7 @@ namespace Core
     {
         [SerializeField] private PlayerConfigSO playerConfig;
         [SerializeField] private LayersDataSO layersData;
+        [SerializeField] private MonstersSoundsPackSO monstersSoundsPack;
         
         private InputSystem_Actions _input;
 
@@ -46,6 +48,8 @@ namespace Core
             builder.RegisterComponentInHierarchy<UpgradesImplementer>();
 
             #endregion
+
+            builder.RegisterInstance(monstersSoundsPack);
         }
     }
 }

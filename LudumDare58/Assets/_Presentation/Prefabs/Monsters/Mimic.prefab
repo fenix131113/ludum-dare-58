@@ -56,6 +56,7 @@ MonoBehaviour:
   healthType: 1
   takeAnyDamage: 0
   vulnerableDamageSource: 3
+  deathSoundSourcePrefab: {fileID: 8673348401495251550, guid: 60f06013cf748374199e422a3396c97d, type: 3}
   path: {fileID: 3750959091416948549}
   destinationSetter: {fileID: 2749745158564481403}
   spriteRenderer: {fileID: 2978525244136610177}

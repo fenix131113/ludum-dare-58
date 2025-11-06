@@ -6,6 +6,7 @@ using ItemsSystem.Data;
 using PlayerSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using VContainer;
 
 namespace WeaponsSystem
@@ -14,6 +15,10 @@ namespace WeaponsSystem
     {
         [SerializeField] private float overheatEdge;
         [SerializeField] private GameObject vfx;
+        [SerializeField] private GameObject heatObject;
+        [SerializeField] private Image heatFiller;
+        [SerializeField] private AudioSource cleanerShootSource;
+        [SerializeField] private AudioSource cleanerReloadSource;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
@@ -29,6 +34,18 @@ namespace WeaponsSystem
         private int
             _additionalDamage; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
 
+        public override void Activate()
+        {
+            base.Activate();
+            heatObject.gameObject.SetActive(true);
+        }
+
+        public override void Deactivate()
+        {
+            base.Deactivate();
+            heatObject.gameObject.SetActive(false);
+        }
+
         private void Update()
         {
             if (!gameObject.activeSelf || !_gameVariables.CanUseItems || !_input.Player.enabled)
@@ -37,11 +54,14 @@ namespace WeaponsSystem
                 return;
             }
 
+            heatFiller.fillAmount = _shootingTime / overheatEdge;
+
             if (_overHeated)
             {
                 vfx.SetActive(false);
                 if (Time.time - _overheatedTime >= Data.ReloadTime)
                 {
+                    cleanerReloadSource.Play();
                     _overHeated = false;
                     _shootingTime = 0;
                 }
@@ -63,15 +83,26 @@ namespace WeaponsSystem
             {
                 _shootingTime -= Time.deltaTime * 1.75f;
                 vfx.SetActive(false);
+                
+                if (cleanerShootSource.isPlaying)
+                    cleanerShootSource.Stop();
             }
             else
+            {
                 vfx.SetActive(false);
-
+                
+                if (cleanerShootSource.isPlaying)
+                    cleanerShootSource.Stop();
+            }
+            
             if (_shootingTime < overheatEdge)
                 return;
 
             _overheatedTime = Time.time;
             _overHeated = true;
+            
+            if (cleanerShootSource.isPlaying)
+                cleanerShootSource.Stop();
         }
 
         private void Shoot()
@@ -81,6 +112,9 @@ namespace WeaponsSystem
                 return;
 
             vfx.SetActive(true);
+
+            if (!cleanerShootSource.isPlaying && !_overHeated)
+                cleanerShootSource.Play();
 
             var dir = new Vector2(
                 Mathf.Cos(_playerAim.RotateAngle * Mathf.Deg2Rad),

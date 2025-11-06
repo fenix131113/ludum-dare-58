@@ -12,11 +12,16 @@ namespace BaseSystem
         [SerializeField] private float rndForceY;
         [SerializeField] private float rotateForce;
         [SerializeField] private float gravityStep;
+        [SerializeField] private AudioSource coinSource;
+        [SerializeField] private AudioClip[] coinsSounds;
         
         private float _gravity;
         
         private void Start()
         {
+            coinSource.clip = coinsSounds[Random.Range(0, coinsSounds.Length)];
+            coinSource.Play();
+            
             var forceX = Random.Range(minRndForceX, rndForceX);
             rb.AddForce(new Vector2(Random.Range(0, 2) == 0 ? forceX : -forceX, Random.Range(minRndForceY, rndForceY)),
                 ForceMode2D.Impulse);
