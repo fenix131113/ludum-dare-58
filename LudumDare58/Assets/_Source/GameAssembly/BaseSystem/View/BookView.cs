@@ -70,9 +70,12 @@ namespace BaseSystem.View
         private void OpenBook()
         {
             var temp = _interLevelData.CompletedLevels.Count > 0 ? _interLevelData.CompletedLevels[^1] : 0;
-            var neededItem = levelsData.FirstOrDefault(x => x.LevelIndex == temp + 1).NeededItems;
-
-
+            var levelData = levelsData.FirstOrDefault(x => x.LevelIndex == temp + 1);
+            if (levelData == null)
+            {
+                lectern.enabled = false;
+                return;
+            }
 
             _input.Player.Disable();
             bookCanvas.gameObject.SetActive(true);
@@ -82,29 +85,29 @@ namespace BaseSystem.View
                 StartCoroutine(DropCoinsCoroutine(_interLevelData.MoneyToGet));
                 _interLevelData.ClearGetMoney();
             }
-            if (neededItem != null)
-            {
-                foreach (var item in neededItem)
-                {
-                    if (!_inventory.IsItemInInventory(item))
-                    {
-                        levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(true);
-                        return;
-                    }
-                    else
-                    {
-                        levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(false);
-                    }
-                }
 
+            var neededItem = levelData.NeededItems;
+            foreach (var item in neededItem)
+            {
+                if (!_inventory.IsItemInInventory(item))
+                {
+                    levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(true);
+                    return;
+                }
+                else
+                {
+                    levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(false);
+                }
             }
 
             if (!_startButton && temp <= _interLevelData.CompletedLevels.Count)
             {
-                _startButton = levelsData.First(x => x.LevelIndex == temp + 1).StartButton;
+                _startButton = levelData.StartButton;
                 _startButton.gameObject.SetActive(true);
                 _startButton.onClick.AddListener(OnStartGameButtonClicked);
             }
+
+
         }
 
         private void CloseBook()
