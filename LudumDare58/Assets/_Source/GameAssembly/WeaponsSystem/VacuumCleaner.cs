@@ -42,6 +42,9 @@ namespace WeaponsSystem
 
         public override void Deactivate()
         {
+            if (cleanerShootSource.isPlaying)
+                cleanerShootSource.Stop();
+            
             base.Deactivate();
             heatObject.gameObject.SetActive(false);
         }

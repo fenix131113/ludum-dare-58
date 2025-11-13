@@ -251,6 +251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 110671546759180690}
   - {fileID: 3232178707976414306}
   - {fileID: 2979199046311911963}
   - {fileID: 4896987059883607566}
@@ -280,11 +281,17 @@ MonoBehaviour:
   waitOnPointTimeMin: 3
   waitOnPointTimeMax: 6
   patrolFromStart: 1
-  runAfterDamage: 1
+  runAfterDamage: 0
+  runWhenSpotted: 0
   vision: {fileID: 2314665509152065782}
+  panicVision: {fileID: 6417444698660620865}
   anim: {fileID: 8832258966640015224}
   spriteRenderer: {fileID: 7737623311885462595}
   jarPrefab: {fileID: 8228727179110859515, guid: 088e61855394bb14791a7f2f6ec7e76b, type: 3}
+  speedBoost: 10
+  boostDuration: 2
+  boostCooldown: 5
+  escapeOffset: 5
 --- !u!114 &1569599210380942624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +463,124 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.2775073}
   m_Size: {x: 1.11, y: 2.5550146}
   m_Direction: 0
+--- !u!1 &4624594083013002479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110671546759180690}
+  - component: {fileID: 6417444698660620865}
+  - component: {fileID: 385608167752944589}
+  - component: {fileID: 5076727062023131536}
+  m_Layer: 2
+  m_Name: PanicVision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &110671546759180690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624594083013002479}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8089386191863244660}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6417444698660620865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624594083013002479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac133b83511c4b9eb34c412e3e29cac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::MonstersSystem.MonsterVision
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 132
+  checkWithRaycast: 1
+  recheckRayInterval: 0.3
+  noPlayerTimer: 5
+--- !u!58 &385608167752944589
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624594083013002479}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 3
+--- !u!50 &5076727062023131536
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624594083013002479}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7691698788299291341
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +712,7 @@ MonoBehaviour:
     m_Bits: 132
   checkWithRaycast: 1
   recheckRayInterval: 0.3
+  noPlayerTimer: 5
 --- !u!58 &4505554936689268198
 CircleCollider2D:
   m_ObjectHideFlags: 0

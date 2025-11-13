@@ -341,13 +341,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7757217696442535953}
-  - component: {fileID: 3911915824993933185}
   - component: {fileID: 2407413280950964731}
   - component: {fileID: 5135942829524639164}
   - component: {fileID: 2541227085616673032}
   - component: {fileID: 8123272597877813493}
   - component: {fileID: 858623964437152182}
   - component: {fileID: 7401464885198889314}
+  - component: {fileID: 3742656036162968599}
   m_Layer: 7
   m_Name: TrainMob2
   m_TagString: Untagged
@@ -373,35 +373,6 @@ Transform:
   - {fileID: 5261854911555851333}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3911915824993933185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8264025820813175142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0e2dbb5a0d4d0193a09dfc2f845ffa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameAssembly::MonstersSystem.DustEater
-  maxHealth: 8
-  healthType: 1
-  takeAnyDamage: 0
-  vulnerableDamageSource: 3
-  deathSoundSourcePrefab: {fileID: 8673348401495251550, guid: 60f06013cf748374199e422a3396c97d, type: 3}
-  path: {fileID: 2541227085616673032}
-  destinationSetter: {fileID: 8123272597877813493}
-  patrolPoints: []
-  pickPointsRandomly: 0
-  waitOnPointTimeMin: 3
-  waitOnPointTimeMax: 6
-  patrolFromStart: 1
-  runAfterDamage: 1
-  vision: {fileID: 6234923109840387904}
-  anim: {fileID: 6869786969214653076}
-  spriteRenderer: {fileID: 1744859534820758279}
-  jarPrefab: {fileID: 8228727179110859515, guid: 088e61855394bb14791a7f2f6ec7e76b, type: 3}
 --- !u!114 &2407413280950964731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,8 +385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d276953fc674222bb0ce19e3d9a5550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::MonstersSystem.View.MonsterHealthView
-  healthEntity: {fileID: 3911915824993933185}
-  healthPerHpUnit: 2
+  healthEntity: {fileID: 3742656036162968599}
+  healthPerHpUnit: 1
   shakeVibrato: 25
   hpUnitsContainer: {fileID: 5634246476678022260}
   monsterRenderer: {fileID: 1744859534820758279}
@@ -573,6 +544,40 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.15326285}
   m_Size: {x: 1.11, y: 1.44}
   m_Direction: 0
+--- !u!114 &3742656036162968599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264025820813175142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fcac547cbe4e198449dbd7e27bd480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::MonstersSystem.Mimic
+  maxHealth: 5
+  healthType: 1
+  takeAnyDamage: 0
+  vulnerableDamageSource: 3
+  deathSoundSourcePrefab: {fileID: 8673348401495251550, guid: 60f06013cf748374199e422a3396c97d, type: 3}
+  path: {fileID: 2541227085616673032}
+  destinationSetter: {fileID: 8123272597877813493}
+  spriteRenderer: {fileID: 1744859534820758279}
+  jarPrefab: {fileID: 5134090818910406781, guid: a318d132d93f5024991d7c06a74d3386, type: 3}
+  distanceToDamage: 5
+  shakeDuration: 0.4
+  shakeStrength: 0.7
+  startMimicObject: {fileID: 0}
+  points:
+  - <Point>k__BackingField: {fileID: 0}
+    <ObjectToTransform>k__BackingField: {fileID: 0}
+  - <Point>k__BackingField: {fileID: 0}
+    <ObjectToTransform>k__BackingField: {fileID: 0}
+  - <Point>k__BackingField: {fileID: 0}
+    <ObjectToTransform>k__BackingField: {fileID: 0}
+  - <Point>k__BackingField: {fileID: 0}
+    <ObjectToTransform>k__BackingField: {fileID: 0}
 --- !u!1 &8896037501411299568
 GameObject:
   m_ObjectHideFlags: 0

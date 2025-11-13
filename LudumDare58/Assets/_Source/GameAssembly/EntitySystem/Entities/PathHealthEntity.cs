@@ -17,12 +17,13 @@ namespace EntitySystem.Entities
 
         [Inject] protected MonstersSoundsPackSO SoundsPack;
 
-        protected bool _isNativeDestinationReached;
+        protected bool _isNativeDestinationReached;  
 
         public event Action OnNativePathReached;
 
         protected virtual void Update()
         {
+
             if (!_isNativeDestinationReached && path.reachedEndOfPath)
             {
                 var distance = Vector3.Distance(transform.position, destinationSetter.target.position);

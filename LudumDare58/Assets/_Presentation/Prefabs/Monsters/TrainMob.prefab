@@ -54,6 +54,7 @@ MonoBehaviour:
     m_Bits: 132
   checkWithRaycast: 1
   recheckRayInterval: 0.3
+  noPlayerTimer: 5
 --- !u!58 &4414035786051543938
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -332,6 +333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7922323310416070997}
   - {fileID: 8908488707668029024}
   - {fileID: 3868305072140807582}
   - {fileID: 6415501010517715004}
@@ -362,10 +364,15 @@ MonoBehaviour:
   waitOnPointTimeMax: 6
   patrolFromStart: 1
   runAfterDamage: 1
+  runWhenSpotted: 0
   vision: {fileID: 8740063251833485923}
+  panicVision: {fileID: 8167614573329978645}
   anim: {fileID: 8420684650578029126}
   spriteRenderer: {fileID: 1370824072014259357}
   jarPrefab: {fileID: 8228727179110859515, guid: 088e61855394bb14791a7f2f6ec7e76b, type: 3}
+  speedBoost: 10
+  boostDuration: 2
+  boostCooldown: 5
 --- !u!114 &7583901277318392779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,3 +657,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &5888215046482215819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7922323310416070997}
+  - component: {fileID: 8167614573329978645}
+  - component: {fileID: 6434021080365558088}
+  - component: {fileID: 6116150763544265346}
+  m_Layer: 2
+  m_Name: PanicVision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7922323310416070997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888215046482215819}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4413271582531723546}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8167614573329978645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888215046482215819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac133b83511c4b9eb34c412e3e29cac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::MonstersSystem.MonsterVision
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 132
+  checkWithRaycast: 1
+  recheckRayInterval: 0.3
+  noPlayerTimer: 5
+--- !u!58 &6434021080365558088
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888215046482215819}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 3
+--- !u!50 &6116150763544265346
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888215046482215819}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
