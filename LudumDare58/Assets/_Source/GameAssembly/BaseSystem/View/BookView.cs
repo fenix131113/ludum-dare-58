@@ -35,6 +35,7 @@ namespace BaseSystem.View
         private InterLevelData _interLevelData;
         private Button _startButton;
         private int _currentPageIndex;
+        private static bool enteredGame; //TODO: Probably need to move into global variables, or get rid of it somehow :).
 
         private void Start()
         {
@@ -43,6 +44,7 @@ namespace BaseSystem.View
             Bind();
             CheckArrowsActive();
             LoadCompletedLevels();
+            OpenBook();
         }
 
         private void OnDestroy() => Expose();
@@ -71,12 +73,19 @@ namespace BaseSystem.View
         {
             var temp = _interLevelData.CompletedLevels.Count > 0 ? _interLevelData.CompletedLevels[^1] : 0;
             var levelData = levelsData.FirstOrDefault(x => x.LevelIndex == temp + 1);
+            var neededItem = levelData.NeededItems;
+
+            if (enteredGame == false)
+            {
+                enteredGame = true;
+                return;
+            }
+
             if (levelData == null)
             {
                 lectern.enabled = false;
                 return;
             }
-
             _input.Player.Disable();
             bookCanvas.gameObject.SetActive(true);
 
@@ -86,24 +95,23 @@ namespace BaseSystem.View
                 _interLevelData.ClearGetMoney();
             }
 
-            var neededItem = levelData.NeededItems;
             foreach (var item in neededItem)
             {
                 if (!_inventory.IsItemInInventory(item))
                 {
-                    levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(true);
+                    levelData.WarningText.gameObject.SetActive(true);
                     return;
                 }
                 else
                 {
-                    levelsData.First(x => x.LevelIndex == temp + 1).WarningText.gameObject.SetActive(false);
+                    levelData.WarningText.gameObject.SetActive(false);
                 }
             }
 
             if (!_startButton && temp <= _interLevelData.CompletedLevels.Count)
             {
+                levelData.StartButton.gameObject.SetActive(true);
                 _startButton = levelData.StartButton;
-                _startButton.gameObject.SetActive(true);
                 _startButton.onClick.AddListener(OnStartGameButtonClicked);
             }
 
