@@ -11,7 +11,9 @@ namespace EntitySystem.Entities
         [SerializeField] protected HealthType healthType;
         [SerializeField] protected bool takeAnyDamage = true;
         [SerializeField] protected DamageSourceType vulnerableDamageSource;
-        
+
+        public DamageSourceType VulnerabilityType => vulnerableDamageSource;
+
         protected int _health;
         
         public event Action<int, int> OnHealthChanged;
