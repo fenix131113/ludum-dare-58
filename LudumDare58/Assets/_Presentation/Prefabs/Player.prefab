@@ -6615,7 +6615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::PlayerSystem.PlayerInteract
   interactPoint: {fileID: 2139008412917032860}
-  interactRadius: 0.75
+  interactRadius: 1.5
 --- !u!114 &6021584550492742612
 MonoBehaviour:
   m_ObjectHideFlags: 0

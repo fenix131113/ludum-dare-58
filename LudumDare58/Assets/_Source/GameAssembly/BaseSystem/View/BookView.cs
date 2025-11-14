@@ -30,7 +30,6 @@ namespace BaseSystem.View
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private PlayerResources _playerResources;
-        [Inject] private Inventory _inventory;
 
         private InterLevelData _interLevelData;
         private Button _startButton;
@@ -73,6 +72,13 @@ namespace BaseSystem.View
         {
             var temp = _interLevelData.CompletedLevels.Count > 0 ? _interLevelData.CompletedLevels[^1] : 0;
             var levelData = levelsData.FirstOrDefault(x => x.LevelIndex == temp + 1);
+
+            if (levelData == null)
+            {
+                lectern.enabled = false;
+                return;
+            }
+
             var neededItem = levelData.NeededItems;
 
             if (enteredGame == false)
@@ -81,11 +87,6 @@ namespace BaseSystem.View
                 return;
             }
 
-            if (levelData == null)
-            {
-                lectern.enabled = false;
-                return;
-            }
             _input.Player.Disable();
             bookCanvas.gameObject.SetActive(true);
 
@@ -97,14 +98,14 @@ namespace BaseSystem.View
 
             foreach (var item in neededItem)
             {
-                if (!_inventory.IsItemInInventory(item))
+                if (_interLevelData.BoughtItems.Any(x=>x.Key==item))
                 {
-                    levelData.WarningText.gameObject.SetActive(true);
-                    return;
+                    levelData.WarningText.gameObject.SetActive(false);
                 }
                 else
                 {
-                    levelData.WarningText.gameObject.SetActive(false);
+                    levelData.WarningText.gameObject.SetActive(true);
+                    return;
                 }
             }
 

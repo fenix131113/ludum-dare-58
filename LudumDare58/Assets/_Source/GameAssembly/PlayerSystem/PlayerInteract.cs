@@ -31,7 +31,7 @@ namespace PlayerSystem
 
         private void CheckForInteractions()
         {
-            var overlapped = Physics2D.OverlapCircleAll(interactPoint.position, interactRadius,
+            var overlapped = Physics2D.OverlapCircleAll(transform.position, interactRadius,
                 _layersData.InteractableLayer);
             
             if (_currentTarget && !overlapped.Select(x => x.gameObject).Contains(_currentTarget))
@@ -83,7 +83,7 @@ namespace PlayerSystem
                 return;
 
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(interactPoint.position, interactRadius);
+            Gizmos.DrawWireSphere(transform.position, interactRadius);
         }
 #endif
     }
