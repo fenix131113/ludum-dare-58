@@ -1,5 +1,6 @@
 ﻿using EntitySystem.Entities;
 using PlayerSystem;
+using TMPro;
 using UnityEngine;
 using VContainer;
 
@@ -8,7 +9,9 @@ namespace LevelsSystem
     public class JarsLevelTransition : MonoBehaviour
     {
         [Inject] private PlayerResources _playerResources;
-        
+
+        [SerializeField] private TMP_Text counterText;
+
         private ALevelTransition _levelTransition;
         private int _needJarsCount;
 
@@ -17,6 +20,8 @@ namespace LevelsSystem
             _needJarsCount = FindObjectsByType<PathHealthEntity>(FindObjectsInactive.Include, FindObjectsSortMode.None)
                 .Length;
             _levelTransition = FindFirstObjectByType<ALevelTransition>();
+
+            counterText.text = $"{_needJarsCount}";
         }
 
         private void Start() => Bind();
@@ -25,7 +30,8 @@ namespace LevelsSystem
 
         private void OnJarsCountChanged()
         {
-            if(_needJarsCount == _playerResources.JarsCount)
+            counterText.text = $"{_needJarsCount - _playerResources.JarsCount}";
+            if (_needJarsCount == _playerResources.JarsCount)
                 _levelTransition.Transition();
         }
 

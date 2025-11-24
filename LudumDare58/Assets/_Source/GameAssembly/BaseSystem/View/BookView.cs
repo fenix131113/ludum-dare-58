@@ -33,6 +33,7 @@ namespace BaseSystem.View
 
         private InterLevelData _interLevelData;
         private Button _startButton;
+        private TMP_Text _selectedText;
         private int _currentPageIndex;
         private static bool enteredGame; //TODO: Probably need to move into global variables, or get rid of it somehow :).
 
@@ -66,6 +67,8 @@ namespace BaseSystem.View
         {
             CloseBook();
             exitZone.SetActive(true);
+            _selectedText.gameObject.SetActive(true);
+            _startButton.gameObject.SetActive(false);
         }
 
         private void OpenBook()
@@ -113,6 +116,7 @@ namespace BaseSystem.View
             {
                 levelData.StartButton.gameObject.SetActive(true);
                 _startButton = levelData.StartButton;
+                _selectedText = levelData.selectedText;
                 _startButton.onClick.AddListener(OnStartGameButtonClicked);
             }
 
@@ -211,6 +215,7 @@ namespace BaseSystem.View
             [field: SerializeField] public Image IconImage { get; private set; }
             [field: SerializeField] public Sprite ChangeIcon { get; private set; }
             [field: SerializeField] public Button StartButton { get; private set; }
+            [field: SerializeField] public TMP_Text selectedText  { get; private set; }
             [field: SerializeField] public TextMeshProUGUI WarningText { get; private set; }
             [field: SerializeField] public ItemDataSO[] NeededItems { get; private set; }
             [field: SerializeField] public GameObject[] ObjectsToActivate { get; private set; }

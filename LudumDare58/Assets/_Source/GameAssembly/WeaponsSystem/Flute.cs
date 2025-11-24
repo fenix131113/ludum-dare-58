@@ -37,13 +37,16 @@ namespace WeaponsSystem
 
         private List<char> _currentCombination;
         private int _currentCombinationIndex;
-        private float _nextShotTime;
+        private float _nextShotTimer;
 
         private int
             _keysReduceCount; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
 
         private void Update()
         {
+            _nextShotTimer -= Math.Max(Time.deltaTime, 0);
+            reloadFiller.fillAmount = _nextShotTimer;
+
             if (_currentCombination == null || !Keyboard.current.anyKey.wasPressedThisFrame)
                 return;
 
@@ -120,7 +123,7 @@ namespace WeaponsSystem
             if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            if (_nextShotTime == 0 || Time.time >= _nextShotTime)
+            if (_nextShotTimer <= 0)
                 Attack();
         }
 
@@ -131,12 +134,12 @@ namespace WeaponsSystem
 
             for (var i = 0; i < keysCombinationCount - _keysReduceCount; i++)
                 _currentCombination.Add(_possibleKeys[Random.Range(0, _possibleKeys.Length)]);
-            
+
             _currentCombinationIndex = 0;
             InitializeUi();
         }
 
-        private void SetAttackCooldown() => _nextShotTime = Time.time + Data.ShootIntervalTime;
+        private void SetAttackCooldown() => _nextShotTimer = Data.ShootIntervalTime;
 
         private void InitializeUi()
         {

@@ -15,8 +15,6 @@ namespace WeaponsSystem
     {
         [SerializeField] private float overheatEdge;
         [SerializeField] private GameObject vfx;
-        [SerializeField] private GameObject heatObject;
-        [SerializeField] private Image heatFiller;
         [SerializeField] private AudioSource cleanerShootSource;
         [SerializeField] private AudioSource cleanerReloadSource;
 
@@ -37,7 +35,7 @@ namespace WeaponsSystem
         public override void Activate()
         {
             base.Activate();
-            heatObject.gameObject.SetActive(true);
+            reloadObject.gameObject.SetActive(true);
         }
 
         public override void Deactivate()
@@ -46,7 +44,7 @@ namespace WeaponsSystem
                 cleanerShootSource.Stop();
             
             base.Deactivate();
-            heatObject.gameObject.SetActive(false);
+            reloadObject.gameObject.SetActive(false);
         }
 
         private void Update()
@@ -57,7 +55,7 @@ namespace WeaponsSystem
                 return;
             }
 
-            heatFiller.fillAmount = _shootingTime / overheatEdge;
+            reloadFiller.fillAmount = _shootingTime / overheatEdge;
 
             if (_overHeated)
             {

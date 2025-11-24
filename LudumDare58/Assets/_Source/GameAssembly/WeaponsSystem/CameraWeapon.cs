@@ -6,6 +6,7 @@ using PlayerSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using VContainer;
 
 namespace WeaponsSystem
@@ -21,7 +22,7 @@ namespace WeaponsSystem
         [Inject] private GameVariables _gameVariables;
         private WeaponItemDataSO Data => ItemData as WeaponItemDataSO;
 
-        private float _nextShotTime;
+        private float _nextShotTimer;
         private float _reloadTimeReduce; //TODO: Make upgrade abstract system, maybe through IUpgradable or AUpgradeHandItem
         
         private void Awake() => cameraDamageZone.SetDamage(Data.Damage);
@@ -38,7 +39,11 @@ namespace WeaponsSystem
             base.Deactivate();
             Expose();
         }
-
+        private void Update()
+        {
+            _nextShotTimer -= Mathf.Max(Time.deltaTime,0);
+            reloadFiller.fillAmount = _nextShotTimer;
+        }
         private void OnAttackInput(InputAction.CallbackContext context)
         {
             if (!_gameVariables.CanUseItems || !_input.Player.enabled)
@@ -47,9 +52,9 @@ namespace WeaponsSystem
             if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            if (Time.time >= _nextShotTime || _nextShotTime == 0)
+            if (_nextShotTimer <= 0)
             {
-                _nextShotTime = Time.time + (Data.ShootIntervalTime - _reloadTimeReduce);
+                _nextShotTimer = Data.ShootIntervalTime - _reloadTimeReduce;
                 Attack();
             }
         }
