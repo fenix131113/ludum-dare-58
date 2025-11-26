@@ -44,8 +44,7 @@ namespace WeaponsSystem
 
         private void Update()
         {
-            _nextShotTimer -= Math.Max(Time.deltaTime, 0);
-            reloadFiller.fillAmount = _nextShotTimer;
+            reloadFiller.fillAmount = _nextShotTimer - Time.time;
 
             if (_currentCombination == null || !Keyboard.current.anyKey.wasPressedThisFrame)
                 return;
@@ -123,7 +122,7 @@ namespace WeaponsSystem
             if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            if (_nextShotTimer <= 0)
+            if (Time.time > _nextShotTimer)
                 Attack();
         }
 
@@ -139,7 +138,7 @@ namespace WeaponsSystem
             InitializeUi();
         }
 
-        private void SetAttackCooldown() => _nextShotTimer = Data.ShootIntervalTime;
+        private void SetAttackCooldown() => _nextShotTimer = Data.ShootIntervalTime + Time.time;
 
         private void InitializeUi()
         {

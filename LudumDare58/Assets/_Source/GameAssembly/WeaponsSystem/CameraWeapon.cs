@@ -41,8 +41,7 @@ namespace WeaponsSystem
         }
         private void Update()
         {
-            _nextShotTimer -= Mathf.Max(Time.deltaTime,0);
-            reloadFiller.fillAmount = _nextShotTimer;
+            reloadFiller.fillAmount = _nextShotTimer - Time.time;
         }
         private void OnAttackInput(InputAction.CallbackContext context)
         {
@@ -52,9 +51,9 @@ namespace WeaponsSystem
             if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            if (_nextShotTimer <= 0)
+            if (Time.time > _nextShotTimer)
             {
-                _nextShotTimer = Data.ShootIntervalTime - _reloadTimeReduce;
+                _nextShotTimer = (Data.ShootIntervalTime - _reloadTimeReduce) + Time.time;
                 Attack();
             }
         }

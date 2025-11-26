@@ -18,6 +18,9 @@ MonoBehaviour:
   <InteractableLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
+  <ObstacleLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 256
   <IgnoreRaycast>k__BackingField:
     serializedVersion: 2
     m_Bits: 4
