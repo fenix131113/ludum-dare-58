@@ -6,11 +6,9 @@ using PlayerSystem.Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using VContainer;
-using static Codice.Client.Commands.WkTree.WorkspaceTreeNode;
 
 namespace PlayerSystem
 {
