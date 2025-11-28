@@ -109,14 +109,14 @@ namespace PlayerSystem
         private IEnumerator Dashing()
         {
             var moveDirection = _lastMovementDirection;
-            var startPosition = new Vector2 (walkParticles.transform.position.x,walkParticles.transform.position.y);
+            var startPosition = new Vector2 (col.transform.position.x,col.transform.position.y);
             var neededPosition = startPosition + (moveDirection * dashDistance);
-            var hit = Physics2D.Raycast(startPosition, moveDirection, dashDistance, _layersData.ObstacleLayer);
+            var hit = Physics2D.CircleCast(startPosition,0.8f, moveDirection,dashDistance, _layersData.ObstacleLayer);
             _isDashing = true;
             rb.linearVelocity = moveDirection * ((dashSpeed + _playerConfig.Speed) * Time.fixedDeltaTime);
             if (hit && hit.distance < Vector2.Distance(startPosition, neededPosition))
             {
-                yield return new WaitUntil(() => Physics2D.IsTouching(col, hit.collider));
+                yield return new WaitUntil(() => Physics2D.IsTouching(col, hit.collider)|| Vector2.Distance(startPosition, rb.position) >= Vector2.Distance(startPosition, neededPosition));
             }
             else
             {
@@ -132,5 +132,13 @@ namespace PlayerSystem
         private void Expose() => _input.Player.Dash.performed -= Dash;
 
         public Entity GetEntity() => _entity;
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawRay(new Vector2(col.transform.position.x, col.transform.position.y), _lastMovementDirection);
+        }
+#endif
     }
 }
