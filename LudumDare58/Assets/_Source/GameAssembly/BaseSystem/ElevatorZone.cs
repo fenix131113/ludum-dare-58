@@ -8,7 +8,11 @@ namespace BaseSystem
 {
     public class ElevatorZone : MonoBehaviour
     {
+        [SerializeField] private GameObject door;
+        [SerializeField] private new GameObject light;
+        
         [Inject] private LayersDataSO _layersDataSO;
+        
         private ALevelTransition _levelTransition;
         
         private void Start() => _levelTransition = FindFirstObjectByType<ALevelTransition>();
@@ -19,6 +23,13 @@ namespace BaseSystem
                 return;
             
             _levelTransition.Transition();
+        }
+
+        public void OpenZone()
+        {
+            gameObject.SetActive(true);
+            door.SetActive(false);
+            light.SetActive(true);
         }
     }
 }

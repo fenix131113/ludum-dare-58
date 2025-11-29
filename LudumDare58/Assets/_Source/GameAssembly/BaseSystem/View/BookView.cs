@@ -24,7 +24,7 @@ namespace BaseSystem.View
         [SerializeField] private Button closeBookButton;
         [SerializeField] private Lectern lectern;
         [SerializeField] private GameObject dropCoinPrefab;
-        [SerializeField] private GameObject exitZone;
+        [SerializeField] private ElevatorZone exitZone;
         [SerializeField] private float dropCoinsInterval;
         [SerializeField] private List<BookLevelData> levelsData;
         [SerializeField] private GameObject interestingPoint;
@@ -67,8 +67,8 @@ namespace BaseSystem.View
         private void OnStartGameButtonClicked()
         {
             CloseBook();
-            exitZone.SetActive(true);
-            _selectedText.gameObject.SetActive(true);
+            exitZone.gameObject.SetActive(true);
+            exitZone.OpenZone();
             _startButton.gameObject.SetActive(false);
         }
 
