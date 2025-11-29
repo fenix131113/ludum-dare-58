@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.033018887, b: 0.033018887, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -167,6 +167,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameAssembly::PlayerSystem.View.ItemCell
   iconImg: {fileID: 509998214067051751}
   selection: {fileID: 1078034499319169822}
+  itemColorPairs:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 8fdf2f36d9eb7634392e1bfc6c72e4bf, type: 2}
+    <Color>k__BackingField: {r: 0.14901961, g: 0.77254903, b: 0.7019608, a: 1}
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: d4f2e33edb25dbc4c8d77c47baf287f0, type: 2}
+    <Color>k__BackingField: {r: 0.77254903, g: 0.75686276, b: 0.14901961, a: 1}
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: b9f497a8bd7f0c4498efb4a07c70bd05, type: 2}
+    <Color>k__BackingField: {r: 0.90588236, g: 0.90588236, b: 0.90588236, a: 1}
 --- !u!1 &3778818936888059378
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

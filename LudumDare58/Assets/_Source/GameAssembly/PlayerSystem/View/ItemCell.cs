@@ -1,4 +1,7 @@
-﻿using ItemsSystem;
+﻿using System;
+using System.Linq;
+using ItemsSystem;
+using ItemsSystem.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,6 +16,7 @@ namespace PlayerSystem.View
 
         [SerializeField] private Image iconImg;
         [SerializeField] private GameObject selection;
+        [SerializeField] private ItemColorPair[] itemColorPairs;
 
         [Inject] private ItemSelector _itemSelector;
 
@@ -20,6 +24,7 @@ namespace PlayerSystem.View
         {
             ObjectInjector.InjectGameObject(gameObject);
             CurrentItem = item;
+            selection.GetComponent<Image>().color = itemColorPairs.FirstOrDefault(x => x.ItemData == item.Source)!.Color;
             DrawCell();
         }
 
@@ -34,5 +39,12 @@ namespace PlayerSystem.View
         public void SetSelectionActive(bool active) => selection.SetActive(active);
 
         public void OnPointerClick(PointerEventData eventData) => _itemSelector.SelectCell(this);
+
+        [Serializable]
+        public class ItemColorPair
+        {
+            [field: SerializeField] public ItemDataSO ItemData { get; set; }
+            [field: SerializeField] public Color Color { get; set; }
+        }
     }
 }
