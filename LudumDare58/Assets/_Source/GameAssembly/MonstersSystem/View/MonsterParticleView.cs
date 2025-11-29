@@ -9,15 +9,14 @@ public class MonsterParticleView : MonoBehaviour
 {
     [SerializeField] private MonsterVision vision;
     [SerializeField] private HealthEntity healthEntity;
-    [SerializeField] private ParticleSystem vulnerabilityParticle;
-    [SerializeField] private ParticleSystemRenderer vulnerabilityParticleRenderer;
+    [SerializeField] private SpriteRenderer vfx;
     [SerializeField] private float startDistance = 5f;
     [SerializeField] private float fullVisibilityDistance = 0.3f;
     [SerializeField] private float maxOpacity = 0.1f;
 
     private void Start()
     {
-        var startColor = vulnerabilityParticle.main.startColor;
+        var startColor = vfx.color;
     }
     private void Update()
     {
@@ -30,7 +29,6 @@ public class MonsterParticleView : MonoBehaviour
 
     private void UpdateParticleOpacity(float distance)
     {
-        var particleMaterial = vulnerabilityParticleRenderer.material;
         float opacity = 0f;
 
         if (distance < fullVisibilityDistance)
@@ -43,11 +41,11 @@ public class MonsterParticleView : MonoBehaviour
         }
         Color color = SelectColor();
         color.a = opacity;
-        particleMaterial.color = color;
+        vfx.color = color;
 
         if (opacity > 0)
         {
-            vulnerabilityParticle.Emit(1);
+            vfx.gameObject.SetActive(true);
         }
     }
 
