@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/_Presentation/Scenes/Tutorial 3.unity
     guid: 05186626f9a3d084dbc8aecd2d8a693b
   - enabled: 1
-    path: Assets/_Presentation/Scenes/3.unity
+    path: Assets/_Presentation/Scenes/4.unity
     guid: 2ebaf90ddfa9e964c80560fc258d91db
   - enabled: 1
     path: Assets/_Presentation/Scenes/5.unity
@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Presentation/Scenes/UNUSED1.unity
     guid: 251f724ebf3244941980083849310757
+  - enabled: 1
+    path: Assets/_Presentation/Scenes/EndScene.unity
+    guid: f76c9f647b696af4086c8e32b532279b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

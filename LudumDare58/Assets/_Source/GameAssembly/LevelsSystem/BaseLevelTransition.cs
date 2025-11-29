@@ -25,6 +25,9 @@ namespace LevelsSystem
             screenFader.DOFade(1f, fadeTime).onComplete += OnTransitionEnded;
         }
 
-        private void OnTransitionEnded() => SceneManager.LoadScene(sceneIndexToLoad);
+        private void OnTransitionEnded()
+        {
+            SceneManager.LoadScene(sceneIndexToLoad);
+        }
     }
 }
