@@ -5291,8 +5291,8 @@ MonoBehaviour:
   healthEntity: {fileID: 7380379647235396456}
   vfx: {fileID: 295864636758228691}
   startDistance: 5
-  fullVisibilityDistance: 0.3
-  maxOpacity: 0.1
+  fullVisibilityDistance: 1
+  maxOpacity: 0.8
 --- !u!114 &7583901277318392779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5707,7 +5707,7 @@ GameObject:
   - component: {fileID: 295864636758228691}
   - component: {fileID: 8062973493453586546}
   m_Layer: 0
-  m_Name: AuraAnim_0
+  m_Name: AuraAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5753,7 +5753,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 572f98fa515990b48bb241b688f70aa2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
