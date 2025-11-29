@@ -150,6 +150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3809647283219344602}
   - {fileID: 5557057738593811917}
   - {fileID: 3471086840468653732}
   - {fileID: 3807922349812870352}
@@ -176,6 +177,7 @@ MonoBehaviour:
   deathSoundSourcePrefab: {fileID: 8673348401495251550, guid: 60f06013cf748374199e422a3396c97d, type: 3}
   path: {fileID: 5835233934351856211}
   destinationSetter: {fileID: 7624394604428723244}
+  deathParticleSource: {fileID: 8348923846049702480}
   patrolPoints: []
   pickPointsRandomly: 0
   waitOnPointTimeMin: 3
@@ -909,3 +911,80 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &2719038692217164475
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6436302076132106005}
+    m_Modifications:
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632234530831002755, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_Name
+      value: MonsterDeathParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632234530831002755, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+--- !u!4 &3809647283219344602 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+  m_PrefabInstance: {fileID: 2719038692217164475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8348923846049702480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6225840866312925419, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+  m_PrefabInstance: {fileID: 2719038692217164475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba0e4a9940a470491b1fdb127b1a690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::Utils.TempParticleSource

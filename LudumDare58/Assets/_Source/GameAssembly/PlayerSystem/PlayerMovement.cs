@@ -33,6 +33,7 @@ namespace PlayerSystem
         [SerializeField] private float dashCooldown;
         [SerializeField] private Image filler;
         [SerializeField] private GameObject barObject;
+        [SerializeField] private ParticleSystem dashParicles;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private PlayerConfigSO _playerConfig;
@@ -74,7 +75,9 @@ namespace PlayerSystem
         private void Update()
         {
             filler.fillAmount = _dashTimer - Time.time;
-            if (Time.time > _dashTimer) barObject.SetActive(false);
+            
+            if (Time.time > _dashTimer)
+                barObject.SetActive(false);
         }
         public void Move(Vector2 movement)
         {
@@ -101,6 +104,8 @@ namespace PlayerSystem
         {
             if (!_gameVariables.CanMove || !_input.Player.enabled || !(Time.time > _dashTimer))
                 return;
+
+            dashParicles.Emit(500);
             StartCoroutine(Dashing());
             _dashTimer = Time.time + dashCooldown;
             barObject.SetActive(true);
@@ -110,10 +115,12 @@ namespace PlayerSystem
         {
             var moveDirection = _lastMovementDirection;
             var startPosition = new Vector2 (col.transform.position.x,col.transform.position.y);
-            var neededPosition = startPosition + (moveDirection * dashDistance);
+            var neededPosition = startPosition + moveDirection * dashDistance;
             var hit = Physics2D.CircleCast(startPosition,0.8f, moveDirection,dashDistance, _layersData.ObstacleLayer);
+            
             _isDashing = true;
             rb.linearVelocity = moveDirection * ((dashSpeed + _playerConfig.Speed) * Time.fixedDeltaTime);
+            
             if (hit && hit.distance < Vector2.Distance(startPosition, neededPosition))
             {
                 yield return new WaitUntil(() => Physics2D.IsTouching(col, hit.collider)|| Vector2.Distance(startPosition, rb.position) >= Vector2.Distance(startPosition, neededPosition));

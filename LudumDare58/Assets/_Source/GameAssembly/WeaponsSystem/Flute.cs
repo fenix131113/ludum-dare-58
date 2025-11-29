@@ -28,6 +28,7 @@ namespace WeaponsSystem
         [SerializeField] private List<KeySoundPair> sounds;
         [SerializeField] private AudioSource fluteSoundsSource;
         [SerializeField] private AudioSource fluteAttackSource;
+        [SerializeField] private ParticleSystem fluteParticles;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
@@ -96,6 +97,7 @@ namespace WeaponsSystem
             Instantiate(fluteCirclePrefab, transform.position, Quaternion.identity)
                 .SizeUp(Data.AttackDistance, Data.Damage);
             fluteAttackSource.Play();
+            fluteParticles.Emit(50);
         }
 
         private void OnIncorrectClick()

@@ -14,6 +14,7 @@ namespace EntitySystem.Entities
         [SerializeField] protected TempAudioSource deathSoundSourcePrefab;
         [SerializeField] protected AIPath path;
         [SerializeField] protected AIDestinationSetter destinationSetter;
+        [SerializeField] private TempParticleSource deathParticleSource;
 
         [Inject] protected MonstersSoundsPackSO SoundsPack;
 
@@ -23,7 +24,6 @@ namespace EntitySystem.Entities
 
         protected virtual void Update()
         {
-
             if (!_isNativeDestinationReached && path.reachedEndOfPath)
             {
                 var distance = Vector3.Distance(transform.position, destinationSetter.target.position);
@@ -48,6 +48,9 @@ namespace EntitySystem.Entities
 
         protected override void Death()
         {
+            deathParticleSource.transform.SetParent(null);
+            deathParticleSource.gameObject.SetActive(true);
+            
             Instantiate(deathSoundSourcePrefab)
                 .PlayAndDestroy(SoundsPack.DeathSounds[Random.Range(0, SoundsPack.DeathSounds.Length)]);
             base.Death();

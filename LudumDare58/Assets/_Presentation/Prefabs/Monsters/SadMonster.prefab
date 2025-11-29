@@ -252,6 +252,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1921076304015042120}
   - {fileID: 2304090815844228137}
   - {fileID: 110671546759180690}
   - {fileID: 3232178707976414306}
@@ -278,6 +279,7 @@ MonoBehaviour:
   deathSoundSourcePrefab: {fileID: 8673348401495251550, guid: 60f06013cf748374199e422a3396c97d, type: 3}
   path: {fileID: 4594273551998189041}
   destinationSetter: {fileID: 3833964974449390430}
+  deathParticleSource: {fileID: 6749427708603279554}
   patrolPoints: []
   pickPointsRandomly: 0
   waitOnPointTimeMin: 3
@@ -909,3 +911,80 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &850170932814878761
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8089386191863244660}
+    m_Modifications:
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.917
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632234530831002755, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_Name
+      value: MonsterDeathParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632234530831002755, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+--- !u!4 &1921076304015042120 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+  m_PrefabInstance: {fileID: 850170932814878761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6749427708603279554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6225840866312925419, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+  m_PrefabInstance: {fileID: 850170932814878761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba0e4a9940a470491b1fdb127b1a690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::Utils.TempParticleSource

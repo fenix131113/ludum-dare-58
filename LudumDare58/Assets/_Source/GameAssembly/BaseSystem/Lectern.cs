@@ -1,8 +1,6 @@
 ﻿using System;
 using InteractionSystem;
-using PlayerSystem;
 using UnityEngine;
-using VContainer;
 
 namespace BaseSystem
 {

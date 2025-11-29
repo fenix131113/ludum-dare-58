@@ -1,9 +1,7 @@
-﻿using EntitySystem.Entities;
+﻿using System;
+using EntitySystem.Entities;
 using HealthSystem;
-using Pathfinding;
-using System;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MonstersSystem
 {
@@ -19,8 +17,9 @@ namespace MonstersSystem
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private MonsterJar jarPrefab;
 
-        [Header("Boost Settings")]
-        [SerializeField] protected float speedBoost;
+        [Header("Boost Settings")] [SerializeField]
+        protected float speedBoost;
+
         [SerializeField] protected float boostDuration;
         [SerializeField] protected float boostCooldown;
 
@@ -32,7 +31,7 @@ namespace MonstersSystem
 
         protected float _currentBoostDuration;
         protected float _currentBoostCooldown;
-        
+
 
         protected override void Update()
         {
@@ -46,10 +45,12 @@ namespace MonstersSystem
             spriteRenderer.flipX = path.velocity.x > 0;
             anim.SetBool(_isMovingKey, path.velocity != Vector3.zero);
         }
+
         protected void Boost()
         {
             if (IsOnBoost() || IsBoostOnCooldown())
                 return;
+            
             _currentBoostDuration = boostDuration;
             path.maxSpeed += speedBoost;
             _isBoosted = true;
@@ -69,6 +70,7 @@ namespace MonstersSystem
         {
             if (_currentBoostDuration > 0)
                 return true;
+            
             return false;
         }
 
@@ -76,6 +78,7 @@ namespace MonstersSystem
         {
             if (_currentBoostCooldown > 0)
                 return true;
+            
             return false;
         }
 
@@ -119,7 +122,7 @@ namespace MonstersSystem
                 var direction = transform.position - vision.Target.position;
                 direction.Normalize();
                 direction *= vision.gameObject.GetComponent<CircleCollider2D>().radius + escapeOffset;
-                path.destination = (vision.Target.position + direction);
+                path.destination = vision.Target.position + direction;
                 MoveToFarthestPoint();
             }
         }
@@ -128,7 +131,6 @@ namespace MonstersSystem
         {
             ResumeMoving();
             StartPatrol();
-
         }
 
         private void OnHealthChangedEvent(int oldValue, int newValue)

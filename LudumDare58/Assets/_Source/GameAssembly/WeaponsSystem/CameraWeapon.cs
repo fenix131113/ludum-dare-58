@@ -6,7 +6,6 @@ using PlayerSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using VContainer;
 
 namespace WeaponsSystem
@@ -17,6 +16,7 @@ namespace WeaponsSystem
         [SerializeField] private AudioSource cameraSource;
         [SerializeField] private AudioClip shootSound;
         [SerializeField] private AudioClip reloadSound;
+        [SerializeField] private ParticleSystem cameraParticles;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
@@ -39,10 +39,12 @@ namespace WeaponsSystem
             base.Deactivate();
             Expose();
         }
+        
         private void Update()
         {
             reloadFiller.fillAmount = _nextShotTimer - Time.time;
         }
+        
         private void OnAttackInput(InputAction.CallbackContext context)
         {
             if (!_gameVariables.CanUseItems || !_input.Player.enabled)
@@ -53,7 +55,7 @@ namespace WeaponsSystem
 
             if (Time.time > _nextShotTimer)
             {
-                _nextShotTimer = (Data.ShootIntervalTime - _reloadTimeReduce) + Time.time;
+                _nextShotTimer = Data.ShootIntervalTime - _reloadTimeReduce + Time.time;
                 Attack();
             }
         }
@@ -61,6 +63,7 @@ namespace WeaponsSystem
         private void Attack()
         {
             cameraDamageZone.SetZoneActive(true, DamageSourceType.CAMERA, Data.DamageTo);
+            cameraParticles.Emit(35);
             StartCoroutine(ShootSoundRoutine());
         }
 

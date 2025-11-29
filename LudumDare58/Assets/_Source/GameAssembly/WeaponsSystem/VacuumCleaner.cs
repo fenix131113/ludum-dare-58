@@ -17,6 +17,7 @@ namespace WeaponsSystem
         [SerializeField] private GameObject vfx;
         [SerializeField] private AudioSource cleanerShootSource;
         [SerializeField] private AudioSource cleanerReloadSource;
+        [SerializeField] private ParticleSystem cleanerParticles;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private GameVariables _gameVariables;
@@ -52,6 +53,7 @@ namespace WeaponsSystem
             if (!gameObject.activeSelf || !_gameVariables.CanUseItems || !_input.Player.enabled)
             {
                 vfx.SetActive(false);
+                cleanerParticles.gameObject.SetActive(false);
                 return;
             }
 
@@ -60,6 +62,7 @@ namespace WeaponsSystem
             if (_overHeated)
             {
                 vfx.SetActive(false);
+                cleanerParticles.gameObject.SetActive(false);
                 if (Time.time - _overheatedTime >= Data.ReloadTime)
                 {
                     cleanerReloadSource.Play();
@@ -84,6 +87,7 @@ namespace WeaponsSystem
             {
                 _shootingTime -= Time.deltaTime * 1.75f;
                 vfx.SetActive(false);
+                cleanerParticles.gameObject.SetActive(false);
                 
                 if (cleanerShootSource.isPlaying)
                     cleanerShootSource.Stop();
@@ -91,6 +95,7 @@ namespace WeaponsSystem
             else
             {
                 vfx.SetActive(false);
+                cleanerParticles.gameObject.SetActive(false);
                 
                 if (cleanerShootSource.isPlaying)
                     cleanerShootSource.Stop();
@@ -104,6 +109,8 @@ namespace WeaponsSystem
             
             if (cleanerShootSource.isPlaying)
                 cleanerShootSource.Stop();
+            
+            cleanerParticles.gameObject.SetActive(false);
         }
 
         private void Shoot()
@@ -113,6 +120,7 @@ namespace WeaponsSystem
                 return;
 
             vfx.SetActive(true);
+            cleanerParticles.gameObject.SetActive(true);
 
             if (!cleanerShootSource.isPlaying && !_overHeated)
                 cleanerShootSource.Play();

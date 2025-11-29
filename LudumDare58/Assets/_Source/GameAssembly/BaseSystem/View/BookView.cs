@@ -27,6 +27,7 @@ namespace BaseSystem.View
         [SerializeField] private GameObject exitZone;
         [SerializeField] private float dropCoinsInterval;
         [SerializeField] private List<BookLevelData> levelsData;
+        [SerializeField] private GameObject interestingPoint;
 
         [Inject] private InputSystem_Actions _input;
         [Inject] private PlayerResources _playerResources;
@@ -91,6 +92,7 @@ namespace BaseSystem.View
             }
 
             _input.Player.Disable();
+            interestingPoint?.SetActive(false);
             bookCanvas.gameObject.SetActive(true);
 
             if (_interLevelData.MoneyToGet > 0)

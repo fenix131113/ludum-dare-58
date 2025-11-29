@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BaseSystem;
 using InteractionSystem;
 using LevelsSystem;
 using PlayerSystem;
@@ -17,6 +16,7 @@ namespace TrophySystem.View
         [SerializeField] private Button closeButton;
         [SerializeField] private GameObject canvas;
         [SerializeField] private BaseInteractiveObject interactiveObject;
+        [SerializeField] private GameObject interestingPoint;
 
         [Inject] private InputSystem_Actions _input;
 
@@ -38,6 +38,7 @@ namespace TrophySystem.View
         {
             _input.Player.Disable();
             canvas.SetActive(true);
+            interestingPoint?.SetActive(false);
         }
 
         private void CloseShelf()

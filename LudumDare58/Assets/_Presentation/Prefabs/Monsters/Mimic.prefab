@@ -36,6 +36,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1739064546226777302}
   - {fileID: 5144859126909066478}
   - {fileID: 43340192046380883}
   m_Father: {fileID: 0}
@@ -59,6 +60,7 @@ MonoBehaviour:
   deathSoundSourcePrefab: {fileID: 8673348401495251550, guid: 60f06013cf748374199e422a3396c97d, type: 3}
   path: {fileID: 3750959091416948549}
   destinationSetter: {fileID: 2749745158564481403}
+  deathParticleSource: {fileID: 6854942593614357084}
   spriteRenderer: {fileID: 2978525244136610177}
   jarPrefab: {fileID: 5134090818910406781, guid: a318d132d93f5024991d7c06a74d3386, type: 3}
   distanceToDamage: 4
@@ -529,3 +531,92 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1001 &668508225672647351
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4045746546921652652}
+    m_Modifications:
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.511
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632234530831002755, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_Name
+      value: MonsterDeathParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632234530831002755, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282787857789031125, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282787857789031125, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282787857789031125, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+--- !u!4 &1739064546226777302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1253515058390482529, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+  m_PrefabInstance: {fileID: 668508225672647351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6854942593614357084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6225840866312925419, guid: f596daf36f08e594087a6edbdb807dc8, type: 3}
+  m_PrefabInstance: {fileID: 668508225672647351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba0e4a9940a470491b1fdb127b1a690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::Utils.TempParticleSource
