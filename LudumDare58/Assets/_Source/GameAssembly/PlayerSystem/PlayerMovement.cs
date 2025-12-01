@@ -116,20 +116,11 @@ namespace PlayerSystem
             var moveDirection = _lastMovementDirection;
             var startPosition = new Vector2 (col.transform.position.x,col.transform.position.y);
             var neededPosition = startPosition + moveDirection * dashDistance;
-            var hit = Physics2D.CircleCast(startPosition,0.8f, moveDirection,dashDistance, _layersData.ObstacleLayer);
-            
+            var contactLayer = new ContactFilter2D();
+            contactLayer.layerMask = _layersData.ObstacleLayer;
             _isDashing = true;
             rb.linearVelocity = moveDirection * ((dashSpeed + _playerConfig.Speed) * Time.fixedDeltaTime);
-            
-            if (hit && hit.distance < Vector2.Distance(startPosition, neededPosition))
-            {
-                yield return new WaitUntil(() => Physics2D.IsTouching(col, hit.collider)|| Vector2.Distance(startPosition, rb.position) >= Vector2.Distance(startPosition, neededPosition));
-            }
-            else
-            {
-                yield return new WaitUntil(() => Vector2.Distance(startPosition, rb.position) >= Vector2.Distance(startPosition, neededPosition));
-            }
-
+            yield return new WaitUntil(() => Physics2D.IsTouching(col,contactLayer)|| Vector2.Distance(startPosition, rb.position) >= Vector2.Distance(startPosition, neededPosition));
             rb.linearVelocity *= 0;
             _isDashing = false;
         }

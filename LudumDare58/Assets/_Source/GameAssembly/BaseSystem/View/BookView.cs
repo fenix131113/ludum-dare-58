@@ -67,6 +67,8 @@ namespace BaseSystem.View
         {
             CloseBook();
             exitZone.gameObject.SetActive(true);
+            _selectedText.gameObject.SetActive(true);
+            interestingPoint?.SetActive(false);
             exitZone.OpenZone();
             _startButton.gameObject.SetActive(false);
         }
@@ -91,7 +93,6 @@ namespace BaseSystem.View
             }
 
             _input.Player.Disable();
-            interestingPoint?.SetActive(false);
             bookCanvas.gameObject.SetActive(true);
 
             if (_interLevelData.MoneyToGet > 0)
@@ -207,20 +208,6 @@ namespace BaseSystem.View
 
             if (temp > 0)
                 StartCoroutine(DropCoinsCoroutine(temp));
-        }
-
-        [Serializable]
-        public class BookLevelData
-        {
-            [field: SerializeField] public int LevelIndex { get; private set; }
-            [field: SerializeField] public Image IconImage { get; private set; }
-            [field: SerializeField] public Sprite ChangeIcon { get; private set; }
-            [field: SerializeField] public Button StartButton { get; private set; }
-            [field: SerializeField] public TMP_Text selectedText  { get; private set; }
-            [field: SerializeField] public TextMeshProUGUI WarningText { get; private set; }
-            [field: SerializeField] public ItemDataSO[] NeededItems { get; private set; }
-            [field: SerializeField] public GameObject[] ObjectsToActivate { get; private set; }
-            [field: SerializeField] public GameObject[] ObjectsToDeactivate { get; private set; }
         }
     }
 }
